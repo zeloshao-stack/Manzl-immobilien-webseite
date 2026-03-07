@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marktkommentar 2025 – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1A1C33;
+    --navy-mid: #23263D;
+    --gold: #D4AF3A;
+    --gold-light: #DFC05C;
+    --linen: #D9D3C1;
+    --cream: #F5F3EE;
+    --stone: #7A7870;
+    --border: rgba(212,175,58,0.2);
+    --border-dark: rgba(212,175,58,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--navy); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 4rem; background: rgba(245,243,238,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  .eyebrow { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.9rem; }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); flex-shrink: 0; }
+  .eyebrow.light { color: var(--gold-light); }
+  .eyebrow.light::before { background: var(--gold-light); }
+
+  /* ─── HERO ─────────────────────────────────────────────────── */
+  .article-hero {
+    padding-top: 72px;
+    background: var(--navy);
+    min-height: 78vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,58,0.06) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem 4rem 5rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+  .article-meta { display: flex; align-items: center; gap: 2rem; margin-bottom: 2.8rem; }
+  .article-meta-tag { font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); border: 1px solid rgba(212,175,58,0.4); padding: 0.38rem 1rem; }
+  .article-date { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(250,247,242,0.32); }
+  .article-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.06; color: var(--cream); margin-bottom: 2rem; }
+  .article-headline em { font-style: italic; color: var(--gold-light); }
+  .article-lead { font-size: 1rem; color: rgba(250,247,242,0.55); line-height: 1.9; max-width: 50ch; }
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 5rem 6rem 5rem 2rem;
+    z-index: 2;
+  }
+  .hero-year-bg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28vw;
+    font-weight: 300;
+    color: rgba(212,175,58,0.05);
+    line-height: 1;
+    position: absolute;
+    right: -4vw;
+    bottom: -4vw;
+    pointer-events: none;
+    letter-spacing: -0.06em;
+    user-select: none;
+  }
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 1px solid rgba(212,175,58,0.2);
+    padding-left: 2rem;
+    position: relative;
+    z-index: 3;
+  }
+  .hstat { padding: 1.4rem 0; border-bottom: 1px solid rgba(212,175,58,0.12); }
+  .hstat:last-child { border-bottom: none; }
+  .hstat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); font-weight: 300; line-height: 1; }
+  .hstat-lbl { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,247,242,0.35); margin-top: 0.3rem; }
+
+  /* ─── KPI BAND ──────────────────────────────────────────────── */
+  .kpi-strip { background: var(--gold); padding: 0 6rem; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .kpi-item { padding: 2rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.16); display: flex; flex-direction: column; gap: 0.4rem; }
+  .kpi-item:first-child { padding-left: 0; }
+  .kpi-item:last-child { border-right: none; }
+  .kpi-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: white; line-height: 1; }
+  .kpi-lbl { font-size: 0.64rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+  /* ─── ARTICLE BODY ──────────────────────────────────────────── */
+  .article-body { max-width: 1280px; margin: 0 auto; padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 320px; gap: 8rem; align-items: start; }
+
+  .prose p { font-size: 1.01rem; color: var(--stone); line-height: 2.05; margin-bottom: 1.7rem; }
+  .prose p strong { color: var(--navy); font-weight: 400; }
+  .prose h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; color: var(--navy); margin: 3.5rem 0 1.3rem; line-height: 1.15; }
+  .prose h3 em { color: var(--gold); font-style: italic; }
+  .prose .pull-quote { border-left: 3px solid var(--gold); padding: 1.5rem 2rem; margin: 2.8rem 0; background: var(--linen); }
+  .prose .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.32rem; font-style: italic; color: var(--navy); line-height: 1.55; margin: 0; }
+  .prose .pull-quote p::before { content: '\201E'; color: var(--gold); font-size: 2rem; line-height: 0; vertical-align: -0.4rem; margin-right: 0.2rem; }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 100px; }
+  .sidebar-box { background: var(--navy); padding: 2.2rem; margin-bottom: 1.6rem; }
+  .sidebar-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.35; border-bottom: 1px solid rgba(212,175,58,0.18); padding-bottom: 1rem; }
+  .sidebar-stat { padding: 0.9rem 0; border-bottom: 1px solid rgba(212,175,58,0.1); }
+  .sidebar-stat:last-child { border-bottom: none; }
+  .sidebar-stat .s-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,247,242,0.35); margin-bottom: 0.3rem; }
+  .sidebar-stat .s-val { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--gold-light); font-weight: 300; line-height: 1.1; }
+  .sidebar-stat .s-sub { font-size: 0.7rem; color: rgba(250,247,242,0.35); margin-top: 0.2rem; }
+  .sidebar-box-light { background: var(--linen); padding: 2.2rem; margin-bottom: 1.6rem; border-left: 3px solid var(--gold); }
+  .sidebar-box-light h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--navy); margin-bottom: 1rem; }
+  .sidebar-box-light p { font-size: 0.85rem; color: var(--stone); line-height: 1.82; }
+  .sidebar-box-light a { color: var(--gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem; transition: color 0.2s; }
+  .sidebar-box-light a:hover { color: var(--navy); }
+  .sidebar-box-light a::after { content: '→'; }
+
+  /* type bars (sidebar) */
+  .type-bar-group { margin-top: 0.5rem; }
+  .type-row { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.8rem; }
+  .type-label { font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,247,242,0.4); min-width: 88px; }
+  .type-bar-track { flex: 1; height: 2px; background: rgba(255,255,255,0.08); }
+  .type-bar-fill { height: 100%; background: var(--gold-light); transition: width 1s ease; }
+  .type-pct { font-size: 0.75rem; color: var(--gold-light); min-width: 36px; text-align: right; font-family: 'Cormorant Garamond', serif; }
+
+  /* ─── SPLIT DARK SECTION ────────────────────────────────────── */
+  .split-section { background: var(--navy); padding: 8rem 6rem; }
+  .split-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(212,175,58,0.15); }
+  .split-block { background: var(--navy); padding: 4rem; }
+  .split-block:first-child { border-right: none; }
+  .split-divider-num { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; color: rgba(212,175,58,0.1); line-height: 1; margin-bottom: 1.5rem; }
+  .split-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--cream); font-weight: 300; margin-bottom: 0.4rem; line-height: 1.15; }
+  .split-block h3 em { color: var(--gold-light); font-style: italic; }
+  .split-sub { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.8rem; }
+  .split-vol { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; color: var(--gold-light); font-weight: 300; line-height: 1; margin: 2rem 0 0.4rem; }
+  .split-vol-lbl { font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,247,242,0.3); margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,58,0.14); }
+  .split-block p { font-size: 0.88rem; color: rgba(250,247,242,0.52); line-height: 1.95; margin-bottom: 1.1rem; }
+  .split-datarow { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.85rem; }
+  .split-datarow-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,247,242,0.38); min-width: 110px; }
+  .split-track { flex: 1; height: 2px; background: rgba(255,255,255,0.06); }
+  .split-fill { height: 100%; background: var(--gold-light); opacity: 0.7; }
+  .split-val { font-size: 0.8rem; color: var(--gold-light); min-width: 80px; text-align: right; font-family: 'Cormorant Garamond', serif; }
+
+  /* ─── BEZIRK TABLE ──────────────────────────────────────────── */
+  .bezirk-section { background: var(--linen); padding: 8rem 6rem; }
+  .bezirk-section-inner { max-width: 1280px; margin: 0 auto; }
+  .bezirk-header { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-bottom: 4.5rem; align-items: end; }
+  .bezirk-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.12; color: var(--navy); }
+  .bezirk-header h2 em { font-style: italic; color: var(--gold); }
+  .bezirk-header p { font-size: 0.9rem; color: var(--stone); line-height: 1.9; }
+  .bezirk-note { font-size: 0.72rem; color: rgba(212,175,58,0.55); font-style: italic; margin-top: 1rem; }
+
+  .bezirk-table { width: 100%; border-collapse: collapse; }
+  .bezirk-table thead th { font-size: 0.61rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--gold); font-weight: 400; text-align: left; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--border); }
+  .bezirk-table thead th:first-child { padding-left: 0; }
+  .bezirk-table tbody tr { border-bottom: 1px solid rgba(212,175,58,0.1); transition: background 0.2s; }
+  .bezirk-table tbody tr:hover { background: rgba(212,175,58,0.04); }
+  .bezirk-table tbody td { padding: 1.05rem 0.9rem; font-size: 0.84rem; color: var(--stone); vertical-align: middle; }
+  .bezirk-table tbody td:first-child { padding-left: 0; }
+  .td-bezirk { font-weight: 400; color: var(--navy) !important; font-size: 0.88rem !important; }
+  .td-vol { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem !important; color: var(--gold) !important; font-weight: 300; white-space: nowrap; }
+  .td-avg { font-family: 'Cormorant Garamond', serif; font-size: 1rem !important; color: var(--navy) !important; font-weight: 300; }
+  .bar-wrap { display: flex; height: 6px; }
+  .bar-f { background: var(--gold); height: 100%; }
+  .bar-p { background: var(--stone); height: 100%; opacity: 0.45; }
+  .bar-v { background: var(--gold-light); height: 100%; opacity: 0.55; }
+  .bar-s { background: var(--navy); height: 100%; opacity: 0.35; }
+  .pct-row { font-size: 0.67rem; color: var(--stone); margin-top: 0.35rem; opacity: 0.8; }
+
+  /* ─── OUTLOOK ───────────────────────────────────────────────── */
+  .outlook { background: var(--cream); padding: 8rem 6rem; }
+  .outlook-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 8rem; align-items: start; }
+  .outlook h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--navy); line-height: 1.12; margin-bottom: 2rem; }
+  .outlook h2 em { color: var(--gold); font-style: italic; }
+  .outlook p { font-size: 0.97rem; color: var(--stone); line-height: 2; margin-bottom: 1.5rem; }
+  .outlook-points { display: flex; flex-direction: column; }
+  .outlook-point { border-top: 1px solid var(--border); padding: 1.6rem 0; }
+  .outlook-point:last-child { border-bottom: 1px solid var(--border); }
+  .op-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+  .op-title { font-family: 'Cormorant Garamond', serif; font-size: 1.12rem; color: var(--navy); margin-bottom: 0.5rem; font-weight: 400; }
+  .op-text { font-size: 0.84rem; color: var(--stone); line-height: 1.88; }
+
+  /* ─── CTA ───────────────────────────────────────────────────── */
+  .article-cta { background: var(--navy); padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .cta-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 300; color: white; line-height: 1.12; }
+  .cta-left h2 em { font-style: italic; color: var(--gold-light); }
+  .cta-right p { font-size: 0.95rem; color: rgba(250,247,242,0.52); line-height: 1.9; margin-bottom: 2.5rem; }
+  .btn-gold { background: var(--gold); color: white; padding: 1rem 2.8rem; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.3s; }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* ─── FOOTER ────────────────────────────────────────────────── */
+  footer { background: #0E1020; color: rgba(250,247,242,0.3); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; letter-spacing: 0.05em; }
+  footer a { color: rgba(250,247,242,0.3); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--gold-light); }
+  .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(250,247,242,0.5); font-weight: 300; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  .article-meta { animation: fadeUp 0.85s ease both 0.1s; }
+  .article-headline { animation: fadeUp 0.85s ease both 0.22s; }
+  .article-lead { animation: fadeUp 0.85s ease both 0.38s; }
+  .hero-stats { animation: fadeUp 0.85s ease both 0.5s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Manzl <span>Immobilien</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Zinshäuser</a></li>
+    <li><a href="#">Für Investoren</a></li>
+    <li><a href="#">Leistungen</a></li>
+    <li><a href="#">Über mich</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<!-- HERO -->
+<section class="article-hero">
+  <div class="hero-left">
+    <div class="article-meta">
+      <span class="article-meta-tag">Marktkommentar</span>
+      <span class="article-date">Wien · Jahresblick 2025 (Stand Q4)</span>
+    </div>
+    <h1 class="article-headline">Ein Markt, der<br>wieder <em>ruhig rechnet</em></h1>
+    <p class="article-lead">200 Verkäufe, € 1,292 Mrd. verbüchert – und das Jahr ist noch nicht zu Ende. Was 2025 wirklich zählt: Substanz vor Geschichte, Beleg vor Versprechen, Eigenkapital vor Erwartung.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-year-bg">2025</div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">200</div>
+        <div class="hstat-lbl">Verbücherte Transaktionen</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">€ 1,292 Mrd.</div>
+        <div class="hstat-lbl">Gesamtvolumen YTD</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">€ 647 Mio.</div>
+        <div class="hstat-lbl">Institutionelle Großdeals</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">€ 645 Mio.</div>
+        <div class="hstat-lbl">Zinshausmarkt (Mietshäuser)</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">7</div>
+        <div class="hstat-lbl">Wiederverkäufe selbes Jahr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI BAND -->
+<div class="kpi-strip">
+  <div class="kpi-item">
+    <div class="kpi-num">81 %</div>
+    <div class="kpi-lbl">Käufer: Firmen (nach Anzahl)</div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-num">45 %</div>
+    <div class="kpi-lbl">Verkäufer: Private (nach Anzahl)</div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-num">20</div>
+    <div class="kpi-lbl">Deals: Ottakring (höchste Anzahl)</div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-num">€ 24,9 Mio.</div>
+    <div class="kpi-lbl">Ø Donaustadt (größte Tickets)</div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+  <article class="prose">
+    <div class="eyebrow">Gesamtbild 2025</div>
+    <p>Wien ist 2025 leiser geworden – und viel klarer. In Summe wurden heuer bis heute 200 Verkäufe mit einem verbücherten Gesamtvolumen von <strong>€ 1,292 Mrd.</strong> registriert. Das Jahr ist nicht zu Ende; die Unterlagen sind in Bewegung, die Kalender gefüllt. Alles deutet darauf hin, dass Transaktionszahl und Volumen bis zum Jahreswechsel deutlich zulegen werden. Was sich abzeichnet, ist kein Comeback der großen Worte – es ist das Comeback der Rechnung.</p>
+
+    <p>Gekauft wird, was heute überzeugt: Häuser in sehr gutem Zustand und sehr guten Lagen, Objekte mit hohem Leerstand bei dem eine Baubewilligung den Weg zur Vermietung bereits freigibt, oder Angebote deren Rendite und m²-Preis vom ersten Tag an stimmen. Was nicht mehr funktioniert, ist die gut gemeinte Erzählung über irgendwann. Die Preislandschaft hat sich entsprechend geordnet – weniger Vorschuss, mehr Beleg. Die Finanzierung wirkt dabei nicht als Störenfried, sondern als Korrektiv. Banken prüfen genauer, fordern vollständige Unterlagen – und genau deshalb rückt die Wirtschaftlichkeit des Hauses wieder dorthin, wo sie hingehört: ins Zentrum.</p>
+
+    <div class="pull-quote">
+      <p>„Hoffnung ohne Unterlagen wird nicht mehr bezahlt. Der Markt hat seine Sprache gewechselt – von der Erwartung zur Rechnung."</p>
+    </div>
+
+    <h3>I. Institutionelle Großdeals – <em>Größe nur, wo sie rechnet</em></h3>
+
+    <p>Institutionelle Verkäufer traten 2025 deutlich in Erscheinung. Große Portfolien wurden geschnürt, verkauft und teils adressgenau weitergereicht. Die Transaktionen im Segment der Großdeals summieren sich auf <strong>€ 647 Mio.</strong> – das entspricht rund der Hälfte des Gesamtvolumens. Schwerpunkte lagen in der Donaustadt (22. Bezirk) und in Simmering (11. Bezirk).</p>
+
+    <p>An dieser Stelle ist eine Einordnung wichtig, die das Bild erst vollständig macht: Was in diesen beiden Bezirken gehandelt wurde, waren überwiegend <strong>große Mietshäuser und Blockobjekte – keine klassischen Gründerzeithäuser.</strong> Das erklärt die hohen Einzelvolumina und die großen Durchschnittstickets, die auf den ersten Blick überraschen mögen. In Donaustadt etwa wechselten 6 Objekte den Eigentümer, mit einer durchschnittlichen Transaktionsgröße von <strong>rund € 24,9 Mio.</strong>; in Simmering waren es 8 Abschlüsse mit im Schnitt <strong>€ 21,8 Mio.</strong> In beiden Bezirken kauften nahezu ausschließlich Firmen – auf der Verkäuferseite dominierten ebenfalls institutionelle Strukturen.</p>
+
+    <p>Bezahlt wurde nicht die Größe an sich, sondern die Planbarkeit dahinter: bewilligte Maßnahmen, hinterlegte Budgets für Energie und Technik, klare Bewirtschaftungslogik – und ausreichend Eigenkapital, das Tempo macht. In einer Finanzierungslandschaft, in der Banken genauer hinschauen, sind das die Bausteine, die entscheiden.</p>
+
+    <p>Zu erwähnen sind auch die Wiederkäufer, die es in diesem Jahr gab. Wenige Adressen wechselten im selben Jahr ein zweites Mal den Eigentümer – und zwar primär aus Portfolien, die im Paket verkauft und anschließend einzeln weiterveräußert wurden. Das ist kein Zeichen von Spekulation, sondern von Struktur: geordnete Entflechtung, Neuzuordnung, passender Halter für jedes Objekt.</p>
+
+    <h3>II. Zinshausmarkt – <em>das tragende Rückgrat</em></h3>
+
+    <p>Rechnet man die Großdeals heraus, ergibt sich für den klassischen Zinshausmarkt – also die Mietshäuser im Wiener Gründerzeitbestand – ein Volumen von <strong>rund € 645 Mio.</strong> Das ist das Fundament des Jahres. Hier gilt dieselbe Logik, nur in einem anderen Maßstab: Sehr guter Zustand in sehr guter Lage. Hoher Leerstand mit Baubewilligung. Oder ein m²-Preis und eine Rendite, die heute tragen – ohne dass man die Zukunft schön reden muss.</p>
+
+    <p>Die Preisvorstellungen der Verkäufer haben sich an die neuen Finanzierungsbedingungen angenähert. Das öffnet Raum für faire Gespräche – Raum, der lange gefehlt hat. Auf der Käuferseite stehen Firmen mit rund <strong>81 %</strong> der Fälle klar voran; Private folgen mit <strong>14,5 %</strong>, Stiftungen und Versicherungen treten punktuell auf. In der Summe der Käufer sind auch Berufskammern zu finden, die in diesem Segment zuletzt aktiver aufgetreten sind.</p>
+
+    <p>Auf der Verkäuferseite dreht sich das Bild interessanterweise um: In der Anzahl führen <strong>Private mit 45 %</strong>, gefolgt von Firmen mit 42,5 %, Stiftungen mit 6,5 % und Versicherungen mit 4,5 %. Im Volumen hingegen dominieren Firmenabgaben mit rund € 944,5 Mio. – wenige Fälle, aber große Tickets. Privatverkäufe kommen auf etwa € 222,7 Mio. – viele Fälle, kleinere Summen. Viele private Verkäufe ordnen den Markt in mittleren Größen; einige große Unternehmensabgaben heben das Gesamtvolumen.</p>
+
+    <p>Was fast gänzlich ausbleibt, sind schnelle Drehs. Wiederverkäufe im selben Jahr sind seltene Einzelfälle und stammen – wie erwähnt – aus Portfolioentflechtungen, nicht aus nervöser Spekulation. Das ist das ruhigste Zeichen, das ein Markt senden kann: <strong>Langfristige Halter mit Kapital prägen den Ton.</strong></p>
+
+    <h3>III. Die Bezirke im Einzelnen</h3>
+
+    <p>Wer verstehen will, wo der Markt wirklich lebt, muss die Bezirke anschauen – ohne Romantik, mit Zahlen. Neben den bereits beschriebenen Großdeals in Simmering und Donaustadt zeigt die Landstraße (3. Bezirk) mit 15 Abschlüssen und einem Durchschnitt von rund <strong>€ 6 Mio.</strong> eine gesunde Mischung: gute Mikrolagen, überschaubare Maßnahmen, Käufer überwiegend als Firmen – Verkäufer häufig privat. Wenn m²-Preis und Zustand mit der Adresse zusammenpassen, wird entschieden.</p>
+
+    <p>Floridsdorf (21. Bezirk) verzeichnete 10 Abschlüsse mit Ø <strong>€ 8,6 Mio.</strong> – ein Bezirk, den man nicht automatisch oben auf der Liste hätte. Portfolioeffekte und saubere Rechenlogik brachten hier Größe an den Tisch. Favoriten (10. Bezirk) mit 15 Abschlüssen bei Ø <strong>€ 5,6 Mio.</strong> ist der Arbeitsbezirk im besten Sinn – wer bewirtschaften will und vollständige Unterlagen vorweist, findet hier Planbarkeit.</p>
+
+    <p>Der Alsergrund (9. Bezirk) mit Ø <strong>€ 8,6 Mio.</strong> bei 9 Abschlüssen zeigt das zentrumsnah Muster: Qualität setzt sich durch, wenn Adresse, Mietstruktur und Maßnahmen eine klare Linie bilden. Ähnliches gilt für die Leopoldstadt (2. Bezirk) mit 7 Abschlüssen und Ø <strong>€ 9,3 Mio.</strong>: Wo Leerstand mit Bewilligung oder ein stimmiger Einstiegspreis vorliegen, wird rasch entschieden.</p>
+
+    <p>Die Innere Stadt (1. Bezirk) bleibt mit 5 Abschlüssen sehr selektiv, aber mit Ø <strong>€ 11,1 Mio.</strong> preislich klar. Hier entscheidet Eigenkapital – und die Bereitschaft, sofort zu handeln, wenn Substanz und Preis eine Linie bilden. Josefstadt (8. Bezirk) und Mariahilf (6. Bezirk) zeigen mit je 4 Abschlüssen und Ø über <strong>€ 11 Mio.</strong> die Knappheitsprämie der innenstadtnahen Lagen – sehr gute Substanz in sehr guter Lage, kaum Toleranz für strukturelle Überraschungen.</p>
+
+    <p>Ottakring (16. Bezirk) fällt durch die höchste Dealzahl auf: <strong>20 Abschlüsse</strong>, Ø <strong>€ 2,3 Mio.</strong> – ein Bezirk für ehrliche Rechnung. Wer anpackt und konkrete Maßnahmen vorweisen kann (Energie, Grundrisse, Neuvermietung), findet hier robuste Erträge. Die vollständigen Bezirkszahlen folgen nachstehend.</p>
+
+    <h3>Meine Lesart – <em>was 2025 wirklich bedeutet</em></h3>
+
+    <p>Das Wiener Zinshaus setzt 2025 auf Substanz. Was sich in den Daten zeigt, ist nicht zufällig: Die Preiserwartungen haben sich an die Finanzierungsrealität angenähert, Käufer mit hohem Eigenkapitalanteil setzen das Tempo, und Potenzial wird nur noch dort bezahlt, wo Genehmigungen, Bauplan und Budget tatsächlich auf dem Tisch liegen.</p>
+
+    <p>Für Eigentümer bedeutet das: Ein Preis, der sich an Erträgen, Leerstand, Energiepfad und Investitionsplan festmacht, trägt weiter als ein Wunsch. Vollständige, prüfbare Unterlagen schaffen Wettbewerb – und Wettbewerb schafft Preis. Für Käufer gilt: Rendite entsteht durch Arbeit am Haus – durch sinnvolle Sanierung, bessere Nutzung, saubere Mietlogik. Der Markt belohnt klare Pläne und ruhige Ausführung.</p>
+
+    <p>Der Ausblick ist zuversichtlich, nicht laut. Anzahl und Volumen werden bis Jahresende spürbar über dem heutigen Stand liegen. Für 2026 ändert sich an der Grundregel nichts: Qualität und Klarheit sind der kürzeste Weg zu Preis und Sicherheit. <strong>Die guten Häuser sind da. Sie wollen nicht überredet, sondern verstanden werden.</strong></p>
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Marktstruktur 2025 (YTD)</h4>
+      <div class="sidebar-stat">
+        <div class="s-label">Gesamtvolumen</div>
+        <div class="s-val">€ 1,292 Mrd.</div>
+        <div class="s-sub">200 Transaktionen</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="s-label">Institutionelle Großdeals</div>
+        <div class="s-val">€ 647 Mio.</div>
+        <div class="s-sub">Schwerpunkt 1110 & 1220</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="s-label">Zinshausmarkt (Mietshäuser)</div>
+        <div class="s-val">€ 645 Mio.</div>
+        <div class="s-sub">Klassischer Bestand Wien</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="s-label">Wiederverkäufe (selbes Jahr)</div>
+        <div class="s-val">7 Adressen</div>
+        <div class="s-sub">Portfolioentflechtung, keine Spekulation</div>
+      </div>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Käuferstruktur nach Anzahl</h4>
+      <div class="type-bar">
+        <div class="type-row">
+          <span class="type-label">Firmen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:81%"></div></div>
+          <span class="type-pct">81 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Private</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:14.5%;opacity:0.55"></div></div>
+          <span class="type-pct">14,5 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Stiftungen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:1.5%;opacity:0.4"></div></div>
+          <span class="type-pct">1,5 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Versicherungen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:1%;opacity:0.3"></div></div>
+          <span class="type-pct">1 %</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Verkäuferstruktur nach Anzahl</h4>
+      <div class="type-bar">
+        <div class="type-row">
+          <span class="type-label">Private</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:45%"></div></div>
+          <span class="type-pct">45 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Firmen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:42.5%;opacity:0.7"></div></div>
+          <span class="type-pct">42,5 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Stiftungen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:6.5%;opacity:0.45"></div></div>
+          <span class="type-pct">6,5 %</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Versicherungen</span>
+          <div class="type-bar-track"><div class="type-bar-fill" style="width:4.5%;opacity:0.35"></div></div>
+          <span class="type-pct">4,5 %</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-box-light">
+      <h4>Persönliches Gespräch</h4>
+      <p>Verkaufen oder Kaufen – der erste Schritt ist ein offenes Gespräch. Keine Agenda, keine Verpflichtung.</p>
+      <a href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+  </aside>
+</div>
+
+<!-- SPLIT: Großdeals vs Zinshäuser -->
+<section class="split-section">
+  <div class="split-inner">
+    <div class="split-block">
+      <div class="eyebrow light">Segment I</div>
+      <div class="split-divider-num">01</div>
+      <h3>Institutionelle<br><em>Großdeals</em></h3>
+      <div class="split-sub">Schwerpunkt 1110 · 1220</div>
+      <div class="split-vol">€ 647 Mio.</div>
+      <div class="split-vol-lbl">Gesamtvolumen institutionell</div>
+      <p>Institutionelle Verkäufer traten 2025 markant auf. Große Portfolien wurden geschnürt und veräußert – mit Schwerpunkt in der Donaustadt und Simmering. Die Objekte waren überwiegend große Mietshäuser und Blockobjekte, keine klassischen Gründerzeithäuser.</p>
+      <p>Der gemeinsame Nenner: Bewilligungen lagen vor, Etappen waren kalkuliert, Eigenkapital ausreichend. Größe funktioniert – aber nur, wenn die Rechnung steht.</p>
+      <div style="margin-top:1.8rem">
+        <div class="split-datarow">
+          <span class="split-datarow-label">1110 Simmering</span>
+          <div class="split-track"><div class="split-fill" style="width:60%"></div></div>
+          <span class="split-val">Ø € 21,8 Mio.</span>
+        </div>
+        <div class="split-datarow">
+          <span class="split-datarow-label">1220 Donaustadt</span>
+          <div class="split-track"><div class="split-fill" style="width:72%"></div></div>
+          <span class="split-val">Ø € 24,9 Mio.</span>
+        </div>
+        <div class="split-datarow">
+          <span class="split-datarow-label">Käufer: Firmen</span>
+          <div class="split-track"><div class="split-fill" style="width:85%"></div></div>
+          <span class="split-val">83–100 %</span>
+        </div>
+      </div>
+    </div>
+    <div class="split-block">
+      <div class="eyebrow light">Segment II</div>
+      <div class="split-divider-num">02</div>
+      <h3>Zinshausmarkt<br><em>Mietshäuser</em></h3>
+      <div class="split-sub">Klassischer Gründerzeitbestand Wien</div>
+      <div class="split-vol">€ 645 Mio.</div>
+      <div class="split-vol-lbl">Gesamtvolumen klassische Mietshäuser</div>
+      <p>Das Rückgrat des Jahres. Verkäufer sind zu einem großen Teil Private (45 %), Käufer klar firmendominiert (81 %). Entschieden wird bei Häusern, die heute tragen – durch Zustand, Lage oder einen m²-Preis, der keine Fantasie braucht.</p>
+      <p>Preiserwartungen haben sich der Finanzierungsrealität angenähert. Das schafft Raum für faire Gespräche – und verlässliche Abschlüsse.</p>
+      <div style="margin-top:1.8rem">
+        <div class="split-datarow">
+          <span class="split-datarow-label">Käufer: Firmen</span>
+          <div class="split-track"><div class="split-fill" style="width:81%"></div></div>
+          <span class="split-val">81 %</span>
+        </div>
+        <div class="split-datarow">
+          <span class="split-datarow-label">Verkäufer: Private</span>
+          <div class="split-track"><div class="split-fill" style="width:45%"></div></div>
+          <span class="split-val">45 %</span>
+        </div>
+        <div class="split-datarow">
+          <span class="split-datarow-label">Verkäufer: Firmen</span>
+          <div class="split-track"><div class="split-fill" style="width:42.5%"></div></div>
+          <span class="split-val">42,5 %</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INSTITUTIONELLE GROSSDEALS SEPARAT -->
+<section style="background: var(--navy); padding: 6rem;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div class="eyebrow light">Separat ausgewiesen</div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; color:var(--cream); line-height:1.12; margin-bottom:1rem;">Institutionelle Großdeals <em style="color:var(--gold-light);font-style:italic;">2025</em></h2>
+    <p style="font-size:0.88rem; color:rgba(245,243,238,0.45); max-width:68ch; line-height:1.9; margin-bottom:3.5rem;">Zwei Bezirke dominieren das institutionelle Segment: Simmering (1110) und Donaustadt (1220). Es handelt sich überwiegend um große Mietshäuser und Blockobjekte – keine klassischen Gründerzeithäuser. Sie werden hier separat ausgewiesen, um den Zinshausmarkt nicht zu verzerren.</p>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(212,175,58,0.12);">
+      <div style="background:var(--navy); padding:2.4rem;">
+        <div style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Gesamtvolumen</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:2.6rem; color:var(--gold-light); font-weight:300; line-height:1;">€ 647 Mio.</div>
+        <div style="font-size:0.7rem; color:rgba(245,243,238,0.35); margin-top:0.4rem;">Institutionelle Deals gesamt</div>
+      </div>
+      <div style="background:var(--navy); padding:2.4rem;">
+        <div style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Anzahl Deals</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:2.6rem; color:var(--gold-light); font-weight:300; line-height:1;">14</div>
+        <div style="font-size:0.7rem; color:rgba(245,243,238,0.35); margin-top:0.4rem;">8 in 1110 · 6 in 1220</div>
+      </div>
+      <div style="background:var(--navy); padding:2.4rem;">
+        <div style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Ø 1110 Simmering</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:2.6rem; color:var(--gold-light); font-weight:300; line-height:1;">€ 21,8 Mio.</div>
+        <div style="font-size:0.7rem; color:rgba(245,243,238,0.35); margin-top:0.4rem;">8 Abschlüsse · Käufer: 100 % Firmen</div>
+      </div>
+      <div style="background:var(--navy); padding:2.4rem;">
+        <div style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Ø 1220 Donaustadt</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:2.6rem; color:var(--gold-light); font-weight:300; line-height:1;">€ 24,9 Mio.</div>
+        <div style="font-size:0.7rem; color:rgba(245,243,238,0.35); margin-top:0.4rem;">6 Abschlüsse · Käufer: 67 % Firmen</div>
+      </div>
+    </div>
+    <div style="margin-top:1px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(212,175,58,0.12);">
+      <div style="background:var(--navy); padding:2rem 2.4rem; display:flex; align-items:center; gap:1rem;">
+        <div style="width:3px; height:100%; background:var(--gold); flex-shrink:0; align-self:stretch;"></div>
+        <div>
+          <div style="font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Objekttyp</div>
+          <div style="font-size:0.88rem; color:rgba(245,243,238,0.55); line-height:1.8;">Überwiegend <strong style="color:rgba(245,243,238,0.8); font-weight:400;">große Mietshäuser und Blockobjekte</strong> – keine klassischen Gründerzeithäuser. Die Transaktionsgröße spiegelt Portfoliovolumen, nicht typische Zinshauspreise.</div>
+        </div>
+      </div>
+      <div style="background:var(--navy); padding:2rem 2.4rem; display:flex; align-items:center; gap:1rem;">
+        <div style="width:3px; height:100%; background:var(--gold); flex-shrink:0; align-self:stretch;"></div>
+        <div>
+          <div style="font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Käuferstruktur</div>
+          <div style="font-size:0.88rem; color:rgba(245,243,238,0.55); line-height:1.8;">Nahezu ausschließlich <strong style="color:rgba(245,243,238,0.8); font-weight:400;">institutionelle Käufer</strong> – kapitalstark, mit vollständig vorbereiteten Unterlagen, Bewilligungen und kalkulierten Capex-Etappen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEZIRK TABLE -->
+<section class="bezirk-section">
+  <div class="bezirk-section-inner">
+    <div class="bezirk-header">
+      <div>
+        <div class="eyebrow">Zinshausmarkt · Bezirksübersicht 2025 (YTD)</div>
+        <h2>Die Bezirke –<br><em>ohne</em> Großdeals</h2>
+      </div>
+      <div>
+        <p>Diese Tabelle zeigt ausschließlich klassische Zinshausdeals (Mietshäuser) – die institutionellen Großdeals in Simmering und Donaustadt sind <strong>bewusst herausgerechnet</strong>. So wird das reale Bild des Zinshausmarkts sichtbar, ohne die Verzerrung durch Blockverkäufe.</p>
+        <p class="bezirk-note">Käufer/Verkäufer: F = Firmen · P = Private · V = Versicherungen · S = Stiftungen</p>
+      </div>
+    </div>
+
+    <table class="bezirk-table">
+      <thead>
+        <tr>
+          <th>Bezirk</th>
+          <th>Deals</th>
+          <th>Gesamtvolumen</th>
+          <th>Ø Transaktionsgröße</th>
+          <th>Käufer %</th>
+          <th>Verkäufer %</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr>
+          <td class="td-bezirk">03 · Landstraße</td>
+          <td>15</td>
+          <td class="td-vol">€ 90,42 Mio.</td>
+          <td class="td-avg">€ 6,03 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:86.7%"></div><div class="bar-p" style="width:13.3%"></div></div>
+            <div class="pct-row">F 86,7 % · P 13,3 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:40%"></div><div class="bar-p" style="width:53.3%"></div><div class="bar-v" style="width:6.7%"></div></div>
+            <div class="pct-row">F 40 % · P 53,3 % · V 6,7 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">21 · Floridsdorf</td>
+          <td>10</td>
+          <td class="td-vol">€ 85,79 Mio.</td>
+          <td class="td-avg">€ 8,58 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:90%"></div><div class="bar-p" style="width:10%"></div></div>
+            <div class="pct-row">F 90 % · P 10 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:40%"></div><div class="bar-p" style="width:60%"></div></div>
+            <div class="pct-row">F 40 % · P 60 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">10 · Favoriten</td>
+          <td>15</td>
+          <td class="td-vol">€ 83,27 Mio.</td>
+          <td class="td-avg">€ 5,55 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:93.3%"></div><div class="bar-v" style="width:6.7%"></div></div>
+            <div class="pct-row">F 93,3 % · V 6,7 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:40%"></div><div class="bar-p" style="width:40%"></div><div class="bar-s" style="width:20%"></div></div>
+            <div class="pct-row">F 40 % · P 40 % · S 20 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">09 · Alsergrund</td>
+          <td>9</td>
+          <td class="td-vol">€ 77,22 Mio.</td>
+          <td class="td-avg">€ 8,58 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:77.8%"></div><div class="bar-p" style="width:11.1%"></div><div class="bar-s" style="width:11.1%"></div></div>
+            <div class="pct-row">F 77,8 % · P 11,1 % · S 11,1 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:33.3%"></div><div class="bar-p" style="width:55.6%"></div><div class="bar-v" style="width:11.1%"></div></div>
+            <div class="pct-row">F 33,3 % · P 55,6 % · V 11,1 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">02 · Leopoldstadt</td>
+          <td>7</td>
+          <td class="td-vol">€ 65,17 Mio.</td>
+          <td class="td-avg">€ 9,31 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:85.7%"></div><div class="bar-p" style="width:14.3%"></div></div>
+            <div class="pct-row">F 85,7 % · P 14,3 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:57.1%"></div><div class="bar-p" style="width:42.9%"></div></div>
+            <div class="pct-row">F 57,1 % · P 42,9 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">01 · Innere Stadt</td>
+          <td>5</td>
+          <td class="td-vol">€ 55,48 Mio.</td>
+          <td class="td-avg">€ 11,10 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:60%"></div><div class="bar-p" style="width:40%"></div></div>
+            <div class="pct-row">F 60 % · P 40 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:60%"></div><div class="bar-v" style="width:40%"></div></div>
+            <div class="pct-row">F 60 % · V 40 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">16 · Ottakring</td>
+          <td>20</td>
+          <td class="td-vol">€ 46,19 Mio.</td>
+          <td class="td-avg">€ 2,31 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:75%"></div><div class="bar-p" style="width:15%"></div></div>
+            <div class="pct-row">F 75 % · P 15 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:35%"></div><div class="bar-p" style="width:45%"></div><div class="bar-s" style="width:10%"></div></div>
+            <div class="pct-row">F 35 % · P 45 % · S 10 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">08 · Josefstadt</td>
+          <td>4</td>
+          <td class="td-vol">€ 45,80 Mio.</td>
+          <td class="td-avg">€ 11,45 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:75%"></div><div class="bar-p" style="width:25%"></div></div>
+            <div class="pct-row">F 75 % · P 25 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:25%"></div><div class="bar-p" style="width:25%"></div><div class="bar-v" style="width:50%"></div></div>
+            <div class="pct-row">F 25 % · P 25 % · V 50 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">06 · Mariahilf</td>
+          <td>4</td>
+          <td class="td-vol">€ 45,77 Mio.</td>
+          <td class="td-avg">€ 11,44 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:100%"></div></div>
+            <div class="pct-row">F 100 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:75%"></div><div class="bar-p" style="width:25%"></div></div>
+            <div class="pct-row">F 75 % · P 25 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">13 · Hietzing</td>
+          <td>10</td>
+          <td class="td-vol">€ 40,80 Mio.</td>
+          <td class="td-avg">€ 4,08 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:40%"></div><div class="bar-p" style="width:40%"></div><div class="bar-s" style="width:20%"></div></div>
+            <div class="pct-row">F 40 % · P 40 % · S 20 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:30%"></div><div class="bar-p" style="width:40%"></div><div class="bar-v" style="width:30%"></div></div>
+            <div class="pct-row">F 30 % · P 40 % · V 30 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">15 · Rudolfsheim-Fünfhaus</td>
+          <td>13</td>
+          <td class="td-vol">€ 37,42 Mio.</td>
+          <td class="td-avg">€ 2,88 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:92.3%"></div><div class="bar-p" style="width:7.7%"></div></div>
+            <div class="pct-row">F 92,3 % · P 7,7 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:15.4%"></div><div class="bar-p" style="width:69.2%"></div><div class="bar-s" style="width:15.4%"></div></div>
+            <div class="pct-row">F 15,4 % · P 69,2 % · S 15,4 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">20 · Brigittenau</td>
+          <td>12</td>
+          <td class="td-vol">€ 36,31 Mio.</td>
+          <td class="td-avg">€ 3,03 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:83.3%"></div><div class="bar-p" style="width:16.7%"></div></div>
+            <div class="pct-row">F 83,3 % · P 16,7 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:50%"></div><div class="bar-p" style="width:41.7%"></div><div class="bar-s" style="width:8.3%"></div></div>
+            <div class="pct-row">F 50 % · P 41,7 % · S 8,3 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">12 · Meidling</td>
+          <td>11</td>
+          <td class="td-vol">€ 33,15 Mio.</td>
+          <td class="td-avg">€ 3,01 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:90.9%"></div></div>
+            <div class="pct-row">F 90,9 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:27.3%"></div><div class="bar-p" style="width:63.6%"></div><div class="bar-s" style="width:9.1%"></div></div>
+            <div class="pct-row">F 27,3 % · P 63,6 % · S 9,1 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">17 · Hernals</td>
+          <td>11</td>
+          <td class="td-vol">€ 23,89 Mio.</td>
+          <td class="td-avg">€ 2,17 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:81.8%"></div><div class="bar-p" style="width:9.1%"></div></div>
+            <div class="pct-row">F 81,8 % · P 9,1 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:27.3%"></div><div class="bar-p" style="width:54.5%"></div><div class="bar-s" style="width:9.1%"></div></div>
+            <div class="pct-row">F 27,3 % · P 54,5 % · S 9,1 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">18 · Währing</td>
+          <td>8</td>
+          <td class="td-vol">€ 23,13 Mio.</td>
+          <td class="td-avg">€ 2,89 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:62.5%"></div><div class="bar-p" style="width:37.5%"></div></div>
+            <div class="pct-row">F 62,5 % · P 37,5 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:12.5%"></div><div class="bar-p" style="width:87.5%"></div></div>
+            <div class="pct-row">F 12,5 % · P 87,5 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">23 · Liesing</td>
+          <td>8</td>
+          <td class="td-vol">€ 23,08 Mio.</td>
+          <td class="td-avg">€ 2,89 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:62.5%"></div><div class="bar-p" style="width:37.5%"></div></div>
+            <div class="pct-row">F 62,5 % · P 37,5 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:50%"></div><div class="bar-p" style="width:50%"></div></div>
+            <div class="pct-row">F 50 % · P 50 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">07 · Neubau</td>
+          <td>4</td>
+          <td class="td-vol">€ 24,27 Mio.</td>
+          <td class="td-avg">€ 6,07 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:100%"></div></div>
+            <div class="pct-row">F 100 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:50%"></div><div class="bar-p" style="width:25%"></div><div class="bar-s" style="width:25%"></div></div>
+            <div class="pct-row">F 50 % · P 25 % · S 25 %</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-bezirk">05 · Margareten</td>
+          <td>6</td>
+          <td class="td-vol">€ 21,06 Mio.</td>
+          <td class="td-avg">€ 3,51 Mio.</td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:66.7%"></div><div class="bar-p" style="width:33.3%"></div></div>
+            <div class="pct-row">F 66,7 % · P 33,3 %</div>
+          </td>
+          <td>
+            <div class="bar-wrap"><div class="bar-f" style="width:83.3%"></div><div class="bar-p" style="width:16.7%"></div></div>
+            <div class="pct-row">F 83,3 % · P 16,7 %</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OUTLOOK + POINTS -->
+<section class="outlook">
+  <div class="outlook-inner">
+    <div>
+      <div class="eyebrow">Ausblick & Implikationen</div>
+      <h2>Was 2025 lehrt –<br>und was <em>2026</em><br>bringen wird</h2>
+      <p>Die Pipelines sind gut gefüllt. Unterlagen werden finalisiert, Termine koordiniert, Entscheidungen getroffen. Anzahl und Volumen sollten bis Jahresende spürbar über dem heutigen Stand liegen – ein Markt im Endspurt, der keine lauten Ankündigungen, sondern verlässliche Abschlüsse produziert.</p>
+      <p>Für 2026 bleibt die Formel, die 2025 getragen hat: Qualität plus Klarheit ergibt Preis und Sicherheit. Eigenkapitalstarke Käufer werden das Tempo setzen, die Preisbildung bleibt an Erträgen und Finanzierungsrealität ausgerichtet, und Potenzial – belegt, nicht behauptet – wird der entscheidende Differenzierungsfaktor. Der Wiener Zinshausmarkt 2025 schließt ruhig und verlässlich: wenig Handel, kaum Spekulation, klarer Langfristfokus. In Summe ein Gesamtvolumen von <strong>€ 1,292 Mrd.</strong> mit 200 Transaktionen – davon € 647 Mio. institutionelle Großdeals und € 645 Mio. klassische Zinshausdeals. Die guten Häuser sind da. Sie wollen nicht überredet, sondern verstanden werden.</p>
+    </div>
+    <div class="outlook-points">
+      <div class="outlook-point">
+        <div class="op-label">Für Eigentümer:innen</div>
+        <div class="op-title">Preis mit Fundament</div>
+        <p class="op-text">Mietlisten, Leerstand, Energiepfad und Investitionsplan prüfbar aufbereiten. Das schafft Wettbewerb – und Wettbewerb schafft Preis. Wer sauber dokumentiert, wird gesehen.</p>
+      </div>
+      <div class="outlook-point">
+        <div class="op-label">Für Investor:innen</div>
+        <div class="op-title">Eigenkapital macht Tempo</div>
+        <p class="op-text">Wer EK-stark aufgestellt ist, handelt schneller und unabhängiger. In knappen Lagen ist das oft der entscheidende Faktor – nicht das letzte Promille im Preis, sondern die sichere Zusage.</p>
+      </div>
+      <div class="outlook-point">
+        <div class="op-label">Marktbeobachtung</div>
+        <div class="op-title">Potenzial – belegt, nicht behauptet</div>
+        <p class="op-text">Mietsteigerungen oder Ausbau sind attraktiv, wenn Genehmigung, Bauplan und Budget auf dem Tisch liegen. So wird die Zinslast aktiv gemanagt. Vage Hoffnung ohne Unterbau wird nicht bezahlt.</p>
+      </div>
+      <div class="outlook-point">
+        <div class="op-label">Methodischer Hinweis</div>
+        <div class="op-title">Eigene Erfassung 2025</div>
+        <p class="op-text">Alle Kennzahlen zu Transaktionen, Volumen, Bezirken sowie Käufer- und Verkäuferstruktur entstammen unserer eigenen Datenerfassung 2025 (YTD). Keine Hochrechnungen, keine Schätzungen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="article-cta" id="kontakt">
+  <div class="cta-left">
+    <h2>Lassen Sie uns<br><em>einfach reden.</em></h2>
+  </div>
+  <div class="cta-right">
+    <p>Viele der besten Gespräche beginnen ohne Agenda – nur mit dem Gespür, dass man sich versteht. Ob Sie verkaufen, kaufen oder einfach verstehen wollen, was Ihr Haus wirklich wert ist.</p>
+    <a href="mailto:office@manzl-immobilien.at" class="btn-gold">Gespräch anfragen</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Manzl Immobilien GmbH</span>
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <span><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></span>
+</footer>
+
+</body>
+</html>

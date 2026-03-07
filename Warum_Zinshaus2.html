@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warum ein Zinshaus? – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --sand: #F2EDE5; --cream: #FAF7F2; --navy: #1A1C33; --navy-light: #2A2D4A; --text: #2C2A24;
+    --gold: #D4AF3A; --gold-light: #E2C76A;
+    --stone: #7A7265; --border: rgba(212,175,58,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  .eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.9rem; }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+  .eyebrow.light { color: var(--gold-light); }
+  .eyebrow.light::before { background: var(--gold-light); }
+  .eyebrow.center { justify-content: center; }
+  .eyebrow.center::before { display: none; }
+
+  h2.display { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; color: var(--navy); }
+  h2.display em { font-style: italic; color: var(--gold); }
+  h2.display.light { color: var(--cream); }
+  h2.display.light em { color: var(--gold-light); }
+
+  .body-text { font-size: 0.97rem; color: var(--stone); line-height: 1.95; margin-bottom: 1.4rem; }
+  .body-text strong { color: var(--navy); font-weight: 400; }
+  .body-text.light { color: rgba(242,237,229,0.68); }
+  .body-text.light strong { color: var(--sand); }
+
+  .btn-primary { background: var(--gold); color: white; padding: 0.9rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background: var(--navy); }
+  .btn-ghost { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
+  .btn-ghost:hover { color: var(--gold); }
+  .btn-ghost::after { content: '→'; }
+  .btn-ghost.light { color: rgba(242,237,229,0.55); }
+  .btn-ghost.light:hover { color: var(--gold-light); }
+  .btn-white { background: white; color: var(--gold); padding: 1rem 2.8rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s; margin-right: 1rem; }
+  .btn-white:hover { background: var(--gold); color: white; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 4rem; background: rgba(250,247,242,0.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+  .nav-cta { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  /* PAGE HERO */
+  .page-hero { padding-top: 72px; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; min-height: 75vh; }
+  .page-hero-left { display: flex; flex-direction: column; justify-content: center; padding: 6rem 4rem 6rem 6rem; }
+  .page-hero-right { position: relative; background: var(--sand); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 2rem; }
+  .hero-headline em { font-style: italic; color: var(--gold-light); }
+  .hero-sub { font-size: 1rem; color: rgba(242,237,229,0.65); max-width: 44ch; line-height: 1.9; margin-bottom: 2.5rem; }
+  .hero-breadcrumb { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(168,120,67,0.5); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.7rem; }
+  .hero-breadcrumb a { color: rgba(168,120,67,0.5); text-decoration: none; transition: color 0.3s; }
+  .hero-breadcrumb a:hover { color: var(--gold-light); }
+  .hero-breadcrumb span { opacity: 0.4; }
+
+  /* Facade animation (reused from main) */
+  .facade-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(212,175,58,0.12) 0%, transparent 60%); display: flex; align-items: center; justify-content: center; }
+  .facade { display: flex; flex-direction: column; gap: 14px; opacity: 0.12; }
+  .facade-row { display: flex; gap: 14px; }
+  .win { width: 30px; height: 44px; border: 2px solid var(--gold); border-radius: 10px 10px 0 0; background: rgba(212,175,58,0.3); animation: wf 7s ease-in-out infinite; }
+  .win.t { height: 58px; }
+  .win:nth-child(2){animation-delay:1.2s} .win:nth-child(3){animation-delay:2.8s} .win:nth-child(4){animation-delay:0.6s} .win:nth-child(5){animation-delay:3.5s}
+  @keyframes wf { 0%,75%,100%{background:rgba(212,175,58,0.3)} 40%{background:rgba(212,175,58,0.65)} }
+
+  .hero-pull-card { position: absolute; bottom: 2.5rem; left: 2.5rem; right: 2.5rem; background: rgba(26,28,51,0.92); border-left: 3px solid var(--gold); padding: 1.6rem 1.8rem; backdrop-filter: blur(8px); }
+  .hero-pull-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--cream); line-height: 1.6; margin-bottom: 0.4rem; }
+  .hero-pull-attr { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+  /* INTRO SECTION */
+  .intro { background: var(--cream); padding: 8rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
+  .intro-lead { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 300; line-height: 1.35; color: var(--navy); margin-bottom: 2.5rem; }
+  .intro-lead em { font-style: italic; color: var(--gold); }
+
+  /* GRÜNDE / ARGUMENTS */
+  .gruende { background: var(--sand); padding: 8rem 6rem; }
+  .gruende-header { text-align: center; max-width: 60ch; margin: 0 auto 5rem; }
+  .gruende-header p { font-size: 0.95rem; color: var(--stone); line-height: 1.85; margin-top: 1rem; }
+  .gruende-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+  .gcard { background: var(--sand); padding: 3rem 2.4rem; transition: background 0.3s; position: relative; }
+  .gcard:hover { background: var(--cream); }
+  .gnum { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(212,175,58,0.15); line-height: 1; margin-bottom: 1.2rem; }
+  .gtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--navy); margin-bottom: 0.3rem; }
+  .gsub { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .gtext { font-size: 0.88rem; color: var(--stone); line-height: 1.9; }
+
+  /* VERGLEICH */
+  .vergleich { background: var(--navy); padding: 8rem 6rem; }
+  .vergleich-header { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-bottom: 5rem; align-items: end; }
+  .vergleich-table { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: rgba(212,175,58,0.18); }
+  .vt-head { background: rgba(212,175,58,0.12); padding: 1.2rem 1.8rem; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-light); }
+  .vt-head.highlight { background: rgba(212,175,58,0.2); color: var(--gold-light); }
+  .vt-cell { background: var(--navy); padding: 1.4rem 1.8rem; font-size: 0.88rem; color: rgba(242,237,229,0.55); line-height: 1.6; border-bottom: 1px solid rgba(212,175,58,0.08); }
+  .vt-cell.label { color: var(--cream); font-size: 0.85rem; }
+  .vt-cell.highlight { background: rgba(212,175,58,0.06); }
+  .vt-cell.pos { color: var(--gold-light); }
+  .vt-cell.neg { color: rgba(242,237,229,0.28); }
+  .vt-cell.mid { color: rgba(242,237,229,0.42); }
+  .check { color: var(--gold-light); font-size: 1rem; }
+  .cross { color: rgba(242,237,229,0.2); font-size: 1rem; }
+  .half { color: rgba(242,237,229,0.42); font-size: 1rem; }
+
+  /* PHILOSOPHIE ZINSHAUS */
+  .philosophie { background: var(--gold); padding: 7rem 6rem; }
+  .phil-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+  .phil-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: white; }
+  .phil-headline em { font-style: italic; }
+  .phil-sub { font-size: 0.97rem; color: rgba(255,255,255,0.72); line-height: 1.9; margin-top: 1.5rem; max-width: 42ch; }
+  .phil-list { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.15); }
+  .pl-item { background: rgba(255,255,255,0.08); padding: 1.8rem 2rem; transition: background 0.3s; }
+  .pl-item:hover { background: rgba(255,255,255,0.15); }
+  .pl-label { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+  .pl-text { font-family: 'Cormorant Garamond', serif; font-size: 1.18rem; color: white; line-height: 1.45; font-weight: 300; }
+
+  /* ZINSHAUS IM DETAIL */
+  .detail { background: var(--cream); padding: 8rem 6rem; }
+  .detail-header { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-bottom: 5rem; align-items: end; }
+  .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .dcard { background: var(--sand); padding: 2.6rem; border-top: 2px solid var(--gold); }
+  .dnum { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: rgba(212,175,58,0.18); margin-bottom: 0.8rem; display: block; }
+  .dtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--navy); margin-bottom: 0.6rem; }
+  .dtext { font-size: 0.87rem; color: var(--stone); line-height: 1.9; }
+
+  /* FACTS */
+  .facts { background: var(--sand); padding: 6rem 6rem; }
+  .facts-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
+  .fact-box { background: var(--sand); padding: 2.8rem 2rem; text-align: center; }
+  .fact-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+  .fact-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); line-height: 1.6; }
+
+  /* RISIKEN */
+  .risiken { background: var(--navy); padding: 8rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
+  .rpoint { border-top: 1px solid rgba(212,175,58,0.18); padding: 1.8rem 0; }
+  .rpoint:last-child { border-bottom: 1px solid rgba(212,175,58,0.18); }
+  .rlabel { font-size: 0.67rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.4rem; }
+  .rtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem; }
+  .rtext { font-size: 0.87rem; color: rgba(242,237,229,0.52); line-height: 1.85; }
+
+  /* PULL QUOTE */
+  .pull-section { background: var(--cream); padding: 7rem 6rem; display: flex; align-items: center; justify-content: center; }
+  .pull-quote-block { max-width: 70ch; text-align: center; }
+  .pull-quote-block blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.45; color: var(--navy); font-style: italic; margin-bottom: 1.5rem; }
+  .pull-quote-block blockquote em { color: var(--gold); }
+  .pull-attr { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
+  .pull-attr::before, .pull-attr::after { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+
+  /* MARKT-STATS */
+  .markt-stats { background: var(--gold); padding: 6rem 6rem; }
+  .ms-inner { display: grid; grid-template-columns: 1fr 3fr; gap: 6rem; align-items: center; }
+  .ms-left h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: white; line-height: 1.25; }
+  .ms-left h3 em { font-style: italic; }
+  .ms-left p { font-size: 0.87rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-top: 1rem; }
+  .ms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.2); }
+  .ms-cell { background: rgba(255,255,255,0.08); padding: 2.2rem 1.8rem; }
+  .ms-val { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: white; line-height: 1; margin-bottom: 0.4rem; }
+  .ms-key { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.6rem; }
+  .ms-desc { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+  /* FÜR WEN */
+  .fuerwen { background: var(--cream); padding: 8rem 6rem; }
+  .fw-header { text-align: center; max-width: 58ch; margin: 0 auto 5rem; }
+  .fw-header p { font-size: 0.95rem; color: var(--stone); line-height: 1.85; margin-top: 1rem; }
+  .fw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+  .fwcard { background: var(--cream); padding: 3rem 2.4rem; position: relative; transition: background 0.4s; }
+  .fwcard:hover { background: var(--sand); }
+  .fwnum { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(212,175,58,0.12); line-height: 1; margin-bottom: 1.2rem; }
+  .fwtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 400; color: var(--navy); margin-bottom: 0.3rem; }
+  .fwsub { font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .fwtext { font-size: 0.9rem; color: var(--stone); line-height: 1.85; }
+  .fwarrow { position: absolute; bottom: 2rem; right: 2.4rem; font-size: 1.4rem; color: var(--gold); opacity: 0; transition: opacity 0.3s, transform 0.3s; }
+  .fwcard:hover .fwarrow { opacity: 1; transform: translateX(4px); }
+
+  /* CTA */
+  .cta { background: var(--navy); padding: 8rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .cta-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4.5vw, 3.8rem); font-weight: 300; color: white; line-height: 1.12; }
+  .cta-headline em { font-style: italic; color: var(--gold-light); }
+  .cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.38); margin-top: 1.2rem; max-width: 32ch; line-height: 1.8; }
+  .cta-direct { margin-top: 2rem; font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 2.2; }
+  .cta-direct a { color: var(--gold-light); text-decoration: none; }
+  .cta-direct a:hover { color: white; }
+
+  /* FOOTER */
+  footer { background: #0F1120; color: rgba(242,237,229,0.35); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.73rem; letter-spacing: 0.05em; }
+  footer a { color: rgba(242,237,229,0.35); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+  .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(242,237,229,0.55); font-weight: 300; }
+
+  /* Photo placeholder */
+  .photo-box { background: var(--sand); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .photo-box::after { content: attr(data-label); font-size: 0.63rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(168,120,67,0.38); text-align: center; padding: 0.8rem; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  .page-hero-left > * { animation: fadeUp 0.9s ease both; }
+  .page-hero-left > *:nth-child(1){animation-delay:0s}
+  .page-hero-left > *:nth-child(2){animation-delay:0.1s}
+  .page-hero-left > *:nth-child(3){animation-delay:0.2s}
+  .page-hero-left > *:nth-child(4){animation-delay:0.3s}
+  .page-hero-left > *:nth-child(5){animation-delay:0.45s}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="manzl-konzept.html" class="nav-logo">Manzl <span>Immobilien</span></a>
+  <ul class="nav-links">
+    <li><a href="manzl-konzept.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="manzl-konzept.html#investoren">Für Investoren</a></li>
+    <li><a href="manzl-konzept.html#dienst">Leistungen</a></li>
+    <li><a href="#" class="active">Warum ein Zinshaus?</a></li>
+    <li><a href="manzl-konzept.html#story">Über mich</a></li>
+  </ul>
+  <a href="manzl-konzept.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-left">
+    <div class="hero-breadcrumb">
+      <a href="manzl-konzept.html">Startseite</a>
+      <span>/</span>
+      Warum ein Zinshaus?
+    </div>
+    <div class="eyebrow light">Wiener Gründerzeit-Immobilien</div>
+    <h1 class="hero-headline">Was ein Zinshaus kann,<br>das kein <em>Finanzprodukt</em><br>der Welt kann.</h1>
+    <p class="hero-sub">Weil ein Zinshaus etwas kann, was kein Wertpapier der Welt kann: Es steht. Seit 150 Jahren. Und es wird weiter stehen — lange nach uns.</p>
+    <div style="display:flex;gap:1.4rem;align-items:center">
+      <a href="manzl-konzept.html#kontakt" class="btn-primary">Gespräch anfragen</a>
+      <a href="#gruende" class="btn-ghost light">Die Argumente</a>
+    </div>
+  </div>
+  <div class="page-hero-right">
+    <div class="facade-bg">
+      <div class="facade">
+        <div class="facade-row"><div class="win t"></div><div class="win t"></div><div class="win t"></div><div class="win t"></div><div class="win t"></div></div>
+        <div class="facade-row"><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div></div>
+        <div class="facade-row"><div class="win t"></div><div class="win t"></div><div class="win t"></div><div class="win t"></div><div class="win t"></div></div>
+        <div class="facade-row"><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div><div class="win"></div></div>
+      </div>
+    </div>
+    <div class="hero-pull-card">
+      <p class="hero-pull-quote">„Ein Wiener Zinshaus ist kein Spekulationsobjekt. Es ist die solideste Antwort auf die einzige Frage, die zählt: Was bleibt?"</p>
+      <p class="hero-pull-attr">Reinhard Manzl · Manzl Immobilien GmbH</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div>
+    <div class="eyebrow">Das Fundament</div>
+    <p class="intro-lead">Kapital anlegen ist das eine. <em>Kapital bewahren</em> das andere. Nur wenige Assetklassen können beides — seit Generationen und ohne täglichen Aufwand.</p>
+    <p class="body-text">Der Wiener Zinshausmarkt ist kein Markt im klassischen Sinn. Er ist ein Netzwerk aus Eigentümern, die ihre Häuser nicht leichtfertig abgeben — und Käufern, die wissen, was sie darin kaufen. Kein Finanzprodukt lässt sich anfassen. Kein ETF erzählt eine Geschichte. Kein Fond erzeugt das Gefühl, etwas Beständiges zu besitzen.</p>
+    <p class="body-text">Ein Gründerzeit-Zinshaus in Wien tut genau das — und mehr. Es liefert Mieteinnahmen, die sich über Jahrzehnte verstetigt haben. Es schützt vor Inflation, weil Boden und Bausubstanz nicht künstlich vermehrt werden können. Und es lässt sich als intaktes Gut an die nächste Generation weitergeben — ohne Wertverlust, ohne Erklärungsbedarf.</p>
+    <p class="body-text"><strong>Das ist kein Versprechen. Das ist Geschichte. 150 Jahre Wiener Stadtgeschichte.</strong></p>
+  </div>
+  <div>
+    <div style="background:var(--sand);border-left:3px solid var(--gold);padding:2.2rem 2.4rem;margin-bottom:2rem">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--navy);line-height:1.6">„Die klügsten Investoren, die ich kenne, haben eines gemeinsam: Sie haben irgendwann aufgehört, über Rendite nachzudenken — und angefangen, über Substanz nachzudenken."</p>
+      <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:1rem">Reinhard Manzl</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <div style="background:var(--sand);padding:1.6rem;border-left:2px solid var(--gold)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">~2–4%</div>
+        <div style="font-size:0.78rem;color:var(--stone);line-height:1.55">Nachhaltiger Netto-Mietrendite im Wiener Zinshaus</div>
+      </div>
+      <div style="background:var(--sand);padding:1.6rem;border-left:2px solid var(--gold)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">150+</div>
+        <div style="font-size:0.78rem;color:var(--stone);line-height:1.55">Jahre Bewährung unter wechselnden Krisen und Regierungen</div>
+      </div>
+      <div style="background:var(--sand);padding:1.6rem;border-left:2px solid var(--gold)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">Begrenzt</div>
+        <div style="font-size:0.78rem;color:var(--stone);line-height:1.55">Gründerzeitbestand — kann weder nachgebaut noch vervielfacht werden</div>
+      </div>
+      <div style="background:var(--sand);padding:1.6rem;border-left:2px solid var(--gold)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">Diskret</div>
+        <div style="font-size:0.78rem;color:var(--stone);line-height:1.55">Die besten Objekte werden nie öffentlich inseriert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRÜNDE -->
+<section class="gruende" id="gruende">
+  <div class="gruende-header">
+    <div class="eyebrow center">Die Argumente</div>
+    <h2 class="display" style="text-align:center;margin-bottom:0.8rem">Sechs Gründe, die für<br>ein Wiener Zinshaus <em>sprechen.</em></h2>
+    <p>Nicht als Theorie — sondern als gelebte Erfahrung aus 15 Jahren Zinshausmarkt.</p>
+  </div>
+  <div class="gruende-grid">
+    <div class="gcard">
+      <div class="gnum">01</div>
+      <div class="gtitle">Inflationsschutz</div>
+      <div class="gsub">Sachwert mit historischer Bewährung</div>
+      <p class="gtext">Wenn Geld an Wert verliert, gewinnt Substanz. Ein Zinshaus ist Boden plus Steine — und Boden wird nicht gedruckt. Mieten steigen tendenziell mit der Inflation, der Sachwert bleibt erhalten. Über jede Währungsreform, über jede Wirtschaftskrise hinweg hat das Wiener Zinshaus seinen Wert nicht nur gehalten — es hat ihn aufgebaut.</p>
+    </div>
+    <div class="gcard">
+      <div class="gnum">02</div>
+      <div class="gtitle">Stabile Mieteinnahmen</div>
+      <div class="gsub">Cashflow ohne tägliches Zutun</div>
+      <p class="gtext">Ein gut geführtes Zinshaus generiert laufende Mieteinnahmen — unabhängig von Börsenstimmungen, Quartalsberichten oder geopolitischen Entwicklungen. Die Mieter zahlen, die Verwaltung läuft, das Haus steht. Diese stille Beständigkeit ist für viele Investoren nach Jahren der aktiven Unternehmensführung das Wertvollste überhaupt.</p>
+    </div>
+    <div class="gcard">
+      <div class="gnum">03</div>
+      <div class="gtitle">Knappes Gut</div>
+      <div class="gsub">Unvermehrbar — damit unverzichtbar</div>
+      <p class="gtext">Gründerzeit-Zinshäuser wurden zwischen 1848 und 1918 errichtet. Sie können heute weder nachgebaut noch repliziert werden — nicht die Materialien, nicht die Proportionen, nicht die Lage in gewachsenen Stadtteilen. Diese absolute Knappheit ist der fundamentalste Werttreiber: Angebot sinkt, Nachfrage bleibt. Das ist kein Trend. Das ist Arithmetik.</p>
+    </div>
+    <div class="gcard">
+      <div class="gnum">04</div>
+      <div class="gtitle">Generationsvermögen</div>
+      <div class="gsub">Weitergabe ohne Wertverlust</div>
+      <p class="gtext">Ein Zinshaus ist eines der wenigen Güter, das unverändert an die nächste Generation übergeben werden kann — als intakter Wert, als laufende Einnahmequelle, als Familienerbe. Es braucht keine Übersetzung, keine Umstrukturierung, keine Neupositionierung. Es steht. Und es wird weiter stehen. Das ist Generationenvermögen in seiner reinsten Form.</p>
+    </div>
+    <div class="gcard">
+      <div class="gnum">05</div>
+      <div class="gtitle">Wertsteigerung durch Potenzial</div>
+      <div class="gsub">Parifizierung, Dachausbau, Mietzinsreserve</div>
+      <p class="gtext">Wer das Wiener Mietrecht kennt, sieht in jedem Altbau mehr als Fassade und Wohnfläche. Mietzinsreserven, die gehoben werden können. Dachgeschosse, die ausgebaut werden dürfen. Wohnungspakete, die parifiziert und einzeln veräußert werden. Wer dieses Potenzial erkennt — und versteht —, kauft mehr als ein Haus. Er kauft eine stille Option auf Wertsteigerung.</p>
+    </div>
+    <div class="gcard">
+      <div class="gnum">06</div>
+      <div class="gtitle">Diskretion & Kontrolle</div>
+      <div class="gsub">Kein volatiles Marktumfeld, keine anonymen Mitinvestoren</div>
+      <p class="gtext">Im Unterschied zu Fonds, REITs oder Beteiligungsmodellen gehört Ihnen das Zinshaus vollständig — Sie entscheiden, wie es verwaltet wird, wann es verkauft wird und an wen es vererbt wird. Keine Mitgliederversammlungen, keine Abstimmungsquoren, keine anonymen Miteigentümer. Vollständige Kontrolle über einen realen, greifbaren Wert.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pull-section">
+  <div class="pull-quote-block">
+    <blockquote>„Wer klug investiert, sucht nicht die höchste Rendite — er sucht die <em>beständigste.</em> Das Wiener Zinshaus ist diese Antwort."</blockquote>
+    <div class="pull-attr">Reinhard Manzl · Manzl Immobilien GmbH</div>
+  </div>
+</section>
+
+<!-- VERGLEICH -->
+<section class="vergleich">
+  <div class="vergleich-header">
+    <div>
+      <div class="eyebrow light">Im Vergleich</div>
+      <h2 class="display light">Zinshaus vs. andere<br><em>Anlageformen.</em></h2>
+    </div>
+    <div>
+      <p class="body-text light">Jede Anlageform hat ihre Berechtigung. Aber nicht jede passt zu jedem Investor — und nicht jede hält, was sie in ruhigen Zeiten verspricht. Hier ein ehrlicher Vergleich.</p>
+    </div>
+  </div>
+  <div class="vergleich-table">
+    <!-- Header row -->
+    <div class="vt-head" style="background:transparent"></div>
+    <div class="vt-head highlight">Zinshaus</div>
+    <div class="vt-head">Aktien / ETF</div>
+    <div class="vt-head">Anleihen</div>
+    <!-- Rows -->
+    <div class="vt-cell label">Inflationsschutz</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Strukturell hoch</div>
+    <div class="vt-cell mid"><span class="half">~</span> Bedingt</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Gering</div>
+
+    <div class="vt-cell label">Volatilität</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Sehr niedrig</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Hoch</div>
+    <div class="vt-cell mid"><span class="half">~</span> Mittel</div>
+
+    <div class="vt-cell label">Laufende Erträge</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Stabile Mieteinnahmen</div>
+    <div class="vt-cell mid"><span class="half">~</span> Dividenden (variabel)</div>
+    <div class="vt-cell pos"><span class="check">✓</span> Zinsen (fix)</div>
+
+    <div class="vt-cell label">Generationenweitergabe</div>
+    <div class="vt-cell highlight mid"><span class="half">~</span> Möglich — Planung nötig</div>
+    <div class="vt-cell mid"><span class="half">~</span> Übertragbar, oft liquidiert</div>
+    <div class="vt-cell mid"><span class="half">~</span> Möglich, läuft aus</div>
+
+    <div class="vt-cell label">Wertsteigerung</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Aktiv steuerbar</div>
+    <div class="vt-cell pos"><span class="check">✓</span> Marktabhängig</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Keine</div>
+
+    <div class="vt-cell label">Flexibilität</div>
+    <div class="vt-cell highlight neg"><span class="cross">✗</span> Gering — Verkauf dauert Monate</div>
+    <div class="vt-cell pos"><span class="check">✓</span> Jederzeit, beliebig teilbar</div>
+    <div class="vt-cell mid"><span class="half">~</span> Laufzeit gebunden</div>
+
+    <div class="vt-cell label">Kontrolle & Transparenz</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Vollständig</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Abhängig vom Markt</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Abhängig vom Emittenten</div>
+
+    <div class="vt-cell label">Tageswert-Schwankung</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Keine</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Täglich sichtbar</div>
+    <div class="vt-cell mid"><span class="half">~</span> Moderat</div>
+
+    <div class="vt-cell label">Liquidität</div>
+    <div class="vt-cell highlight mid"><span class="half">~</span> Mittel (Monate)</div>
+    <div class="vt-cell pos"><span class="check">✓</span> Täglich</div>
+    <div class="vt-cell pos"><span class="check">✓</span> Täglich bis jährlich</div>
+
+    <div class="vt-cell label">Emotionaler Wert</div>
+    <div class="vt-cell highlight pos"><span class="check">✓</span> Hoch — Substanz, die man sieht</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Keiner</div>
+    <div class="vt-cell neg"><span class="cross">✗</span> Keiner</div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="philosophie">
+  <div class="phil-inner">
+    <div>
+      <h2 class="phil-headline">Das Zinshaus als<br><em>Lebenshaltung.</em></h2>
+      <p class="phil-sub">Es geht nicht um Rendite-Optimierung. Es geht um eine grundlegende Entscheidung: Was will ich mit meinem Kapital sagen? Was soll es sein, wenn ich nicht mehr da bin?</p>
+    </div>
+    <div>
+      <div class="phil-list">
+        <div class="pl-item">
+          <div class="pl-label">Substanz statt Spekulation</div>
+          <div class="pl-text">Ein Zinshaus ist kein Wettschein auf die Zukunft. Es ist ein Ausdruck von Vertrauen in die Permanenz von Boden, Lage und handwerklicher Qualität.</div>
+        </div>
+        <div class="pl-item">
+          <div class="pl-label">Langfristigkeit als Prinzip</div>
+          <div class="pl-text">Der kluge Zinshausbesitzer denkt nicht in Quartalen. Er denkt in Jahrzehnten — und genau diese Haltung macht ihn zum erfolgreichsten Investor im Raum.</div>
+        </div>
+        <div class="pl-item">
+          <div class="pl-label">Verantwortung als Eigentümer</div>
+          <div class="pl-text">Wer ein Wiener Gründerzeithaus besitzt, besitzt ein Stück Stadtgeschichte. Diese Verantwortung trägt — wer sie annimmt — mit Würde und ohne Scheu.</div>
+        </div>
+        <div class="pl-item">
+          <div class="pl-label">Diskretion als Selbstverständlichkeit</div>
+          <div class="pl-text">Die besten Zinshausbesitzer in Wien kennen sich untereinander — und sprechen nicht darüber. Das ist keine Arroganz. Das ist Stil.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZINSHAUS IM DETAIL -->
+<section class="detail">
+  <div class="detail-header">
+    <div>
+      <div class="eyebrow">Das Produkt im Detail</div>
+      <h2 class="display">Was steckt wirklich<br>hinter einem <em>Zinshaus?</em></h2>
+    </div>
+    <div>
+      <p class="body-text">Das Wiener Zinshaus ist rechtlich, baulich und wirtschaftlich eines der komplexesten Produkte am Immobilienmarkt. Wer es wirklich versteht, sieht mehr als Fassade und Quadratmeter. Er sieht Potenzial, das andere übersehen.</p>
+      <p class="body-text">Hier die wichtigsten Dimensionen — erklärt ohne Fachchinesisch.</p>
+    </div>
+  </div>
+  <div class="detail-grid">
+    <div class="dcard">
+      <span class="dnum">I</span>
+      <div class="dtitle">Substanzwert</div>
+      <p class="dtext">Der Substanzwert beschreibt, was das Haus als physisches Objekt wert ist — Boden, Mauerwerk, Dach, Installationen. Bei Gründerzeitgebäuden ist dieser oft erheblich, weil die Bauqualität vergangener Epochen nicht mehr reproduzierbar ist. Ziegelmauerwerk von 70 cm Stärke. Gusseiserne Rohre. Eichenholzböden. Das sind keine Details — das ist die Grundlage.</p>
+    </div>
+    <div class="dcard">
+      <span class="dnum">II</span>
+      <div class="dtitle">Ertragswert & Mietzinsreserve</div>
+      <p class="dtext">Viele Altbauwohnungen unterliegen dem Richtwertmietrecht — und liegen damit unter dem Marktniveau. Die Differenz zwischen aktuellem und erzielbarem Mietzins nennt sich Mietzinsreserve. Sie ist eine stille Option: Wer sie erkennt und nutzen kann — durch Mieterwechsel, Sanierung oder Parifizierung — erschließt erhebliches Wertsteigerungspotenzial.</p>
+    </div>
+    <div class="dcard">
+      <span class="dnum">III</span>
+      <div class="dtitle">Parifizierung</div>
+      <p class="dtext">Unter Parifizierung versteht man die Aufteilung eines Zinshauses in rechtlich selbstständige Wohnungseigentumseinheiten. Das ermöglicht den Einzelverkauf von Wohnungen — und damit eine wesentliche Wertsteigerung des Gesamtobjekts. Nicht jedes Haus ist parifizierbar. Wer die Voraussetzungen kennt, weiß, ob er ein stilles Juwel oder einen soliden Bestandshalter kauft.</p>
+    </div>
+    <div class="dcard">
+      <span class="dnum">IV</span>
+      <div class="dtitle">Dachgeschoßausbau</div>
+      <p class="dtext">Viele Wiener Gründerzeit-Zinshäuser verfügen über ausbaufähige Dachgeschosse — genehmigt oder genehmigungsfähig. Ein ausgebautes Dachgeschoss kann den Wert eines Hauses um 15–30% steigern. Die Genehmigungssituation, die Statik und die Erschließbarkeit sind dabei entscheidend — und von außen kaum sichtbar. Genau hier zahlt sich tiefe Marktkenntnis aus.</p>
+    </div>
+  </div>
+
+  <!-- Markt Stats inline -->
+  <div style="margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)">
+    <div style="background:var(--sand);padding:2.2rem 1.8rem;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">70 cm</div>
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone)">Typische Mauerstärke Gründerzeit</div>
+    </div>
+    <div style="background:var(--sand);padding:2.2rem 1.8rem;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">3,5 m</div>
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone)">Durchschnittliche Raumhöhe Beletage</div>
+    </div>
+    <div style="background:var(--sand);padding:2.2rem 1.8rem;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">70+</div>
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone)">Jahre Nutzungsdauer ohne Generalsanierung</div>
+    </div>
+    <div style="background:var(--sand);padding:2.2rem 1.8rem;text-align:center">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:0.4rem">1848–1918</div>
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone)">Bauzeitraum Wiener Gründerzeit</div>
+    </div>
+  </div>
+</section>
+
+<!-- RISIKEN -->
+<section class="risiken">
+  <div>
+    <div class="eyebrow light">Ehrlichkeit vor Begeisterung</div>
+    <h2 class="display light" style="margin-bottom:2rem">Was man über ein<br>Zinshaus auch<br><em>wissen sollte.</em></h2>
+    <p class="body-text light">Ich verkaufe keine Träume. Ich erläutere Chancen — und spreche dabei immer auch über die Herausforderungen. Denn nur wer beides kennt, trifft eine gute Entscheidung.</p>
+    <div style="margin-top:2.5rem;padding:1.8rem 2rem;border-left:3px solid var(--gold);background:rgba(212,175,58,0.06)">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--cream);line-height:1.6">„Ich sage meinen Kunden immer: Ein Zinshaus ist das Beste, das Sie kaufen können. Aber nur, wenn Sie bereit sind, es auch wirklich zu verstehen."</p>
+      <p style="font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-top:0.9rem">Reinhard Manzl</p>
+    </div>
+  </div>
+  <div style="padding-top:0.5rem">
+    <div class="rpoint">
+      <div class="rlabel">Illiquidität</div>
+      <div class="rtitle">Ein Zinshaus ist kein Tagesgeldkonto.</div>
+      <p class="rtext">Ein Zinshaus ist nicht von heute auf morgen verkäuflich. Transaktionen dauern Monate. Wer kurzfristige Liquidität benötigt, sollte den Zinshausanteil seines Portfolios entsprechend dimensionieren. Das ist kein Makel — es ist die Kehrseite der Stabilität.</p>
+    </div>
+    <div class="rpoint">
+      <div class="rlabel">Mietrecht</div>
+      <div class="rtitle">Das österreichische Mietrecht ist komplex.</div>
+      <p class="rtext">Das Richtwertmietrecht, der Lagezuschlag, die Kategoriemiete — das Wiener Mietrecht gehört zu den kompliziertesten Europas. Wer es nicht kennt, kauft blind. Wer es kennt, sieht darin Chancen, die anderen verborgen bleiben.</p>
+    </div>
+    <div class="rpoint">
+      <div class="rlabel">Instandhaltung</div>
+      <div class="rtitle">Ein Haus will gepflegt werden.</div>
+      <p class="rtext">Dach, Fassade, Aufzug, Hausinstallationen — ein Gründerzeitgebäude erfordert laufende Investitionen. Wer das einkalkuliert und als Teil der Eigenverantwortung versteht, ist gut aufgestellt. Wer darauf nicht vorbereitet ist, wird unangenehm überrascht.</p>
+    </div>
+    <div class="rpoint">
+      <div class="rlabel">Verwalterqualität</div>
+      <div class="rtitle">Die richtige Hausverwaltung entscheidet.</div>
+      <p class="rtext">Ein Zinshaus ist nur so gut wie seine Verwaltung. Eine professionelle Hausverwaltung schützt, steuert und optimiert. Eine schlechte kostet — still, unsichtbar und nachhaltig. Ich helfe meinen Kunden, die richtige zu finden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="fuerwen">
+  <div class="fw-header">
+    <div class="eyebrow center">Für wen ist ein Zinshaus das Richtige?</div>
+    <h2 class="display" style="text-align:center;margin-bottom:0.8rem">Nicht für jeden.<br><em>Aber für die richtigen Menschen.</em></h2>
+    <p>Ein Zinshaus ist keine Anlageform für jedermann. Es braucht die richtige Lebensphase, die richtige Kapitalstruktur — und die richtige Haltung.</p>
+  </div>
+  <div class="fw-grid">
+    <div class="fwcard">
+      <div class="fwnum">01</div>
+      <div class="fwtitle">Nach dem Unternehmensverkauf</div>
+      <div class="fwsub">Der Unternehmer</div>
+      <p class="fwtext">Sie haben Jahrzehnte aufgebaut, riskiert und geführt. Jetzt haben Sie Liquidität — und die Aufgabe, sie dauerhaft anzulegen. Nicht in Papiere, die Sie nachts wachhalten. Sondern in Substanz, die Sie verstehen, die Erträge liefert und die Sie weitergeben können.</p>
+      <span class="fwarrow">→</span>
+    </div>
+    <div class="fwcard">
+      <div class="fwnum">02</div>
+      <div class="fwtitle">Kapital in Substanz wandeln</div>
+      <div class="fwsub">Der strategische Investor</div>
+      <p class="fwtext">Sie denken in Jahrzehnten. Sie wollen keine Überraschungen, keine anonymen Mitinvestoren, keine Fondsausschüttungen nach Gutdünken des Managers. Sie wollen ein reales, kontrollierbares Gut — mit stabiler Ertragsbasis und klarer Logik dahinter.</p>
+      <span class="fwarrow">→</span>
+    </div>
+    <div class="fwcard">
+      <div class="fwnum">03</div>
+      <div class="fwtitle">Erbe sichern & gestalten</div>
+      <div class="fwsub">Familie & Erben</div>
+      <p class="fwtext">Sie wollen ein Gut schaffen, das Bestand hat. Über Generationen. Ein Zinshaus lässt sich intakt weitergeben — als laufende Einnahmequelle, als Symbol von Kontinuität, als Fundament für Familiengeschichten, die noch nicht geschrieben sind.</p>
+      <span class="fwarrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="kontakt">
+  <div>
+    <h2 class="cta-headline">Interessiert? Dann lassen Sie<br>uns <em>einfach reden.</em></h2>
+    <p class="cta-sub">Viele der besten Entscheidungen beginnen mit einem Gespräch ohne Agenda — nur mit dem Gespür, dass es die richtige Richtung ist.</p>
+  </div>
+  <div>
+    <p class="body-text light">Sie brauchen noch kein konkretes Objekt und keine fertige Investitionsplanung. Es reicht, wenn Sie wissen, dass Sie über ein Wiener Zinshaus nachdenken. <strong>Den Rest klären wir gemeinsam — ohne Druck, ohne Verkaufsgespräch.</strong></p>
+    <a href="mailto:office@manzl-immobilien.at" class="btn-white">Gespräch anfragen</a>
+    <a href="tel:+436647501780" class="btn-ghost light">Direkt anrufen</a>
+    <div class="cta-direct">
+      <a href="tel:+436647501780">+43 664 75017803</a><br>
+      <a href="mailto:office@manzl-immobilien.at">office@manzl-immobilien.at</a><br>
+      Hörnesgasse 18/19, 1030 Wien
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Manzl Immobilien GmbH</span>
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <span><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></span>
+</footer>
+
+</body>
+</html>

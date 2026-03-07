@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referenzen – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold:       #D4AF3A;
+    --gold-light: #E2C76A;
+    --navy:       #1A1C33;
+    --navy-light: #2A2D4A;
+    --sand:       #F2EDE5;
+    --cream:      #FAF7F2;
+    --stone:      #7A7265;
+    --border:     rgba(212,175,58,0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--navy);
+    color: var(--navy);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(26,28,51,0.97); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(212,175,58,0.15);
+  }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(242,237,229,0.5); text-decoration: none; transition: color 0.3s; font-weight: 400;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold);
+    padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  /* ─── HEADER ──────────────────────── */
+  .page-header {
+    padding: 9rem 6rem 5rem;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(212,175,58,0.12);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.9rem;
+  }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300; line-height: 1.1; color: var(--cream);
+  }
+  h1.display em { font-style: italic; color: var(--gold); }
+  .intro-text { font-size: 0.95rem; color: rgba(242,237,229,0.6); line-height: 1.9; margin-bottom: 1.2rem; }
+  .diskretion-box {
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    background: rgba(212,175,58,0.06);
+    margin-top: 1.8rem;
+  }
+  .diskretion-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-style: italic;
+    color: var(--cream); line-height: 1.55;
+  }
+
+  /* ─── FILTER ──────────────────────── */
+  .filter-bar {
+    background: var(--navy);
+    padding: 2rem 6rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    border-bottom: 1px solid rgba(212,175,58,0.1);
+  }
+  .filter-btn {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(242,237,229,0.4); border: 1px solid rgba(212,175,58,0.2);
+    padding: 0.5rem 1.2rem; background: none; cursor: pointer;
+    transition: all 0.25s; font-family: 'Montserrat', sans-serif; font-weight: 400;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    color: var(--gold); border-color: var(--gold);
+    background: rgba(212,175,58,0.06);
+  }
+
+  /* ─── KACHELGRID ──────────────────── */
+  .grid-wrapper {
+    background: var(--navy);
+    padding: 3px;
+  }
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+
+  /* Große Kacheln alle 5. und 9. Element */
+  .ref-tile {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    height: 340px;
+    background: var(--navy-light);
+  }
+  .ref-tile.large {
+    grid-column: span 2;
+    height: 420px;
+  }
+  .ref-tile.tall {
+    grid-row: span 2;
+    height: 683px; /* 2x340 + 3px gap */
+  }
+
+  /* Hintergrundfoto */
+  .tile-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Unique Placeholder-Farben */
+  .ref-tile:nth-child(1) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_10.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(2) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_11.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(3) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Zinshaus_Altbau_1.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(4) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_15_bearbeitet.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(5) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_16.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(6) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_26_-_Zuschnitt.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(7) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_1.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(8) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_28.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(9) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_6.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(10) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_13_-_Zuschnitt.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(11) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_7.JPG\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(12) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_15.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(13) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_3.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(14) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_9.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(15) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_14.JPG\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(16) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_6.jpg\'); background-size:cover; background-position:center; }
+
+  /* Foto-Label Platzhalter */
+  .tile-placeholder {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(212,175,58,0.25); text-align: center;
+    pointer-events: none; transition: opacity 0.3s;
+    white-space: nowrap;
+  }
+
+  /* Dezente Bezirks-Info immer sichtbar (unten links) */
+  .tile-label {
+    position: absolute; bottom: 1.2rem; left: 1.4rem;
+    z-index: 2;
+    transition: opacity 0.4s;
+  }
+  .tile-bezirk {
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(212,175,58,0.6);
+  }
+  .tile-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+    font-weight: 300; line-height: 1.2; margin-top: 0.15rem;
+  }
+
+  /* Hover Overlay */
+  .tile-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(26,28,51,0.97) 0%,
+      rgba(26,28,51,0.82) 45%,
+      rgba(26,28,51,0.25) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    display: flex; align-items: flex-end;
+    padding: 2rem 1.8rem;
+  }
+  .ref-tile:hover .tile-overlay    { opacity: 1; }
+  .ref-tile:hover .tile-bg         { transform: scale(1.06); }
+  .ref-tile:hover .tile-label      { opacity: 0; }
+  .ref-tile:hover .tile-placeholder { opacity: 0; }
+
+  /* Overlay Content */
+  .tile-info {
+    width: 100%;
+    transform: translateY(8px);
+    transition: transform 0.45s ease;
+  }
+  .ref-tile:hover .tile-info { transform: translateY(0); }
+
+  .ti-bezirk {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .ti-bezirk::before { content:''; display:block; width:1.2rem; height:1px; background:var(--gold); }
+  .ti-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; color: white; font-weight: 300;
+    line-height: 1.25; margin-bottom: 1rem;
+  }
+  .large .ti-title { font-size: 1.6rem; }
+  .ti-meta {
+    display: flex; flex-wrap: wrap; gap: 1.2rem 2rem;
+    border-top: 1px solid rgba(212,175,58,0.2);
+    padding-top: 0.9rem; margin-bottom: 0.9rem;
+  }
+  .ti-meta-item {}
+  .ti-meta-label {
+    font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(212,175,58,0.55); margin-bottom: 0.2rem;
+  }
+  .ti-meta-value { font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight: 400; }
+  .ti-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+  }
+  .ti-status::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+  /* ─── COUNTER-LEISTE ──────────────── */
+  .counter-bar {
+    background: var(--navy);
+    border-top: 1px solid rgba(212,175,58,0.12);
+    border-bottom: 1px solid rgba(212,175,58,0.12);
+    padding: 3rem 6rem;
+    display: flex; justify-content: space-around; align-items: center;
+    gap: 2rem;
+  }
+  .counter-item { text-align: center; }
+  .counter-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; color: var(--gold); line-height: 1;
+  }
+  .counter-label {
+    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(242,237,229,0.4); margin-top: 0.4rem;
+  }
+  .counter-divider { width: 1px; height: 3rem; background: rgba(212,175,58,0.2); }
+
+  /* ─── ABSCHLUSS ───────────────────── */
+  .closing {
+    background: var(--navy);
+    padding: 5rem 6rem;
+    border-top: 1px solid rgba(212,175,58,0.1);
+    display: flex; justify-content: space-between; align-items: center; gap: 4rem;
+  }
+  .closing-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 300; color: var(--cream); line-height: 1.35; max-width: 48ch;
+  }
+  .closing-text em { font-style: italic; color: var(--gold-light); }
+  .btn-gold {
+    background: var(--gold); color: white; padding: 1rem 2.8rem;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; display: inline-block; transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif; font-weight: 500; white-space: nowrap;
+  }
+  .btn-gold:hover { background: white; color: var(--navy); }
+
+  /* ─── FOOTER ──────────────────────── */
+  footer {
+    background: #0F1120; color: rgba(242,237,229,0.35);
+    padding: 2.5rem 6rem; display: flex;
+    justify-content: space-between; align-items: center;
+    font-size: 0.72rem; letter-spacing: 0.05em;
+  }
+  footer a { color: rgba(242,237,229,0.35); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="manzl-konzept.html">
+    <img src="/mnt/user-data/uploads/Instagram-02.jpg" alt="Manzl Immobilien" style="height:40px;width:auto;display:block;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="manzl-konzept.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="manzl-konzept.html#investoren">Für Investoren</a></li>
+    <li><a href="manzl-konzept.html#dienst">Leistungen</a></li>
+    <li><a href="manzl-konzept.html#story">Über mich</a></li>
+    <li><a href="referenzen.html" class="active">Referenzen</a></li>
+  </ul>
+  <a href="manzl-konzept.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div>
+    <div class="eyebrow">Ausgewählte Transaktionen</div>
+    <h1 class="display">Jedes Haus hat<br>eine <em>Geschichte.</em><br>Manche bleiben<br>zwischen uns.</h1>
+  </div>
+  <div>
+    <p class="intro-text">Diskretion ist kein Marketingversprechen — sie ist die Grundlage dieser Arbeit. Die folgenden Objekte wurden vertraulich vermittelt. Namen, genaue Adressen und Kaufpreise bleiben auf Wunsch unserer Klienten ungenannt.</p>
+    <p class="intro-text">Was bleibt, ist das Wesentliche: die Substanz der Häuser, die Art der Transaktion und das Vertrauen, das beide Seiten in den Prozess gesetzt haben.</p>
+    <div class="diskretion-box">
+      <p>„Ich könnte jeden dieser Deals öffentlich ausschreiben. Ich tue es nicht — weil meine Klienten es nicht wollen. Und das ist mir wichtiger als jede Eigenwerbung."</p>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTER -->
+<div class="counter-bar">
+  <div class="counter-item">
+    <div class="counter-num">80+</div>
+    <div class="counter-label">Vermittelte Objekte</div>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <div class="counter-num">15+</div>
+    <div class="counter-label">Jahre Erfahrung</div>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <div class="counter-num">100%</div>
+    <div class="counter-label">Off-Market</div>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <div class="counter-num">Wien</div>
+    <div class="counter-label">Fokus & Expertise</div>
+  </div>
+</div>
+
+<!-- KACHELGRID -->
+<div class="grid-wrapper">
+  <div class="ref-grid">
+
+    <!-- Kachel 1 – GROSS -->
+    <div class="ref-tile large">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">3. Bezirk</div>
+        <div class="tile-name">Gründerzeit-Zinshaus</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">3. Bezirk · Landstraße</div>
+        <div class="ti-title">Gründerzeit-Zinshaus<br>Baujahr 1898</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">24 Wohnungen · 3 Geschäfte</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Privatstiftung</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Art</div><div class="ti-meta-value">Off-Market · nicht inseriert</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 2 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">8. Bezirk</div>
+        <div class="tile-name">Josefstadt</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">8. Bezirk · Josefstadt</div>
+        <div class="ti-title">Gründerzeithaus mit<br>Dachgeschoss-Potenzial</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">18 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Family Office</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 3 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">6. Bezirk</div>
+        <div class="tile-name">Mariahilf · Eckzinshaus</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">6. Bezirk · Mariahilf</div>
+        <div class="ti-title">Eckzinshaus · erstmals<br>seit 40 Jahren am Markt</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">31 Wohnungen · 5 Geschäfte</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Verkäufer</div><div class="ti-meta-value">Erbengemeinschaft</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 4 – HOCH -->
+    <div class="ref-tile tall">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">9. Bezirk</div>
+        <div class="tile-name">Ensemble · 2 Häuser</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">9. Bezirk · Alsergrund</div>
+        <div class="ti-title">Gründerzeit-Ensemble<br>zwei zusammenhängende<br>Häuser</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">42 Wohnungen gesamt</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Unternehmer nach Exit</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Besonderheit</div><div class="ti-meta-value">Parifizierungspotenzial</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 5 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">4. Bezirk</div>
+        <div class="tile-name">Wieden · Innenhof</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">4. Bezirk · Wieden</div>
+        <div class="ti-title">Historisches Zinshaus<br>mit Innenhof · 1884</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">16 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Privatinvestor</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 6 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">7. Bezirk</div>
+        <div class="tile-name">Neubau · Bestlage</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">7. Bezirk · Neubau</div>
+        <div class="ti-title">Gründerzeithaus<br>voll vermietet · Bestlage</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">20 Wohnungen · 2 Ateliers</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Art</div><div class="ti-meta-value">Portfolioankauf</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 7 – GROSS -->
+    <div class="ref-tile large">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">5. Bezirk</div>
+        <div class="tile-name">Margareten · Nachlass</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">5. Bezirk · Margareten</div>
+        <div class="ti-title">Erste Transaktion<br>seit 1962</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">27 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Verkäufer</div><div class="ti-meta-value">Erbe · Einzelperson</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Begleitung</div><div class="ti-meta-value">8 Monate · ohne Druck</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 8 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">2. Bezirk</div>
+        <div class="tile-name">Leopoldstadt</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">2. Bezirk · Leopoldstadt</div>
+        <div class="ti-title">Gründerzeithaus<br>mit Substanzwert</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">22 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Family Office</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 9 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">15. Bezirk</div>
+        <div class="tile-name">Rudolfsheim</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">15. Bezirk · Rudolfsheim</div>
+        <div class="ti-title">Zinshaus mit<br>Mietzinsreserve</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">19 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Privatinvestor</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 10 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">12. Bezirk</div>
+        <div class="tile-name">Meidling</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">12. Bezirk · Meidling</div>
+        <div class="ti-title">Gründerzeit-Zinshaus<br>Dachausbau realisiert</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">25 Wohnungen + 3 DG</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Projektentwickler</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 11 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">16. Bezirk</div>
+        <div class="tile-name">Ottakring</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">16. Bezirk · Ottakring</div>
+        <div class="ti-title">Gründerzeithaus<br>Off-Market Ankauf</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">21 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Privatstiftung</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 12 – GROSS -->
+    <div class="ref-tile large">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">1. Bezirk</div>
+        <div class="tile-name">Innere Stadt · Rarität</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">1. Bezirk · Innere Stadt</div>
+        <div class="ti-title">Historisches Stadthaus<br>direkte Eigentümeransprache</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Art</div><div class="ti-meta-value">Geschäftshaus mit Wohnteil</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Internationaler Investor</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Besonderheit</div><div class="ti-meta-value">Nie öffentlich angeboten</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 13 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">14. Bezirk</div>
+        <div class="tile-name">Penzing</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">14. Bezirk · Penzing</div>
+        <div class="ti-title">Zinshaus mit<br>großem Grundstück</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">14 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Privatinvestor</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 14 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">10. Bezirk</div>
+        <div class="tile-name">Favoriten</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">10. Bezirk · Favoriten</div>
+        <div class="ti-title">Gründerzeithaus<br>Wachstumslage</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">28 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Unternehmer</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 15 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">13. Bezirk</div>
+        <div class="tile-name">Hietzing</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">13. Bezirk · Hietzing</div>
+        <div class="ti-title">Villenzinshaus<br>besondere Lage</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Art</div><div class="ti-meta-value">Villenzinshaus</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Käufer</div><div class="ti-meta-value">Family Office</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+    <!-- Kachel 16 -->
+    <div class="ref-tile">
+      <div class="tile-bg"></div>
+      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-label">
+        <div class="tile-bezirk">18. Bezirk</div>
+        <div class="tile-name">Währing</div>
+      </div>
+      <div class="tile-overlay"><div class="tile-info">
+        <div class="ti-bezirk">18. Bezirk · Währing</div>
+        <div class="ti-title">Gründerzeit-Zinshaus<br>generationenübergabe</div>
+        <div class="ti-meta">
+          <div class="ti-meta-item"><div class="ti-meta-label">Einheiten</div><div class="ti-meta-value">20 Wohnungen</div></div>
+          <div class="ti-meta-item"><div class="ti-meta-label">Verkäufer</div><div class="ti-meta-value">Erbschaft · Familie</div></div>
+        </div>
+        <div class="ti-status">Erfolgreich vermittelt</div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABSCHLUSS -->
+<div class="closing">
+  <div class="closing-text">
+    Auch Ihr Haus hat eine Geschichte.<br>
+    <em>Ich helfe Ihnen, das nächste Kapitel zu schreiben.</em>
+  </div>
+  <a href="manzl-konzept.html#kontakt" class="btn-gold">Gespräch anfragen</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/mnt/user-data/uploads/Instagram-02.jpg" alt="Manzl Immobilien" style="height:28px;width:auto;opacity:0.7;">
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <span><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></span>
+</footer>
+
+</body>
+</html>
