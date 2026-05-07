@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:       #D4AF3A;
+    --gold-light: #E2C76A;
+    --navy:       #1A1C33;
+    --sand:       #F2EDE5;
+    --cream:      #FAF7F2;
+    --stone:      #7A7265;
+    --border:     rgba(212,175,58,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── EYEBROW ── */
+  .eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.9rem;
+  }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+  .eyebrow.light { color: var(--gold-light); }
+  .eyebrow.light::before { background: var(--gold-light); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,247,242,0.95); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo-inline { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+  .logo-svg { height: 36px; width: auto; }
+  .logo-text {
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+    font-size: 0.9rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy); line-height: 1.3;
+  }
+  .logo-text span { display: block; }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--stone); text-decoration: none; transition: color 0.3s; font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold);
+    padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 72px;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 75% 50%, rgba(212,175,58,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-header-inner {
+    padding: 6rem 6rem 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: end; position: relative; z-index: 1;
+  }
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300;
+    line-height: 1.1; color: var(--cream);
+  }
+  .page-header h1 em { font-style: italic; color: var(--gold-light); }
+  .page-header-sub {
+    font-size: 0.92rem; color: rgba(242,237,229,0.45); line-height: 1.9;
+  }
+  .header-ornament {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(212,175,58,0.08) 55%, transparent 100%);
+    margin: 0 6rem;
+    position: relative; z-index: 1;
+  }
+
+  /* ── JOB LISTINGS ── */
+  .jobs-section {
+    padding: 7rem 6rem 9rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .jobs-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: end; margin-bottom: 5rem;
+  }
+  .jobs-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300;
+    line-height: 1.15; color: var(--navy);
+  }
+  .jobs-intro h2 em { font-style: italic; color: var(--gold); }
+  .jobs-intro-text {
+    font-size: 0.92rem; color: var(--stone); line-height: 1.95;
+  }
+
+  /* ── JOB CARDS ── */
+  .jobs-grid {
+    display: flex; flex-direction: column; gap: 2px;
+    background: var(--border);
+  }
+
+  .job-card {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: start;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .job-card:hover { background: var(--sand); }
+  .job-card.open { background: var(--sand); }
+
+  .job-card-top {
+    padding: 2.8rem 3rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 2rem;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .job-tag {
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.6rem; font-weight: 500;
+  }
+  .job-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400;
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  .job-meta {
+    display: flex; gap: 2rem; align-items: center;
+  }
+  .job-meta-item {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--stone); font-weight: 400;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .job-meta-item::before {
+    content: ''; display: block; width: 4px; height: 4px;
+    background: var(--gold); border-radius: 50%;
+  }
+  .job-meta-item:first-child::before { display: none; }
+
+  .job-toggle {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.4rem; line-height: 1;
+    transition: all 0.3s; flex-shrink: 0;
+    font-weight: 300;
+  }
+  .job-card.open .job-toggle {
+    background: var(--gold); color: white; border-color: var(--gold);
+  }
+  .job-toggle-icon { transition: transform 0.35s; display: block; }
+  .job-card.open .job-toggle-icon { transform: rotate(45deg); }
+
+  /* ── JOB DETAIL PANEL ── */
+  .job-detail {
+    display: none;
+    padding: 0 3rem 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .job-card.open .job-detail { display: block; }
+
+  .job-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+    padding-top: 2.5rem;
+  }
+
+  .detail-block { }
+  .detail-block-title {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    padding-bottom: 0.9rem; border-bottom: 1px solid var(--border);
+    margin-bottom: 1.2rem;
+  }
+  .detail-block p {
+    font-size: 0.88rem; color: var(--stone); line-height: 1.9; margin-bottom: 0.7rem;
+  }
+  .detail-block p:last-child { margin-bottom: 0; }
+  .detail-list {
+    list-style: none; display: flex; flex-direction: column; gap: 0.55rem;
+  }
+  .detail-list li {
+    font-size: 0.88rem; color: var(--stone); line-height: 1.65;
+    display: flex; gap: 0.8rem; align-items: flex-start;
+  }
+  .detail-list li::before {
+    content: '—'; color: var(--gold); font-size: 0.7rem;
+    margin-top: 0.25rem; flex-shrink: 0;
+  }
+
+  .job-apply-bar {
+    margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .job-apply-text {
+    font-size: 0.85rem; color: var(--stone); line-height: 1.7;
+  }
+  .job-apply-text a { color: var(--gold); text-decoration: none; }
+  .job-apply-text a:hover { color: var(--navy); }
+  .btn-apply {
+    background: var(--gold); color: white;
+    padding: 0.9rem 2.2rem; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; text-decoration: none;
+    display: inline-block; transition: background 0.3s; font-weight: 500;
+    white-space: nowrap; flex-shrink: 0; margin-left: 2rem;
+  }
+  .btn-apply:hover { background: var(--navy); }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    background: var(--navy);
+    padding: 5rem 6rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 4rem;
+  }
+  .cta-strip h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300;
+    color: var(--cream); line-height: 1.2;
+  }
+  .cta-strip h3 em { font-style: italic; color: var(--gold-light); }
+  .cta-strip p {
+    font-size: 0.88rem; color: rgba(242,237,229,0.45); margin-top: 0.8rem; line-height: 1.8;
+  }
+  .btn-cta-white {
+    background: transparent; color: var(--gold-light);
+    border: 1px solid rgba(212,175,58,0.4);
+    padding: 1rem 2.5rem; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; text-decoration: none;
+    display: inline-block; transition: all 0.3s; font-weight: 500; white-space: nowrap;
+  }
+  .btn-cta-white:hover { background: var(--gold); border-color: var(--gold); color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F1120; color: rgba(242,237,229,0.35);
+    padding: 2.5rem 6rem; display: flex; justify-content: space-between;
+    align-items: center; font-size: 0.72rem; letter-spacing: 0.05em;
+  }
+  footer a { color: rgba(242,237,229,0.35); text-decoration: none; transition: color 0.3s; }
+  footer a:hover { color: var(--gold-light); }
+  .f-logo {
+    font-family: 'Montserrat', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(242,237,229,0.5); font-weight: 300;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+  .page-header-inner > * { animation: fadeUp 0.8s ease both; }
+  .page-header-inner > *:nth-child(2) { animation-delay: 0.1s; }
+  .job-card { animation: fadeUp 0.7s ease both; }
+  .job-card:nth-child(1) { animation-delay: 0.15s; }
+  .job-card:nth-child(2) { animation-delay: 0.25s; }
+  .job-card:nth-child(3) { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-inline">
+    <svg class="logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="5" width="50" height="50" rx="1" stroke="#D4AF3A" stroke-width="1.5"/>
+      <path d="M15 42V22l15-8 15 8v20" stroke="#D4AF3A" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M22 42v-10h16v10" stroke="#D4AF3A" stroke-width="1.2"/>
+      <path d="M30 14v4" stroke="#D4AF3A" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/>
+    </svg>
+    <div class="logo-text">
+      <span>Manzl</span>
+      <span>Immobilien</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="index.html#investoren">Für Investoren</a></li>
+    <li><a href="index.html#dienst">Leistungen</a></li>
+    <li><a href="index.html#story">Über mich</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="eyebrow light">Karriere</div>
+      <h1>Werden Sie Teil<br>unseres <em>Teams.</em></h1>
+    </div>
+    <p class="page-header-sub">
+      Wir suchen außergewöhnliche Persönlichkeiten, die den Wiener Zinshausmarkt mit uns gestalten — diskret, fokussiert und mit Leidenschaft.
+    </p>
+  </div>
+  <div class="header-ornament"></div>
+</div>
+
+<!-- JOBS -->
+<div class="jobs-section">
+
+  <div class="jobs-intro">
+    <div>
+      <div class="eyebrow">Offene Stellen</div>
+      <h2>Drei Positionen.<br><em>Eine Haltung.</em></h2>
+    </div>
+    <p class="jobs-intro-text">Manzl Immobilien ist kein großes Büro mit hundert Maklern. Wir sind ein kleines, fokussiertes Team — und genau deshalb zählt jede Person. Wenn Sie sich in dem wiedererkennen, was wir tun, freuen wir uns auf Ihre Bewerbung.</p>
+  </div>
+
+  <div class="jobs-grid">
+
+    <!-- ── JOB 1: Investment Consultant ── -->
+    <div class="job-card" id="job1">
+      <div class="job-card-top" onclick="window.location='job-investment-consultant.html'">
+        <div>
+          <div class="job-tag">Stellenbeschreibung</div>
+          <div class="job-title">Investment Consultant</div>
+          <div class="job-meta">
+            <span class="job-meta-item">Vollzeit</span>
+            <span class="job-meta-item">Wien</span>
+            <span class="job-meta-item">Immobilienberatung</span>
+          </div>
+        </div>
+        <div class="job-toggle">
+          <span class="job-toggle-icon">+</span>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-grid">
+          <div class="detail-block">
+            <div class="detail-block-title">Über die Position</div>
+            <p>Die Manzl Immobilien GmbH ist ein etabliertes und professionelles Unternehmen im Bereich der Vermittlung Investment Immobilien. Wir sind spezialisiert auf die Vermarktung und den Verkauf von hochwertigen Immobilien und suchen zur Verstärkung unseres Teams einen tatkräftigen Investment Consultant.</p>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihre Aufgaben</div>
+            <ul class="detail-list">
+              <li>Beratung und Betreuung von Investoren im Bereich Investment Immobilien – Zinshäuser</li>
+              <li>Analyse und Bewertung von Immobilienobjekten</li>
+              <li>Erstellung von Investmentstrategien und -konzepten</li>
+              <li>Verhandlung und Abschluss von Verträgen</li>
+              <li>Pflege und Ausbau von Kundenbeziehungen</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihr Profil</div>
+            <ul class="detail-list">
+              <li>Erstklassiges Auftreten und beste Umgangsformen</li>
+              <li>Hohe Allgemeinbildung und Fleiß</li>
+              <li>Einsatzbereitschaft und Teamfähigkeit</li>
+              <li>Sehr gute Deutschkenntnisse sowie mindestens eine weitere Sprache</li>
+              <li>Sicherer Umgang mit Zahlen und analytische Fähigkeiten</li>
+              <li>Akademische Ausbildung sowie Vertriebs- und Immobilienerfahrung von Vorteil</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-detail-grid" style="margin-top:2rem">
+          <div class="detail-block" style="grid-column: 1 / -1">
+            <div class="detail-block-title">Wir bieten</div>
+            <ul class="detail-list" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem">
+              <li>Ein dynamisches und motiviertes Team</li>
+              <li>Spannende Projekte in einem wachsenden Unternehmen</li>
+              <li>Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung</li>
+              <li>Ein angenehmes Arbeitsklima und flexible Arbeitszeiten</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-apply-bar">
+          <p class="job-apply-text">Senden Sie Ihre vollständigen Bewerbungsunterlagen an <a href="/cdn-cgi/l/email-protection#315e5757585254715c505f4b5d1c585c5c5e53585d58545f1f5045"><span class="__cf_email__" data-cfemail="2e414848474d4b6e434f40544203474343414c4742474b40004f5a">[email&#160;protected]</span></a></p>
+          <a href="/cdn-cgi/l/email-protection#c6a9a0a0afa5a386aba7a8bcaaebafababa9a4afaaafa3a8e8a7b2f9b5b3a4aca3a5b2fb84a3b1a3b4a4b3a8a1e68fa8b0a3b5b2aba3a8b2e685a9a8b5b3aab2a7a8b2" class="btn-apply">Jetzt bewerben</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JOB 2: Social Media ── -->
+    <div class="job-card" id="job2">
+      <div class="job-card-top" onclick="window.location='job-social-media.html'">
+        <div>
+          <div class="job-tag">für Immobilienunternehmen gesucht</div>
+          <div class="job-title">Social-Media-Betreuer/-in</div>
+          <div class="job-meta">
+            <span class="job-meta-item">9 Std./Woche</span>
+            <span class="job-meta-item">Wien / Homeoffice</span>
+            <span class="job-meta-item">Marketing</span>
+          </div>
+        </div>
+        <div class="job-toggle">
+          <span class="job-toggle-icon">+</span>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-grid">
+          <div class="detail-block">
+            <div class="detail-block-title">Über die Position</div>
+            <p>Wir suchen zur Verstärkung unseres Teams einen kreativen und engagierten Social Media Betreuer/-in für 9 Stunden pro Woche. Die Manzl Immobilien GmbH ist spezialisiert auf die Vermarktung und den Verkauf von hochwertigen Immobilien.</p>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihre Aufgaben</div>
+            <ul class="detail-list">
+              <li>Erstellung und Pflege von Content für unsere Social Media Kanäle (LinkedIn, Facebook, Instagram, Pinterest)</li>
+              <li>Entwicklung und Umsetzung von Social Media Marketingstrategien</li>
+              <li>Regelmäßige Analyse und Optimierung der Social Media Aktivitäten</li>
+              <li>Unterstützung des Marketingteams bei verschiedenen Aufgaben</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihr Profil</div>
+            <ul class="detail-list">
+              <li>Erfahrung in der Content-Erstellung und im Social Media Marketing</li>
+              <li>Fundierte Kenntnisse der gängigen Social Media Plattformen</li>
+              <li>Kreativität und ein Auge für ansprechende Gestaltung</li>
+              <li>Teamplayer mit Begeisterung für Immobilien</li>
+              <li>Eigeninitiative und selbstständige Arbeitsweise</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-detail-grid" style="margin-top:2rem">
+          <div class="detail-block" style="grid-column: 1 / -1">
+            <div class="detail-block-title">Wir bieten</div>
+            <ul class="detail-list" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem">
+              <li>Flexible Arbeitszeiten</li>
+              <li>Möglichkeit zur teilweisen Arbeit im Homeoffice</li>
+              <li>Spannende Projekte in einem wachsenden Unternehmen</li>
+              <li>Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-apply-bar">
+          <p class="job-apply-text">Senden Sie Ihre vollständigen Bewerbungsunterlagen an <a href="/cdn-cgi/l/email-protection#80efe6e6e9e3e5c0ede1eefaecade9ededefe2e9ece9e5eeaee1f4"><span class="__cf_email__" data-cfemail="660900000f0503260b07081c0a4b0f0b0b09040f0a0f0308480712">[email&#160;protected]</span></a></p>
+          <a href="/cdn-cgi/l/email-protection#49262f2f202a2c09242827332564202424262b2025202c2767283d763a3c2b232c2a3d740b2c3e2c3b2b3c272e691a262a20282564042c2d2028640b2c3d3b2c3c2c3b" class="btn-apply">Jetzt bewerben</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JOB 3: Grafiker ── -->
+    <div class="job-card" id="job3">
+      <div class="job-card-top" onclick="window.location='job-grafiker.html'">
+        <div>
+          <div class="job-tag">Stellenbeschreibung</div>
+          <div class="job-title">Grafiker/-in</div>
+          <div class="job-meta">
+            <span class="job-meta-item">20 Std./Woche</span>
+            <span class="job-meta-item">Wien / Homeoffice</span>
+            <span class="job-meta-item">Design & Marketing</span>
+          </div>
+        </div>
+        <div class="job-toggle">
+          <span class="job-toggle-icon">+</span>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-grid">
+          <div class="detail-block">
+            <div class="detail-block-title">Über die Position</div>
+            <p>Wir suchen zur Verstärkung unseres Teams einen kreativen und engagierten Grafiker (m/w/d) für 20 Stunden pro Woche. Die Manzl Immobilien GmbH ist spezialisiert auf die Vermarktung und den Verkauf von hochwertigen Immobilien.</p>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihre Aufgaben</div>
+            <ul class="detail-list">
+              <li>Fotografie von Immobilienobjekten</li>
+              <li>Erstellung von ansprechenden Exposés</li>
+              <li>Gestaltung von Werbematerialien für verschiedene Kanäle</li>
+              <li>Unterstützung des Marketingteams bei grafischen Aufgaben</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <div class="detail-block-title">Ihr Profil</div>
+            <ul class="detail-list">
+              <li>Fundierte Kenntnisse in Adobe-Produkten (Photoshop, Illustrator, InDesign)</li>
+              <li>Analytische Fähigkeiten und ein Auge für Details</li>
+              <li>Teamplayer mit Begeisterung für Immobilien</li>
+              <li>Kreativität und gestalterisches Talent</li>
+              <li>Erfahrung in der Immobilienbranche von Vorteil, aber nicht zwingend erforderlich</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-detail-grid" style="margin-top:2rem">
+          <div class="detail-block" style="grid-column: 1 / -1">
+            <div class="detail-block-title">Wir bieten</div>
+            <ul class="detail-list" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem">
+              <li>Flexible Arbeitszeiten</li>
+              <li>Möglichkeit zur teilweisen Arbeit im Homeoffice</li>
+              <li>Spannende Projekte in einem wachsenden Unternehmen</li>
+              <li>Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-apply-bar">
+          <p class="job-apply-text">Senden Sie Ihre vollständigen Bewerbungsunterlagen an <a href="/cdn-cgi/l/email-protection#177871717e7472577a76796d7b3a7e7a7a78757e7b7e7279397663"><span class="__cf_email__" data-cfemail="83ece5e5eae0e6c3eee2edf9efaeeaeeeeece1eaefeae6edade2f7">[email&#160;protected]</span></a></p>
+          <a href="/cdn-cgi/l/email-protection#83ece5e5eae0e6c3eee2edf9efaeeaeeeeece1eaefeae6edade2f7bcf0f6e1e9e6e0f7bec1e6f4e6f1e1f6ede4a3c4f1e2e5eae8e6f1" class="btn-apply">Jetzt bewerben</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end jobs-grid -->
+</div><!-- end jobs-section -->
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div>
+    <h3>Keine passende Stelle?<br><em>Wir freuen uns trotzdem.</em></h3>
+    <p>Schicken Sie uns eine Initiativbewerbung — außergewöhnliche Menschen finden bei uns immer ein offenes Ohr.</p>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#6b040d0d02080e2b060a0511074602060604090207020e0545

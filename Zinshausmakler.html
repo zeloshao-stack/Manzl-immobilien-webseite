@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was ist ein Zinshausmakler? – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --sand: #F2EDE5; --cream: #FAF7F2; --navy: #1A1C33; --navy-light: #2A2D4A; --text: #2C2A24;
+    --gold: #D4AF3A; --gold-light: #E2C76A;
+    --stone: #7A7265; --border: rgba(212,175,58,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  .eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.9rem; }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+  .eyebrow.light { color: var(--gold-light); }
+  .eyebrow.light::before { background: var(--gold-light); }
+
+  h2.display { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; color: var(--navy); }
+  h2.display em { font-style: italic; color: var(--gold); }
+  h2.display.light { color: var(--cream); }
+  h2.display.light em { color: var(--gold-light); }
+
+  .body-text { font-size: 0.97rem; color: var(--stone); line-height: 1.95; margin-bottom: 1.4rem; }
+  .body-text strong { color: var(--navy); font-weight: 400; }
+  .body-text.light { color: rgba(242,237,229,0.68); }
+  .body-text.light strong { color: var(--sand); }
+
+  .btn-primary { background: var(--gold); color: white; padding: 0.9rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background: var(--navy); }
+  .btn-ghost { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
+  .btn-ghost::after { content: '→'; }
+  .btn-ghost:hover { color: var(--gold); }
+  .btn-ghost.light { color: rgba(242,237,229,0.55); }
+  .btn-ghost.light:hover { color: var(--gold-light); }
+  .btn-white { background: white; color: var(--gold); padding: 1rem 2.8rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s; margin-right: 1rem; }
+  .btn-white:hover { background: var(--gold); color: white; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 4rem; background: rgba(250,247,242,0.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.77rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold); color: white; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; background: var(--navy); position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(212,175,58,0.07) 0%, transparent 65%); pointer-events: none; }
+
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 7rem 4rem 7rem 6rem; position: relative; z-index: 2; }
+  .hero-breadcrumb { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(212,175,58,0.55); margin-bottom: 3rem; }
+  .hero-breadcrumb a { color: rgba(212,175,58,0.55); text-decoration: none; }
+  .hero-breadcrumb a:hover { color: var(--gold-light); }
+  .hero-breadcrumb span { margin: 0 0.6rem; }
+
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 2.2rem; }
+  .hero-headline em { font-style: italic; color: var(--gold-light); }
+
+  .hero-intro { font-size: 1rem; color: rgba(242,237,229,0.58); max-width: 46ch; line-height: 2; margin-bottom: 3rem; }
+
+  .hero-actions { display: flex; gap: 1.6rem; align-items: center; }
+
+  .hero-right { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-word-art { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 4rem; gap: 1.4rem; opacity: 0.06; user-select: none; pointer-events: none; }
+  .hw-row { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--gold); white-space: nowrap; letter-spacing: 0.05em; animation: drift 18s ease-in-out infinite; }
+  .hw-row:nth-child(2) { animation-delay: -6s; transform: translateX(-3%); }
+  .hw-row:nth-child(3) { animation-delay: -12s; transform: translateX(2%); }
+  @keyframes drift { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-4%)} }
+  .hero-card { position: relative; z-index: 2; background: rgba(242,237,229,0.06); border: 1px solid rgba(212,175,58,0.2); padding: 3rem; max-width: 380px; backdrop-filter: blur(4px); }
+  .hero-card-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.2rem; }
+  .hero-card-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); line-height: 1.55; }
+  .hero-card-attr { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(212,175,58,0.5); margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(212,175,58,0.15); }
+
+  /* LEAD */
+  .lead { background: var(--cream); padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
+  .lead-pull { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.3; color: var(--navy); position: sticky; top: 6rem; }
+  .lead-pull em { font-style: italic; color: var(--gold); }
+  .lead-pull .sig { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); margin-top: 1.5rem; display: block; }
+  .lead-body p { font-size: 1rem; color: var(--stone); line-height: 2.05; margin-bottom: 1.6rem; }
+  .lead-body p strong { color: var(--navy); font-weight: 400; }
+  .lead-divider { width: 3rem; height: 1px; background: var(--gold); margin: 2rem 0; opacity: 0.4; }
+
+  /* NOT A MAKLER */
+  .contrast { background: var(--sand); padding: 7rem 6rem; }
+  .contrast-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contrast-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--navy); margin-bottom: 2.5rem; }
+  .contrast-title em { font-style: italic; color: var(--gold); }
+  .contrast-list { display: flex; flex-direction: column; gap: 0; }
+  .citem { border-top: 1px solid rgba(212,175,58,0.2); padding: 1.5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .citem:last-child { border-bottom: 1px solid rgba(212,175,58,0.2); }
+  .citem-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); padding-top: 0.15rem; }
+  .citem-col { display: flex; flex-direction: column; gap: 0.8rem; }
+  .col-head { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(212,175,58,0.15); margin-bottom: 0.2rem; }
+  .col-head.other { color: rgba(122,114,101,0.5); }
+  .col-head.zins { color: var(--gold); }
+  .citem-other { font-size: 0.88rem; color: rgba(122,114,101,0.55); line-height: 1.7; }
+  .citem-zins { font-size: 0.88rem; color: var(--navy); line-height: 1.7; }
+
+  /* STADTLESER */
+  .stadtleser { background: var(--navy); padding: 8rem 6rem; }
+  .stadtleser-header { text-align: center; max-width: 58ch; margin: 0 auto 5rem; }
+  .stadtleser-header h2 { margin-bottom: 1.5rem; }
+  .stadtleser-header p { font-size: 0.95rem; color: rgba(242,237,229,0.5); line-height: 1.95; }
+  .stadtleser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(212,175,58,0.12); }
+  .slcard { background: var(--navy); padding: 3rem 2.4rem; transition: background 0.35s; }
+  .slcard:hover { background: var(--navy-light); }
+  .sl-icon { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(212,175,58,0.12); line-height: 1; margin-bottom: 1.4rem; }
+  .sl-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.8rem; font-weight: 300; }
+  .sl-text { font-size: 0.88rem; color: rgba(242,237,229,0.48); line-height: 1.9; }
+  .sl-detail { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(212,175,58,0.12); font-size: 0.82rem; color: rgba(212,175,58,0.55); font-style: italic; line-height: 1.75; }
+
+  /* VERTRAUTER */
+  .vertrauter { background: var(--cream); padding: 8rem 6rem; display: grid; grid-template-columns: 1.1fr 1fr; gap: 7rem; align-items: start; }
+  .vertrauter-left { }
+  .pull-quote { margin: 2.5rem 0; padding: 2rem 2.2rem; border-left: 3px solid var(--gold); background: rgba(212,175,58,0.05); }
+  .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--navy); line-height: 1.55; }
+  .vertrauter-right { padding-top: 1rem; }
+  .vcard { border-top: 1px solid var(--border); padding: 1.8rem 0; }
+  .vcard:last-child { border-bottom: 1px solid var(--border); }
+  .vcard-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .vcard-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.6rem; font-weight: 400; }
+  .vcard-text { font-size: 0.87rem; color: var(--stone); line-height: 1.9; }
+
+  /* WAS ER HANDELT */
+  .handelt { background: var(--gold); padding: 7rem 6rem; }
+  .handelt-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+  .handelt-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; color: white; }
+  .handelt-headline em { font-style: italic; }
+  .handelt-sub { font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.95; margin-top: 1.5rem; }
+  .handelt-items { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.2); }
+  .hitem { background: rgba(255,255,255,0.1); padding: 1.8rem; transition: background 0.3s; }
+  .hitem:hover { background: rgba(255,255,255,0.18); }
+  .hitem-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.6rem; }
+  .hitem-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: white; line-height: 1.45; font-weight: 300; }
+
+  /* WORAN MAN IHN ERKENNT */
+  .erkennt { background: var(--sand); padding: 8rem 6rem; }
+  .erkennt-header { max-width: 58ch; margin-bottom: 4.5rem; }
+  .erkennt-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
+  .ecard { background: var(--sand); padding: 2.5rem 2rem; transition: background 0.3s; position: relative; }
+  .ecard:hover { background: var(--cream); }
+  .ecard-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(212,175,58,0.15); line-height: 1; margin-bottom: 1.2rem; }
+  .ecard-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.7rem; font-weight: 400; }
+  .ecard-text { font-size: 0.85rem; color: var(--stone); line-height: 1.9; }
+  .ecard-note { margin-top: 1rem; font-size: 0.8rem; color: rgba(212,175,58,0.7); font-style: italic; }
+
+  /* NEIN SAGEN */
+  .nein { background: var(--navy); padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+  .nein-pull { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 300; color: var(--cream); line-height: 1.2; }
+  .nein-pull em { font-style: italic; color: var(--gold-light); }
+  .nein-body p { font-size: 0.95rem; color: rgba(242,237,229,0.55); line-height: 2; margin-bottom: 1.4rem; }
+  .nein-body p strong { color: var(--sand); font-weight: 400; }
+
+  /* CTA */
+  .cta { background: var(--cream); padding: 8rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; border-top: 1px solid var(--border); }
+  .cta-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; color: var(--navy); line-height: 1.12; }
+  .cta-headline em { font-style: italic; color: var(--gold); }
+  .cta-sub { font-size: 0.88rem; color: var(--stone); margin-top: 1.2rem; max-width: 38ch; line-height: 1.9; }
+  .cta-direct { margin-top: 2rem; font-size: 0.88rem; color: var(--stone); line-height: 2.4; }
+  .cta-direct a { color: var(--gold); text-decoration: none; }
+  .cta-direct a:hover { color: var(--navy); }
+  .cta-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+
+  /* FOOTER */
+  footer { background: #0E1020; color: rgba(242,237,229,0.3); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.73rem; letter-spacing: 0.05em; }
+  footer a { color: rgba(242,237,229,0.3); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+  .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(242,237,229,0.5); font-weight: 300; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  .hero-left > * { animation: fadeUp 0.9s ease both; }
+  .hero-left > *:nth-child(1){animation-delay:0s}
+  .hero-left > *:nth-child(2){animation-delay:0.1s}
+  .hero-left > *:nth-child(3){animation-delay:0.2s}
+  .hero-left > *:nth-child(4){animation-delay:0.35s}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Manzl <span>Immobilien</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Zinshäuser</a></li>
+    <li><a href="#">Für Investoren</a></li>
+    <li><a href="#">Leistungen</a></li>
+    <li><a href="#">Über mich</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-breadcrumb">
+      <a href="#">Manzl Immobilien</a><span>·</span>Ratgeber<span>·</span>Der Zinshausmakler
+    </div>
+    <div class="eyebrow light">Ein Beruf. Eine Welt.</div>
+    <h1 class="hero-headline">Er heißt Makler.<br>Aber er ist<br><em>etwas völlig<br>anderes.</em></h1>
+    <p class="hero-intro">Ein Zinshausmakler kennt keine Portale. Er kennt Menschen. Er kennt Häuser. Er kennt Geschichten — die hinter den Fassaden, und die hinter den Investoren. Das macht ihn zu einem der seltensten Berufe, die Wien kennt.</p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Gespräch anfragen</a>
+      <a href="#was-er-ist" class="btn-ghost light">Mehr erfahren</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-word-art">
+      <div class="hw-row">Vertrauen · Substanz · Geschichte · Netzwerk</div>
+      <div class="hw-row">Kenntnis · Geduld · Diskretion · Erfahrung</div>
+      <div class="hw-row">Verbindung · Urteil · Stille · Handwerk</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Worum es geht</div>
+      <div class="hero-card-quote">„Er handelt nicht mit Häusern. Er handelt mit Vertrauen — und Häuser sind das Ergebnis davon."</div>
+      <div class="hero-card-attr">Reinhard Manzl · Manzl Immobilien GmbH</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD -->
+<section class="lead" id="was-er-ist">
+  <div>
+    <div class="lead-pull">
+      „Der Zinshausmakler ist keine Kategorie im Branchenverzeichnis. Er ist eine<em> Haltung.</em>"
+      <span class="sig">Eine Einführung in einen unterschätzten Beruf</span>
+    </div>
+  </div>
+  <div class="lead-body">
+    <div class="eyebrow">Was er ist — und was er nicht ist</div>
+    <p>Wenn man das Wort „Makler" hört, denkt man an Exposés. An Besichtigungstermine. An Provisionsgespräche. An jemanden, der ein Haus zeigt und hofft, dass es gekauft wird. Das ist ein Bild — aber es ist <strong>nicht das Bild des Zinshausmaklers.</strong></p>
+    <p>Ein Zinshausmakler betritt selten ein Haus zum ersten Mal, wenn er es zeigt. Er kennt es. Er hat es bewertet, analysiert, beobachtet. Er weiß, wie alt die Leitungen sind, ob der Dachboden ausgebaut werden kann, wie die Mieterstruktur aussieht und was das Haus in fünf Jahren wert sein könnte — unter drei verschiedenen Szenarien.</p>
+    <p>Er ist nicht derjenige, der ein Objekt verkauft. Er ist derjenige, <strong>der die Verbindung herstellt</strong> — zwischen dem, was jemand sucht, und dem, was jemand hat. Diese Verbindung ist selten offensichtlich. Meistens muss sie erst gedacht werden, bevor sie existiert.</p>
+    <div class="lead-divider"></div>
+    <p>Was ihn von jedem anderen Makler unterscheidet, ist nicht Ausbildung, nicht Zulassung, nicht einmal Erfahrung allein. Es ist die Art, wie er eine Stadt liest. Wie er Gebäude versteht. Und wie er mit Menschen umgeht — ohne Agenda, ohne Eile, ohne das Gespräch auf einen Abschluss hinzusteuern.</p>
+    <p>Für viele seiner Kunden ist er kein Dienstleister. Er ist jemand, den man anruft. Jemand, dessen Urteil man vertraut — so wie man einem guten Arzt vertraut: nicht weil man ihn jeden Monat sieht, sondern weil man weiß, dass er ehrlich ist, wenn es darauf ankommt.</p>
+  </div>
+</section>
+
+<!-- CONTRAST -->
+<section class="contrast">
+  <div class="contrast-inner">
+    <div>
+      <div class="eyebrow">Der Unterschied</div>
+      <h2 class="contrast-title">Was einen<br>Zinshausmakler<br>von allen anderen<br><em>trennt.</em></h2>
+      <p class="body-text">Es ist keine Frage des Fleißes oder der Kompetenz. Es ist eine Frage des Fokus — und was dieser Fokus über Jahre hinweg erzeugt: eine Tiefe, die nicht simulierbar ist.</p>
+    </div>
+    <div class="contrast-list">
+      <div class="citem" style="grid-template-columns:1fr; gap:0; padding-bottom:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding-bottom:1rem">
+          <div class="col-head other">Allgemeiner Makler</div>
+          <div class="col-head zins">Zinshausmakler</div>
+        </div>
+      </div>
+      <div class="citem">
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+          <div>
+            <div class="citem-label" style="margin-bottom:0.4rem">Objekte</div>
+            <div class="citem-other">Breites Portfolio — Wohnungen, Gewerbe, Häuser, alles</div>
+          </div>
+          <div>
+            <div class="citem-zins">Ausschließlich Zinshäuser und ausgewählte verwandte Assetklassen</div>
+          </div>
+        </div>
+      </div>
+      <div class="citem">
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+          <div>
+            <div class="citem-label" style="margin-bottom:0.4rem">Wie er Käufer findet</div>
+            <div class="citem-other">Portale, Inserate, Reichweite, Bewerbung</div>
+          </div>
+          <div>
+            <div class="citem-zins">Direktkontakt aus dem Netzwerk — keine Inserate, keine öffentliche Suche</div>
+          </div>
+        </div>
+      </div>
+      <div class="citem">
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+          <div>
+            <div class="citem-label" style="margin-bottom:0.4rem">Was er weiß</div>
+            <div class="citem-other">Preis, Lage, Zustand — was im Inserat steht</div>
+          </div>
+          <div>
+            <div class="citem-zins">Substanzwert, Mietrecht, Mietzinsreserve, Parifizierung, Dachpotenzial, Eigentümerhistorie</div>
+          </div>
+        </div>
+      </div>
+      <div class="citem">
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+          <div>
+            <div class="citem-label" style="margin-bottom:0.4rem">Sein Ziel</div>
+            <div class="citem-other">Transaktion abschließen</div>
+          </div>
+          <div>
+            <div class="citem-zins">Die richtige Verbindung herstellen — auch wenn das bedeutet, Nein zu sagen</div>
+          </div>
+        </div>
+      </div>
+      <div class="citem">
+        <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+          <div>
+            <div class="citem-label" style="margin-bottom:0.4rem">Nach dem Abschluss</div>
+            <div class="citem-other">Nächstes Objekt</div>
+          </div>
+          <div>
+            <div class="citem-zins">Ansprechpartner für Folgefragen, Weitervermittlungen, neue Möglichkeiten</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STADTLESER -->
+<section class="stadtleser">
+  <div class="stadtleser-header">
+    <div class="eyebrow light" style="justify-content:center">Was er kann</div>
+    <h2 class="display light" style="text-align:center">Er liest die Stadt.<br><em>Wie andere Texte lesen.</em></h2>
+    <p>Der Zinshausmakler sieht nicht, was andere sehen. Er geht durch eine Straße und nimmt wahr, was hinter den Fassaden steckt — nicht mit übermenschlicher Gabe, sondern mit der stillen Akkumulation von 15 Jahren Aufmerksamkeit.</p>
+  </div>
+  <div class="stadtleser-grid">
+    <div class="slcard">
+      <div class="sl-icon">I</div>
+      <div class="sl-title">Er sieht das Haus hinter dem Haus</div>
+      <p class="sl-text">Was gebaut ist, ist sichtbar. Was möglich wäre — das ist sein Territorium. Dachgeschoßausbau, Parifizierung, Entmietung, Revitalisierung. Er bewertet nicht nur den Ist-Zustand, sondern den Spielraum, den ein Objekt in der Zukunft hat.</p>
+      <p class="sl-detail">Ein erfahrener Zinshausmakler erkennt das Potenzial eines Hauses auf dem ersten Gehweg davor — bevor er die Tür geöffnet hat.</p>
+    </div>
+    <div class="slcard">
+      <div class="sl-icon">II</div>
+      <div class="sl-title">Er kennt die Eigentümer, bevor sie verkaufen</div>
+      <p class="sl-text">Zinshäuser landen selten auf dem Markt. Sie wandern von Hand zu Hand — diskret, direkt, ohne öffentlichen Auftritt. Der Zinshausmakler kennt diese Wege. Er weiß, wem ein Haus gehört, seit wann, und manchmal — ob und wann es den Besitzer wechseln wird.</p>
+      <p class="sl-detail">Das ist kein Zufall. Das ist das Ergebnis von Jahrzehnten verlässlicher Beziehungspflege.</p>
+    </div>
+    <div class="slcard">
+      <div class="sl-icon">III</div>
+      <div class="sl-title">Er versteht das Recht hinter dem Stein</div>
+      <p class="sl-text">Das österreichische Mietrecht ist komplex, historisch gewachsen und oft entscheidend für den tatsächlichen Wert eines Hauses. Richtzins, Mietzinsreserve, Kategoriemiete, Befristungen — ein echter Zinshausmakler navigiert diese Welt ohne Steuerberater als Übersetzer.</p>
+      <p class="sl-detail">Was ein Haus auf dem Papier kostet, und was es wert ist — das sind oft zwei sehr verschiedene Zahlen. Er kennt beide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VERTRAUTER -->
+<section class="vertrauter" id="vertrauter">
+  <div class="vertrauter-left">
+    <div class="eyebrow">Der Mensch dahinter</div>
+    <h2 class="display" style="margin-bottom:1.8rem">Er hört zu,<br>bevor er spricht.<br><em>Das ist selten.</em></h2>
+    <p class="body-text">Ein Zinshaus kaufen oder verkaufen ist keine Routineentscheidung. Es ist oft die größte finanzielle Entscheidung im Leben eines Menschen. Dahinter steckt immer mehr als ein Kaufpreis — ein Lebenswerk, eine Erbschaft, eine Familiengeschichte, eine Unsicherheit.</p>
+    <p class="body-text">Ein guter Zinshausmakler weiß das. Er hat gelernt, den Menschen hinter dem Kapital zu sehen. Und er hat gelernt, <strong>Geduld für Entscheidungen aufzubringen</strong>, die Zeit brauchen — nicht weil er muss, sondern weil er versteht, warum das so ist.</p>
+    <div class="pull-quote">
+      <p>„Manche meiner Gespräche dauern zwei Stunden und enden ohne Auftrag. Und trotzdem sind sie die wichtigsten Gespräche, die ich führe."</p>
+    </div>
+    <p class="body-text">Das klingt ungeschäftsmäßig. Für einen normalen Makler wäre es das auch. Für einen Zinshausmakler ist es Investition — in Vertrauen, das sich nicht in einem Quartal rechnet, aber über zehn Jahre alles bedeutet.</p>
+  </div>
+  <div class="vertrauter-right">
+    <div class="vcard">
+      <div class="vcard-label">Beim Unternehmer</div>
+      <div class="vcard-title">Er spricht die Sprache des Machers</div>
+      <p class="vcard-text">Jemand, der ein Unternehmen aufgebaut und verkauft hat, braucht keinen Vortrag über den Wiener Zinshausmarkt. Er braucht einen Gesprächspartner auf Augenhöhe — jemanden, der Substanz versteht, Risiken klar benennt und keine Zeit verschwendet.</p>
+    </div>
+    <div class="vcard">
+      <div class="vcard-label">Beim Erben</div>
+      <div class="vcard-title">Er gibt Orientierung ohne Druck</div>
+      <p class="vcard-text">Wer geerbt hat, steht oft vor einer Entscheidung, die er sich nicht ausgesucht hat. Ein Zinshausmakler gibt hier keinen Rat, der seinen Interessen dient. Er gibt Klarheit — was das Haus wirklich ist, was die Optionen sind, was die Konsequenzen bedeuten. Und dann lässt er den Menschen entscheiden.</p>
+    </div>
+    <div class="vcard">
+      <div class="vcard-label">Bei der Familie</div>
+      <div class="vcard-title">Er denkt in Generationen</div>
+      <p class="vcard-text">Eine Familie, die ein Zinshaus kauft, denkt nicht an die nächsten fünf Jahre. Sie denkt an die nächste Generation. Der Zinshausmakler begleitet diese Entscheidung mit dem Bewusstsein, dass er nicht nur eine Transaktion begleitet — sondern den Beginn einer langen Geschichte.</p>
+    </div>
+    <div class="vcard">
+      <div class="vcard-label">Beim Investor</div>
+      <div class="vcard-title">Er sagt auch einmal: nicht dieses Haus.</div>
+      <p class="vcard-text">Ein erfahrener Zinshausmakler ist nicht an jedem Abschluss interessiert. Er ist an guten Abschlüssen interessiert — für beide Seiten. Wenn ein Objekt nicht passt, sagt er es. Das ist das Gegenteil von dem, was man von einem Verkäufer erwartet. Und genau deshalb vertraut man ihm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAS ER HANDELT -->
+<section class="handelt">
+  <div class="handelt-inner">
+    <div>
+      <h2 class="handelt-headline">Was er wirklich<br>handelt — und<br>es sind <em>keine<br>Häuser.</em></h2>
+      <p class="handelt-sub">Häuser sind das sichtbare Ergebnis. Aber das, womit ein Zinshausmakler tatsächlich handelt, ist unsichtbar — und deshalb so wertvoll.</p>
+    </div>
+    <div class="handelt-items">
+      <div class="hitem">
+        <div class="hitem-label">Gut 01</div>
+        <div class="hitem-text">Vertrauen, das über Jahre gewachsen ist</div>
+      </div>
+      <div class="hitem">
+        <div class="hitem-label">Gut 02</div>
+        <div class="hitem-text">Wissen, das sich nicht googeln lässt</div>
+      </div>
+      <div class="hitem">
+        <div class="hitem-label">Gut 03</div>
+        <div class="hitem-text">Zugänge, die für andere verschlossen bleiben</div>
+      </div>
+      <div class="hitem">
+        <div class="hitem-label">Gut 04</div>
+        <div class="hitem-text">Urteilsvermögen, das kein Algorithmus ersetzt</div>
+      </div>
+      <div class="hitem">
+        <div class="hitem-label">Gut 05</div>
+        <div class="hitem-text">Diskretion, die nie verhandelt wird</div>
+      </div>
+      <div class="hitem">
+        <div class="hitem-label">Gut 06</div>
+        <div class="hitem-text">Geduld für Entscheidungen, die Zeit brauchen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORAN MAN IHN ERKENNT -->
+<section class="erkennt">
+  <div class="erkennt-header">
+    <div class="eyebrow">Wie man ihn findet</div>
+    <h2 class="display" style="margin-bottom:1.2rem">Woran man einen<br>echten Zinshausmakler<br><em>erkennt.</em></h2>
+    <p class="body-text">Es gibt Menschen, die sich Zinshausspezialisten nennen. Und es gibt Menschen, die es sind. Der Unterschied zeigt sich nicht im Gespräch über das Objekt — er zeigt sich davor.</p>
+  </div>
+  <div class="erkennt-grid">
+    <div class="ecard">
+      <div class="ecard-num">01</div>
+      <div class="ecard-title">Er fragt zuerst nach Ihnen</div>
+      <p class="ecard-text">Nicht nach dem Budget. Nicht nach dem Wunschobjekt. Sondern: Wer sind Sie? Warum jetzt? Was ist Ihnen wirklich wichtig? Ein echter Zinshausmakler beginnt nie mit dem Haus.</p>
+      <p class="ecard-note">Das erste Gespräch ist sein Kompass — nicht sein Pitch.</p>
+    </div>
+    <div class="ecard">
+      <div class="ecard-num">02</div>
+      <div class="ecard-title">Er hat keine Inserate</div>
+      <p class="ecard-text">Wenn Sie seinen Namen googeln und eine Liste an Objekten finden, ist er kein Zinshausmakler. Die Objekte, mit denen er arbeitet, sind nie öffentlich. Sie entstehen aus Gesprächen — und enden in Vertrauen.</p>
+      <p class="ecard-note">Die besten Häuser erscheinen nie online.</p>
+    </div>
+    <div class="ecard">
+      <div class="ecard-num">03</div>
+      <div class="ecard-title">Er sagt Ihnen, was er nicht empfiehlt</div>
+      <p class="ecard-text">Ein guter Zinshausmakler sagt Ihnen, wenn ein Objekt nicht zu Ihnen passt. Und er sagt Ihnen, warum. Ehrlichkeit, die unbequem ist, ist das wertvollste, was er Ihnen geben kann.</p>
+      <p class="ecard-note">Vertrauen entsteht nicht durch das Ja — sondern durch das ehrliche Nein.</p>
+    </div>
+    <div class="ecard">
+      <div class="ecard-num">04</div>
+      <div class="ecard-title">Sie kennen ihn durch jemanden</div>
+      <p class="ecard-text">Man findet einen echten Zinshausmakler selten durch Werbung. Man findet ihn durch Empfehlung — durch jemanden, dem er geholfen hat und der dafür dankt, indem er ihn weiterempfiehlt.</p>
+      <p class="ecard-note">Sein bestes Marketing ist die Stille nach einem guten Abschluss.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEIN SAGEN -->
+<section class="nein">
+  <div class="nein-pull">
+    Nur wer<em> Nein </em>sagen kann,<br>verdient das<em> Ja.</em>
+  </div>
+  <div class="nein-body">
+    <div class="eyebrow light">Eine Frage der Integrität</div>
+    <p>Es gibt einen Moment im Leben jedes Zinshausmaklers, in dem er zwischen einem guten Abschluss und einem ehrlichen Rat wählen muss. Ein normaler Makler macht den Abschluss. Ein guter Zinshausmakler gibt den Rat — auch wenn er selbst nichts dabei verdient.</p>
+    <p>Das klingt idealistisch. Aber es ist <strong>reine Kalkulation</strong>: Wer einen Kunden einmal falsch beraten hat, hat ihn verloren. Und sein ganzes Netzwerk vielleicht gleich mit. In einem Markt, der so klein und persönlich ist wie der Wiener Zinshausmarkt, überlebt man nicht mit schlechten Entscheidungen für andere.</p>
+    <p>Deshalb ist das Nein nicht Nächstenliebe. Es ist das Fundament eines Rufes, der länger hält als jede einzelne Provision. Es ist der Grund, warum Menschen nach zehn Jahren zurückkommen — nicht zum Makler, sondern zum Menschen, dem sie vertrauen.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="kontakt">
+  <div>
+    <h2 class="cta-headline">Lernen Sie<br>einen echten<br><em>Zinshausmakler<br>kennen.</em></h2>
+    <p class="cta-sub">Kein Termin. Kein Auftrag. Kein Druck. Einfach ein Gespräch — über Wien, über Zinshäuser, über das, was Sie beschäftigt.</p>
+    <div class="cta-direct">
+      <a href="tel:+436647501780">+43 664 75017803</a><br>
+      <a href="mailto:office@manzl-immobilien.at">office@manzl-immobilien.at</a><br>
+      <span style="color:var(--stone)">Hörnesgasse 18/19, 1030 Wien</span>
+    </div>
+  </div>
+  <div class="cta-actions">
+    <p class="body-text" style="max-width:40ch">Reinhard Manzl führt seit mehr als 15 Jahren diskrete Zinshausvermittlungen in Wien — ausschließlich auf Empfehlung. Wenn Sie diesen Artikel gelesen haben, wissen Sie bereits, worum es geht.</p>
+    <a href="mailto:office@manzl-immobilien.at" class="btn-primary">Gespräch anfragen</a>
+    <a href="tel:+436647501780" class="btn-ghost">Direkt anrufen</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Manzl Immobilien GmbH</span>
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <span><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></span>
+</footer>
+
+</body>
+</html>
