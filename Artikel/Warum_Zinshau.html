@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warum überhaupt einZinshaus kaufen? – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#D4AF3A;--gold-light:#E2C76A;--gold-dark:#B8951F;
+  --navy:#1A1C33;--navy-light:#2A2D4A;
+  --sand:#F2EDE5;--cream:#FAF7F2;--stone:#7A7265;
+  --border:rgba(212,175,58,0.22);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--navy);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* PROGRESS BAR */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:300;width:0%;transition:width .1s linear}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(250,247,242,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-links{display:flex;gap:2.4rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s;font-weight:400}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.6rem 1.4rem;text-decoration:none;transition:all .3s;font-weight:500}
+.nav-cta:hover{background:var(--gold);color:white}
+.logo-placeholder{height:36px;padding:0 1rem;border:1.5px dashed rgba(212,175,58,.45);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,58,.5);display:flex;align-items:center;justify-content:center;min-width:90px;font-family:'Montserrat',sans-serif;font-weight:400;text-decoration:none}
+
+/* ARTICLE HERO */
+.article-hero{padding-top:72px;min-height:72vh;display:flex;align-items:center;justify-content:center;background:var(--navy);position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(212,175,58,.07) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 85% 20%,rgba(212,175,58,.04) 0%,transparent 60%)}
+/* animated windows */
+.hero-facade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.facade-grid{display:flex;flex-direction:column;gap:12px;opacity:.04}
+.facade-row{display:flex;gap:12px}
+.fwin{width:24px;height:38px;border:2px solid var(--gold);border-radius:7px 7px 0 0;background:rgba(212,175,58,.3);animation:wglow 7s ease-in-out infinite}
+.fwin.t{height:50px}
+.fwin:nth-child(2){animation-delay:1.4s}.fwin:nth-child(3){animation-delay:3s}.fwin:nth-child(4){animation-delay:.7s}.fwin:nth-child(5){animation-delay:4.2s}
+@keyframes wglow{0%,75%,100%{background:rgba(212,175,58,.3)}40%{background:rgba(212,175,58,.7)}}
+
+.article-hero-inner{position:relative;z-index:1;max-width:820px;padding:7rem 2rem 5rem;text-align:center;animation:fadeUp .9s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.article-eyebrow{font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1.2rem}
+.article-eyebrow::before,.article-eyebrow::after{content:'';display:block;width:2.5rem;height:1px;background:var(--gold);opacity:.4}
+.article-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:1.8rem}
+.article-title em{font-style:italic;color:var(--gold-light)}
+.article-meta{font-size:.8rem;color:rgba(242,237,229,.4);letter-spacing:.05em}
+.article-meta a{color:var(--gold-light);text-decoration:none}
+
+/* BREADCRUMB */
+.article-breadcrumb{display:flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,229,.3);margin-bottom:1.5rem;justify-content:center}
+.article-breadcrumb a{color:rgba(212,175,58,.5);text-decoration:none;transition:color .3s}
+.article-breadcrumb a:hover{color:var(--gold-light)}
+.article-breadcrumb span{color:rgba(212,175,58,.25)}
+
+/* ARTICLE LAYOUT */
+.article-wrap{display:grid;grid-template-columns:1fr min(720px,100%) 1fr;padding:5rem 0 6rem}
+.article-wrap>*{grid-column:2}
+.article-wrap .bleed{grid-column:1/-1}
+
+/* TYPOGRAPHY */
+.lead,.article-wrap p.intro{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:300;line-height:1.68;color:var(--navy);margin-bottom:2rem}
+.article-wrap p,.article-wrap .p{font-size:.96rem;color:var(--stone);line-height:2;margin-bottom:1.5rem}
+.article-wrap p strong,.article-wrap .p strong{color:var(--navy);font-weight:500}
+.article-wrap h2,.article-wrap .h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1.2;color:var(--navy);margin:3rem 0 1.2rem;padding-left:2rem}
+.article-wrap h2 em,.article-wrap .h2 em{font-style:italic;color:var(--gold)}
+.article-wrap h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--navy);margin:2rem 0 .8rem}
+
+/* PULL QUOTE */
+.pull-quote,.article-wrap .pull-quote{grid-column:2;padding:2rem 2.5rem;border-left:3px solid var(--gold);background:var(--sand);margin:2rem 0;font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-style:italic;color:var(--navy);line-height:1.6}
+.pull-quote p,.article-wrap .pull-quote p{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-style:italic;color:var(--navy);line-height:1.6;margin:0}
+
+/* ACCENT BOX */
+.accent-box,.article-wrap .accent-box{background:var(--navy);padding:2rem 2.5rem;margin:2rem 0;border-left:3px solid var(--gold)}
+.accent-box p,.article-wrap .accent-box p{color:rgba(242,237,229,.75);font-size:.9rem;line-height:1.9;margin:0}
+.accent-box p strong,.article-wrap .accent-box p strong{color:var(--gold-light);font-weight:400}
+
+/* IMAGE PLACEHOLDER */
+.article-image{background:var(--sand);height:360px;display:flex;align-items:center;justify-content:center;margin:2.5rem 0;position:relative;border:1px dashed rgba(212,175,58,.25)}
+.article-image::after{content:attr(data-label);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(168,120,67,.4);text-align:center;padding:1rem;position:absolute}
+.article-image.wide{grid-column:1/-1;height:480px}
+
+/* TOC sidebar */
+.toc{position:fixed;right:2rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.8rem;z-index:100}
+.toc a{width:6px;height:6px;border-radius:50%;background:rgba(212,175,58,.25);display:block;transition:all .3s;position:relative}
+.toc a:hover,.toc a.active{background:var(--gold);transform:scale(1.4)}
+.toc a .toc-label{position:absolute;right:1rem;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);opacity:0;transition:opacity .25s;pointer-events:none;background:var(--cream);padding:.2rem .5rem;border:1px solid var(--border)}
+.toc a:hover .toc-label{opacity:1}
+
+/* STAT BOXES */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:2rem 0}
+.stat-box{background:var(--sand);padding:1.5rem 1.8rem;border-left:2px solid var(--gold)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:.3rem;font-weight:300}
+.stat-lbl{font-size:.76rem;color:var(--stone);line-height:1.5}
+
+/* CONTRAST SECTION */
+.contrast-section{background:var(--navy);padding:4rem 0;grid-column:1/-1;margin:3rem 0}
+.contrast-inner{max-width:900px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contrast-section h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:1rem}
+.contrast-section h2 em{font-style:italic;color:var(--gold-light)}
+.contrast-section p{font-size:.88rem;color:rgba(242,237,229,.5);line-height:1.9}
+.contrast-list .citem{border-top:1px solid rgba(212,175,58,.15);padding:1.4rem 0;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.citem-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.citem-text{font-size:.85rem;color:rgba(242,237,229,.55);line-height:1.75}
+.citem-text.hi{color:rgba(242,237,229,.85)}
+
+/* CTA STRIP */
+.article-cta{background:var(--navy);padding:4rem 2rem;text-align:center;grid-column:1/-1;margin-top:3rem}
+.article-cta h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:1rem}
+.article-cta h3 em{font-style:italic;color:var(--gold-light)}
+.article-cta p{font-size:.88rem;color:rgba(242,237,229,.45);max-width:42ch;margin:0 auto 2rem;line-height:1.85}
+.btn-gold{display:inline-block;background:var(--gold);color:white;padding:.9rem 2.4rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:background .3s;font-weight:500;margin-right:1rem}
+.btn-gold:hover{background:var(--navy-light)}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,237,229,.4);text-decoration:none;transition:color .3s}
+.btn-ghost-light:hover{color:var(--gold-light)}
+.btn-ghost-light::after{content:'→'}
+.back-to-einblicke{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;position:relative;z-index:1;margin-bottom:1.5rem}
+.back-to-einblicke::before{content:'←'}
+.back-to-einblicke:hover{color:var(--gold)}
+
+/* FOOTER */
+footer{background:#100C08;color:rgba(242,237,229,.35);padding:2.5rem 6rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;letter-spacing:.05em}
+footer a{color:rgba(242,237,229,.35);text-decoration:none;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(242,237,229,.55);font-weight:300}
+.f-social{display:flex;gap:1.2rem;align-items:center}
+.f-social a{opacity:.45;transition:opacity .3s}
+.f-social a:hover{opacity:1}
+
+/* Normalize old class names from original articles */
+.reveal{opacity:1!important;transform:none!important}
+.article-grid{display:contents}
+.body{display:contents}
+.photo-pair{grid-column:1/-1;height:420px;background:var(--sand);margin:2rem 0;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(212,175,58,.2)}
+.photo-pair::after{content:'📷 Foto einfügen';font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,175,58,.35)}
+.photo-pair img{display:none}
+.eyebrow{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.eyebrow::before{content:'';width:1.5rem;height:1px;background:var(--gold);display:block}
+.eyebrow.light{color:var(--gold-light)}
+.eyebrow.light::before{background:var(--gold-light)}
+.intro-lead{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:300;line-height:1.68;color:var(--navy);margin-bottom:1.8rem}
+.body-text{font-size:.96rem;color:var(--stone);line-height:2;margin-bottom:1.5rem}
+.body-text strong{color:var(--navy);font-weight:500}
+.back-link{display:none}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="index.html" class="logo-placeholder">LOGO</a>
+  <ul class="nav-links">
+    <li><a href="index.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="index.html#investoren">Für Investoren</a></li>
+    <li><a href="index.html#dienst">Leistungen</a></li>
+    <li><a href="einblicke.html">Einblicke</a></li>
+    <li><a href="index.html#story">Über mich</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+
+
+<header class="article-hero">
+  <div class="hero-facade">
+      <div class="facade-grid">
+        <div class="facade-row"><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div></div>
+        <div class="facade-row"><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div></div>
+        <div class="facade-row"><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div></div>
+        <div class="facade-row"><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div></div>
+      </div>
+    </div>
+  <div class="article-hero-inner">
+    <div class="article-breadcrumb"><a href="einblicke.html">Einblicke</a><span>/</span>Markt &amp; Einblicke</div>
+    <div class="article-eyebrow">Markt &amp; Einblicke</div>
+    <h1 class="article-title">Warum überhaupt ein<br><em>Zinshaus</em> kaufen?</h1>
+    <p class="article-meta">Von <a href="index.html#story">Reinhard Manzl</a> · Lesezeit ca. 8 Minuten</p>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <a href="einblicke.html" class="back-to-einblicke">Zurück zu den Einblicken</a>
+
+<p class="intro reveal">Es gibt einen Moment, den jeder kennt, der zum ersten Mal ein Zinshaus besichtigt. Man steht im Eingangsportal, die schwere Tür fällt hinter einem zu — und plötzlich ist die Stadt draußen. Die Augen gewöhnen sich ans Halbdunkel. Die Treppe windet sich nach oben, die gusseisernen Geländer werfen Schatten an die Wand, irgendwo riecht es nach altem Holz und kühlem Stein. Man legt den Kopf in den Nacken und blickt das Stiegenhaus hinauf — drei, vier, fünf Stockwerke, Stuck an der Decke, ein Oberlicht ganz oben, durch das die Sonne fällt. Und dann dieser Gedanke: <em>Das könnte mir gehören.</em></p>
+
+    <p>Kein ETF erzeugt dieses Gefühl. Keine Anleihe. Kein Algorithmus.</p>
+
+    <h2>Etwas besitzen, das man <em>anfassen</em> kann</h2>
+
+    <p>In einer Welt, in der Vermögen zunehmend aus Zahlen auf Bildschirmen besteht — aus Kursverläufen, Token und Depotauszügen — ist ein Zinshaus das radikale Gegenteil. Es steht an einer konkreten Adresse, es hat eine Fassade, die man von der Straße aus sehen kann, und einen Grundbucheintrag, der einem gehört. Es fällt nicht auf null, wenn eine Börse in Panik gerät. Es wird nicht von einem Server gelöscht. Es steht einfach da — wie es seit über hundert Jahren dasteht.</p>
+
+    <p>Es gibt Menschen, die beschreiben den Moment, in dem sie zum ersten Mal die Schlüssel ihres Hauses in der Hand halten, als einen der intensivsten ihres Lebens. Nicht weil sie gerade eine Transaktion abgeschlossen haben, sondern weil sie etwas besitzen, das größer ist als sie selbst. Etwas, das vor ihnen da war und nach ihnen da sein wird. Etwas, das man anfassen, betreten, bewohnen kann.</p>
+
+    <p>Das ist der Unterschied zwischen <strong>Vermögen haben</strong> und <strong>Vermögen sein.</strong></p>
+  </div>
+
+  <!-- PHOTO PAIR -->
+  <div class="article-image wide" data-label="📷 Foto einfügen"></div>
+    <div class="article-image" data-label="📷 Foto einfügen"></div>
+  </div>
+
+  <div class="body" style="padding-top:0">
+
+    <h2>Unikate aus <em>Menschenhand</em></h2>
+
+    <p>Jedes Wiener Zinshaus ist ein Einzelstück. Kein Algorithmus hat die Fassade berechnet, keine CNC-Fräse die Ornamente gefertigt. Steinmetze haben die Portale geschlagen, Stuckateure die Decken modelliert, Schmiede die Geländer gebogen, Zimmerleute die Dachstühle gezimmert. Jedes Haus trägt die Handschrift seiner Erbauer — in der Proportion der Fenster, im Rhythmus der Fassade, in den Details, die man erst beim dritten Hinschauen entdeckt: ein Blütenrelief über einer Tür, ein Monogramm im Gitter, ein Farbglas im Stiegenhausfenster.</p>
+
+    <p>Diese Häuser wurden in einer Epoche gebaut, in der Gebäude nicht nur funktionieren, sondern repräsentieren sollten. Die Gründerzeit wollte beeindrucken — und sie tut es bis heute.</p>
+  </div>
+
+  <!-- DATA ROW -->
+  <div class="data-row wide reveal">
+    <div class="data-cell">
+      <div class="data-num">13.820</div>
+      <div class="data-label">klassische Gründerzeit-Zinshäuser stehen heute noch in Wien</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-num">−13%</div>
+      <div class="data-label">Rückgang des Bestands seit 2009 — kein einziges wird neu gebaut</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-num">+100 J.</div>
+      <div class="data-label">Durchschnittliches Alter — gebaut für Jahrhunderte, nicht Jahrzehnte</div>
+    </div>
+  </div>
+
+  <div class="body" style="padding-top:1.5rem">
+    <p>Wer eines dieser Häuser erwirbt, kauft kein Serienprodukt. Er erwirbt ein Stück gebauter Identität.</p>
+
+    <h2>Der Reiz des <em>Gestaltens</em></h2>
+
+    <p>Ein Zinshaus ist kein passives Investment, das man kauft und liegen lässt. Es ist ein Objekt, das auf seinen Eigentümer reagiert — das sich unter kundiger Hand verändert, entwickelt, verbessert. Genau darin liegt der Reiz, der viele Käufer antreibt, die weit mehr Optionen hätten, ihr Kapital anzulegen.</p>
+
+    <p>Da ist der unausgebaute Dachboden, in dem man schon die künftige Penthouse-Wohnung sieht, während man noch über rohe Balken steigt. Da ist die leerstehende Geschäftsfläche im Erdgeschoss, die nur auf das richtige Konzept wartet. Da ist das Potenzial, ein ganzes Haus — Fassade, Stiegenhaus, Innenhof — in einen Zustand zu bringen, der dem Original wieder gerecht wird. Und da ist der Moment, in dem man Monate später durch das fertig sanierte Stiegenhaus geht und weiß: Das habe ich gemacht.</p>
+
+    <p>Die Werthebel sind dabei real und messbar: Neuvermietungen zu Marktkonditionen, wenn Altverträge auslaufen. Dachgeschossausbauten, die hochwertige Wohnfläche in bester Lage schaffen. Sanierungen, die den Quadratmeterpreis heben. <strong>Der Abstand zwischen Zinshaus-Kaufpreisen (durchschnittlich rund 3.200 Euro pro Quadratmeter) und Eigentumswohnungspreisen (je nach Lage 5.000 bis über 10.000 Euro) ist derzeit historisch hoch</strong> — und damit auch die Marge für jene, die entwickeln können und wollen.</p>
+
+    <p>Aber jenseits der Kalkulation gibt es diese andere Ebene: die Befriedigung, etwas Reales zu schaffen. Nicht ein Portfolio umzuschichten, sondern ein Haus besser zu machen.</p>
+  </div>
+
+  <!-- PULL QUOTE 1 -->
+  <div class="pull-quote bleed reveal">
+    <p>„Das nachhaltigste Gebäude ist jenes, das schon steht. Ein Wiener Zinshaus steht bereits — seit <em>über hundert Jahren.</em>"</p>
+  </div>
+
+  <div class="body" style="padding-top:0">
+
+    <h2>Ertrag, der <em>bleibt</em></h2>
+
+    <p>Die wirtschaftliche Logik eines Zinshauses ist so einfach wie robust: Mehrere Wohnungen unter einem Dach erzeugen mehrere Einkommensströme. Fällt eine Einheit leer, tragen die anderen. Die Mieten sind in der Regel an den Verbraucherpreisindex gekoppelt — steigt die Inflation, steigen die Einnahmen mit. <strong>Die Einstiegsrenditen liegen aktuell großteils über drei, teilweise über vier Prozent</strong> — so hoch wie seit mindestens zehn Jahren nicht.</p>
+
+    <p>Dazu kommt die Substanz: Die Gründerzeit hat massiv gebaut — Ziegelmauern, die einen halben Meter dick sind, Gewölbekeller, Dachstühle aus Eichenholz. Diese Gebäude sind nicht für Jahrzehnte gebaut worden, sondern für Jahrhunderte. Und genau das spiegelt sich in ihrer Wertentwicklung: Häuser, die das Vermögen ihrer Eigentümer seit über hundert Jahren bewahrt haben, werden das aller Wahrscheinlichkeit nach auch weiterhin tun.</p>
+
+    <p>Wer ein Zinshaus kauft, kauft keinen Trend. Er kauft etwas, das älter ist als jeder Trend — <strong>und ihn überdauern wird.</strong></p>
+
+    <h2>Ein <em>begrenztes</em> Gut</h2>
+
+    <p>Wien wächst. Die Stadt investiert in Infrastruktur, die Nachfrage nach zentral gelegenem Wohnraum steigt. Gleichzeitig schrumpft der Bestand an Gründerzeithäusern — kontinuierlich, unumkehrbar. Diese Kombination aus steigender Nachfrage und sinkendem Angebot ist der langfristige Treiber hinter dem Wert dieser Häuser.</p>
+
+    <p>Gut erhaltene Objekte in Top-Lagen werden deshalb zunehmend als das behandelt, was sie sind: <strong>rare Güter.</strong> Sie locken Käufer an, die nicht in Quartalen denken, sondern in Generationen — Stiftungen, Family Offices, Unternehmerfamilien. Menschen, die etwas weitergeben wollen, das mehr ist als eine Kontonummer. Ein Haus mit einer Adresse, einer Geschichte und einem Ertrag.</p>
+
+    <p>Und nebenbei — das sei hier nicht verschwiegen, auch wenn es nicht der Hauptgrund für die meisten Kaufentscheidungen ist — stellt jeder Zinshauseigentümer Wohnraum zur Verfügung. Teils zu Richtwertmieten, die deutlich unter dem Marktniveau liegen. Diese Häuser sind ein wesentlicher Teil der Wiener Wohnversorgung. Wer sie bewirtschaftet, trägt — ob gewollt oder nicht — eine Verantwortung, die über das eigene Investment hinausgeht.</p>
+  </div>
+
+  <!-- PHOTO SINGLE -->
+  <div class="photo-single bleed reveal">
+    <div class="article-image" data-label="📷 Foto einfügen"></div>
+  </div>
+
+  <div class="body" style="padding-top:0">
+
+    <h2>Das nachhaltigste Gebäude ist jenes, das schon steht</h2>
+
+    <p>Über Nachhaltigkeit in der Immobilienbranche wird viel gesprochen — meist im Zusammenhang mit Neubauten, die sich mit Zertifikaten und Energiekennzahlen schmücken. Dabei wird ein Punkt gerne übersehen, der so offensichtlich ist, dass er fast banal klingt: Das nachhaltigste Gebäude ist jenes, das nicht mehr gebaut werden muss.</p>
+
+    <p>Ein Wiener Zinshaus steht bereits. Seit über hundert Jahren. Für seine Errichtung muss kein Quadratmeter Grünfläche versiegelt, kein Boden ausgehoben, kein Beton angemischt werden. Die graue Energie — also die Energie, die in der Herstellung eines Gebäudes steckt — ist längst investiert und amortisiert. <strong>Kein Neubau der Welt kann diese Bilanz erreichen,</strong> egal wie viele Solarpaneele auf seinem Dach liegen.</p>
+
+    <p>Wer ein bestehendes Zinshaus erwirbt und thermisch ertüchtigt, statt auf der grünen Wiese neu zu bauen, handelt im eigentlichen Sinne nachhaltig — nicht als Marketinggeste, sondern als Tatsache. In einer Zeit, in der Bodenversiegelung und Flächenverbrauch zu den drängendsten ökologischen Fragen gehören, ist das ein Argument, das schwerer wiegt, als es auf den ersten Blick scheint.</p>
+
+    <h2>Sanierung: Wer kauft, <em>übernimmt</em></h2>
+
+    <p>Wer ein Zinshaus kauft, kauft immer auch Aufgaben. Die Fassade bröckelt, die Steigleitungen sind alt, der Energieausweis ist ernüchternd. Das gehört dazu und sollte niemanden überraschen, der ernsthaft investieren will. Strengere EU-Vorgaben werden den Druck weiter erhöhen — Häuser ohne belegbaren Energiepfad werden zunehmend schwerer verkäuflich.</p>
+
+    <div class="callout reveal">
+      <p>Aber genau hier liegt auch die Chance: Wer heute in die thermische Ertüchtigung investiert, senkt Betriebskosten, steigert den Objektwert und positioniert sich für eine Zukunft, in der der energetische Zustand zum entscheidenden Preisfaktor wird.</p>
+      <p>Und wer eine Fassade restauriert, wer einen Innenhof begrünt, wer ein Stiegenhaus in seinen ursprünglichen Zustand zurückversetzt — der spürt, dass hier etwas entsteht, das sich mit keiner Renditekennzahl vollständig erfassen lässt.</p>
+    </div>
+  </div>
+
+    <!-- DIE ENTSCHEIDUNG -->
+  <div class="bleed" style="background:var(--navy);padding:6rem 6rem 5rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;right:-1rem;top:-3rem;font-family:'Cormorant Garamond',serif;
+      font-size:20rem;font-weight:300;color:rgba(212,175,58,0.04);line-height:1;pointer-events:none;user-select:none;">E</div>
+    <div style="max-width:820px;margin:0 auto;position:relative;z-index:1;">
+      <div style="font-size:0.68rem;letter-spacing:0.26em;text-transform:uppercase;
+        color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:0.9rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--gold);flex-shrink:0;"></span>
+        Die Entscheidung
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.8vw,1.9rem);
+        font-weight:300;color:rgba(242,237,229,0.85);line-height:1.6;margin-bottom:2rem;">
+        Ein Zinshaus zu kaufen ist nichts für jeden. Die Einstiegshürde liegt im Millionenbereich. Das Wiener Mietrecht ist komplex. Die Bewirtschaftung verlangt Aufmerksamkeit, Sachverstand und Geduld. Es gibt einfachere Wege, Geld anzulegen.
+      </p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.7rem);
+        font-weight:300;font-style:italic;color:var(--gold-light);
+        border-left:3px solid var(--gold);padding-left:1.8rem;margin:0 0 2.5rem;line-height:1.35;">
+        Aber keinen, der sich so anfühlt.
+      </p>
+      <p style="font-size:0.97rem;color:rgba(242,237,229,0.62);line-height:2;max-width:65ch;">
+        Wer ein Zinshaus kauft, erwirbt kein Finanzprodukt. Er erwirbt ein Gebäude mit Ertrag, Geschichte und Substanz. Ein Unikat aus Menschenhand in einer Stadt, die davon lebt. Ein begrenztes Gut, das knapper wird, während die Stadt wächst. Und — vielleicht am wichtigsten — <strong style="color:rgba(242,237,229,0.88);font-weight:400;">etwas, das den eigenen Namen überdauern wird.</strong>
+      </p>
+      <p style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+        color:rgba(212,175,58,0.28);margin-top:3.5rem;padding-top:1.8rem;
+        border-top:1px solid rgba(212,175,58,0.1);">
+        Manzl Immobilien — Zinshäuser mit Substanz
+      </p>
+    </div>
+  </div>
+
+  <!-- PHOTO PAIR 2 -->
+  <div class="article-image wide" data-label="📷 Foto einfügen"></div>
+    <div class="article-image" data-label="📷 Foto einfügen"></div>
+  </div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div>
+    <h2 class="closing-headline reveal">Sie überlegen, ob ein Zinshaus die <em>richtige Entscheidung</em> für Sie ist?</h2>
+  </div>
+  <div class="reveal">
+    <p class="closing-sub">Ich beantworte diese Frage gerne persönlich — ohne Druck, ohne Verkaufsgespräch. Manchmal ist die ehrlichste Antwort auch ein Nein.</p>
+    <a href="manzl-preview.html#kontakt" class="btn-primary">Persönliches Gespräch anfragen</a><br>
+    <a href="manzl-preview.html" class="btn-ghost">Zurück zur Hauptseite</a>
+    <p class="closing-note">Reinhard Manzl · Manzl Immobilien GmbH<br>Hörnesgasse 18/19, 1030 Wien · +43 664 75017803</p>
+
+  <div class="article-cta">
+    <h3>Lassen Sie uns<br><em>einfach reden.</em></h3>
+    <p>Kein Pitch, kein Druck. Ein Gespräch — über das, was Sie suchen, und das, was ich dazu sagen kann.</p>
+    <a href="index.html#kontakt" class="btn-gold">Gespräch anfragen</a>
+    <a href="einblicke.html" class="btn-ghost-light">Weitere Einblicke</a>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">Manzl Immobilien GmbH</span>
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <div class="f-social">
+    <a href="https://www.instagram.com/manzl_immobilien/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.facebook.com/profile.php?id=61568328090911"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="https://www.linkedin.com/company/manzl-immobilien/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+  </div>
+  <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="agb.html">AGB</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+</footer>
+
+<script>
+
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+// TOC active
+const toc = document.querySelectorAll('.toc a');
+if (toc.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        toc.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#'+e.target.id+'"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, {threshold: 0.5});
+  document.querySelectorAll('[id^="sec-"]').forEach(el => io.observe(el));
+}
+
+</script>
+</body>
+</html>

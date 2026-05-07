@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Einblicke – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:        #D4AF3A;
+    --gold-light:  #E2C76A;
+    --navy:        #1A1C33;
+    --navy-light:  #2A2D4A;
+    --sand:        #F2EDE5;
+    --cream:       #FAF7F2;
+    --stone:       #7A7265;
+    --border:      rgba(212,175,58,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.9rem;
+  }
+  .eyebrow::before { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300;
+    line-height: 1.1; color: var(--navy); margin-bottom: 2rem;
+  }
+
+  .body-text { font-size: 0.95rem; color: var(--stone); line-height: 1.95; margin-bottom: 1.4rem; }
+
+  .btn-primary {
+    background: var(--gold); color: white; padding: 0.9rem 2.2rem;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; display: inline-block; transition: background 0.3s;
+  }
+  .btn-primary:hover { background: var(--navy); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,247,242,0.95); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--stone); text-decoration: none; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .hero { padding-top: 100px; text-align: center; padding-bottom: 4rem; }
+  .articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .article-card {
+    background: var(--sand); padding: 2rem; border-left: 3px solid var(--gold);
+    transition: background 0.3s;
+  }
+  .article-card:hover { background: var(--cream); }
+  .article-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    color: var(--navy); margin-bottom: 1rem;
+  }
+  .article-excerpt { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo-inline">
+    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQA...
+" alt="Manzl Immobilien" style="height:24px;width:auto;display:block;filter:brightness(0.65);">
+    <div class="logo-text">MANZL<span>IMMOBILIEN</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="index.html#investoren">Für Investoren</a></li>
+    <li><a href="index.html#dienst">Leistungen</a></li>
+    <li><a href="index.html#story">Über mich</a></li>
+    <li><a href="artikel-zinshaus.html">Einblicke</a></li>
+    <li><a href="Job Seite/jobs.html">Jobs</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="btn-primary">Gespräch anfragen</a>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Einblicke & Wissen</div>
+    <h1>Artikel zu Zinshäusern & Immobilien</h1>
+    <p class="body-text">Hier finden Sie fundierte Artikel und Einblicke in die Welt der Wiener Zinshäuser, Investmentstrategien und Marktanalysen.</p>
+  </div>
+</section>
+
+<section class="articles container">
+  <div class="article-card">
+    <h3 class="article-title">Warum ein Zinshaus kaufen?</h3>
+    <p class="article-excerpt body-text">Entdecken Sie die Vorteile von Zinshäusern als Investment und warum sie eine smarte Wahl für langfristige Rendite sind.</p>
+    <a href="Artikel/Warum ein Zinshaus kaufen.html" class="btn-primary">Lesen</a>
+  </div>
+  <div class="article-card">
+    <h3 class="article-title">Zinshaus als Investment?</h3>
+    <p class="article-excerpt body-text">Eine detaillierte Analyse der Vor- und Nachteile von Zinshäusern als Anlageform.</p>
+    <a href="Artikel/Zinshaus als Investment?.html" class="btn-primary">Lesen</a>
+  </div>
+  <div class="article-card">
+    <h3 class="article-title">Was ist ein Zinshausmakler?</h3>
+    <p class="article-excerpt body-text">Erfahren Sie mehr über die Rolle eines spezialisierten Zinshausmaklers und wie er Ihnen helfen kann.</p>
+    <a href="Artikel/Zinshausmakler.html" class="btn-primary">Lesen</a>
+  </div>
+  <div class="article-card">
+    <h3 class="article-title">Marktbericht 2025</h3>
+    <p class="article-excerpt body-text">Aktuelle Markttrends und Prognosen für den Wiener Immobilienmarkt.</p>
+    <a href="Artikel/marktbericht-2025.html" class="btn-primary">Lesen</a>
+  </div>
+  <div class="article-card">
+    <h3 class="article-title">Off-Market Deals</h3>
+    <p class="article-excerpt body-text">Warum Off-Market-Transaktionen oft die besten Chancen bieten.</p>
+    <a href="Artikel/off-market.html" class="btn-primary">Lesen</a>
+  </div>
+</section>
+
+</body>
+</html>

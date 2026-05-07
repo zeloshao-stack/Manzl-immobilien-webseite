@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warum die besten Häusernie online stehen – Manzl Immobilien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#D4AF3A;--gold-light:#E2C76A;--gold-dark:#B8951F;
+  --navy:#1A1C33;--navy-light:#2A2D4A;
+  --sand:#F2EDE5;--cream:#FAF7F2;--stone:#7A7265;
+  --border:rgba(212,175,58,0.22);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--navy);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* PROGRESS BAR */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:300;width:0%;transition:width .1s linear}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(250,247,242,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-links{display:flex;gap:2.4rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s;font-weight:400}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.6rem 1.4rem;text-decoration:none;transition:all .3s;font-weight:500}
+.nav-cta:hover{background:var(--gold);color:white}
+.logo-placeholder{height:36px;padding:0 1rem;border:1.5px dashed rgba(212,175,58,.45);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,175,58,.5);display:flex;align-items:center;justify-content:center;min-width:90px;font-family:'Montserrat',sans-serif;font-weight:400;text-decoration:none}
+
+/* ARTICLE HERO */
+.article-hero{padding-top:72px;min-height:72vh;display:flex;align-items:center;justify-content:center;background:var(--navy);position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(212,175,58,.07) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 85% 20%,rgba(212,175,58,.04) 0%,transparent 60%)}
+/* animated windows */
+.hero-facade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.facade-grid{display:flex;flex-direction:column;gap:12px;opacity:.04}
+.facade-row{display:flex;gap:12px}
+.fwin{width:24px;height:38px;border:2px solid var(--gold);border-radius:7px 7px 0 0;background:rgba(212,175,58,.3);animation:wglow 7s ease-in-out infinite}
+.fwin.t{height:50px}
+.fwin:nth-child(2){animation-delay:1.4s}.fwin:nth-child(3){animation-delay:3s}.fwin:nth-child(4){animation-delay:.7s}.fwin:nth-child(5){animation-delay:4.2s}
+@keyframes wglow{0%,75%,100%{background:rgba(212,175,58,.3)}40%{background:rgba(212,175,58,.7)}}
+
+.article-hero-inner{position:relative;z-index:1;max-width:820px;padding:7rem 2rem 5rem;text-align:center;animation:fadeUp .9s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.article-eyebrow{font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1.2rem}
+.article-eyebrow::before,.article-eyebrow::after{content:'';display:block;width:2.5rem;height:1px;background:var(--gold);opacity:.4}
+.article-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:1.8rem}
+.article-title em{font-style:italic;color:var(--gold-light)}
+.article-meta{font-size:.8rem;color:rgba(242,237,229,.4);letter-spacing:.05em}
+.article-meta a{color:var(--gold-light);text-decoration:none}
+
+/* BREADCRUMB */
+.article-breadcrumb{display:flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,229,.3);margin-bottom:1.5rem;justify-content:center}
+.article-breadcrumb a{color:rgba(212,175,58,.5);text-decoration:none;transition:color .3s}
+.article-breadcrumb a:hover{color:var(--gold-light)}
+.article-breadcrumb span{color:rgba(212,175,58,.25)}
+
+/* ARTICLE LAYOUT */
+.article-wrap{display:grid;grid-template-columns:1fr min(720px,100%) 1fr;padding:5rem 0 6rem}
+.article-wrap>*{grid-column:2}
+.article-wrap .bleed{grid-column:1/-1}
+
+/* TYPOGRAPHY */
+.lead,.article-wrap p.intro{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:300;line-height:1.68;color:var(--navy);margin-bottom:2rem}
+.article-wrap p,.article-wrap .p{font-size:.96rem;color:var(--stone);line-height:2;margin-bottom:1.5rem}
+.article-wrap p strong,.article-wrap .p strong{color:var(--navy);font-weight:500}
+.article-wrap h2,.article-wrap .h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1.2;color:var(--navy);margin:3rem 0 1.2rem;padding-left:2rem}
+.article-wrap h2 em,.article-wrap .h2 em{font-style:italic;color:var(--gold)}
+.article-wrap h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--navy);margin:2rem 0 .8rem}
+
+/* PULL QUOTE */
+.pull-quote,.article-wrap .pull-quote{grid-column:2;padding:2rem 2.5rem;border-left:3px solid var(--gold);background:var(--sand);margin:2rem 0;font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-style:italic;color:var(--navy);line-height:1.6}
+.pull-quote p,.article-wrap .pull-quote p{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-style:italic;color:var(--navy);line-height:1.6;margin:0}
+
+/* ACCENT BOX */
+.accent-box,.article-wrap .accent-box{background:var(--navy);padding:2rem 2.5rem;margin:2rem 0;border-left:3px solid var(--gold)}
+.accent-box p,.article-wrap .accent-box p{color:rgba(242,237,229,.75);font-size:.9rem;line-height:1.9;margin:0}
+.accent-box p strong,.article-wrap .accent-box p strong{color:var(--gold-light);font-weight:400}
+
+/* IMAGE PLACEHOLDER */
+.article-image{background:var(--sand);height:360px;display:flex;align-items:center;justify-content:center;margin:2.5rem 0;position:relative;border:1px dashed rgba(212,175,58,.25)}
+.article-image::after{content:attr(data-label);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(168,120,67,.4);text-align:center;padding:1rem;position:absolute}
+.article-image.wide{grid-column:1/-1;height:480px}
+
+/* TOC sidebar */
+.toc{position:fixed;right:2rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:.8rem;z-index:100}
+.toc a{width:6px;height:6px;border-radius:50%;background:rgba(212,175,58,.25);display:block;transition:all .3s;position:relative}
+.toc a:hover,.toc a.active{background:var(--gold);transform:scale(1.4)}
+.toc a .toc-label{position:absolute;right:1rem;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);opacity:0;transition:opacity .25s;pointer-events:none;background:var(--cream);padding:.2rem .5rem;border:1px solid var(--border)}
+.toc a:hover .toc-label{opacity:1}
+
+/* STAT BOXES */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:2rem 0}
+.stat-box{background:var(--sand);padding:1.5rem 1.8rem;border-left:2px solid var(--gold)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:.3rem;font-weight:300}
+.stat-lbl{font-size:.76rem;color:var(--stone);line-height:1.5}
+
+/* CONTRAST SECTION */
+.contrast-section{background:var(--navy);padding:4rem 0;grid-column:1/-1;margin:3rem 0}
+.contrast-inner{max-width:900px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contrast-section h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:1rem}
+.contrast-section h2 em{font-style:italic;color:var(--gold-light)}
+.contrast-section p{font-size:.88rem;color:rgba(242,237,229,.5);line-height:1.9}
+.contrast-list .citem{border-top:1px solid rgba(212,175,58,.15);padding:1.4rem 0;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.citem-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.citem-text{font-size:.85rem;color:rgba(242,237,229,.55);line-height:1.75}
+.citem-text.hi{color:rgba(242,237,229,.85)}
+
+/* CTA STRIP */
+.article-cta{background:var(--navy);padding:4rem 2rem;text-align:center;grid-column:1/-1;margin-top:3rem}
+.article-cta h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:1rem}
+.article-cta h3 em{font-style:italic;color:var(--gold-light)}
+.article-cta p{font-size:.88rem;color:rgba(242,237,229,.45);max-width:42ch;margin:0 auto 2rem;line-height:1.85}
+.btn-gold{display:inline-block;background:var(--gold);color:white;padding:.9rem 2.4rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:background .3s;font-weight:500;margin-right:1rem}
+.btn-gold:hover{background:var(--navy-light)}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,237,229,.4);text-decoration:none;transition:color .3s}
+.btn-ghost-light:hover{color:var(--gold-light)}
+.btn-ghost-light::after{content:'→'}
+.back-to-einblicke{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;position:relative;z-index:1;margin-bottom:1.5rem}
+.back-to-einblicke::before{content:'←'}
+.back-to-einblicke:hover{color:var(--gold)}
+
+/* FOOTER */
+footer{background:#100C08;color:rgba(242,237,229,.35);padding:2.5rem 6rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;letter-spacing:.05em}
+footer a{color:rgba(242,237,229,.35);text-decoration:none;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(242,237,229,.55);font-weight:300}
+.f-social{display:flex;gap:1.2rem;align-items:center}
+.f-social a{opacity:.45;transition:opacity .3s}
+.f-social a:hover{opacity:1}
+
+/* Normalize old class names from original articles */
+.reveal{opacity:1!important;transform:none!important}
+.article-grid{display:contents}
+.body{display:contents}
+.photo-pair{grid-column:1/-1;height:420px;background:var(--sand);margin:2rem 0;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(212,175,58,.2)}
+.photo-pair::after{content:'📷 Foto einfügen';font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,175,58,.35)}
+.photo-pair img{display:none}
+.eyebrow{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.eyebrow::before{content:'';width:1.5rem;height:1px;background:var(--gold);display:block}
+.eyebrow.light{color:var(--gold-light)}
+.eyebrow.light::before{background:var(--gold-light)}
+.intro-lead{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:300;line-height:1.68;color:var(--navy);margin-bottom:1.8rem}
+.body-text{font-size:.96rem;color:var(--stone);line-height:2;margin-bottom:1.5rem}
+.body-text strong{color:var(--navy);font-weight:500}
+.back-link{display:none}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="index.html" class="logo-placeholder">LOGO</a>
+  <ul class="nav-links">
+    <li><a href="index.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="index.html#investoren">Für Investoren</a></li>
+    <li><a href="index.html#dienst">Leistungen</a></li>
+    <li><a href="einblicke.html">Einblicke</a></li>
+    <li><a href="index.html#story">Über mich</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<div class="toc" id="toc">
+  <a href="#sec-schweigen" data-section="sec-schweigen"><span class="toc-label">Schweigen</span></a>
+  <a href="#sec-verkaeufer" data-section="sec-verkaeufer"><span class="toc-label">Verkäufer</span></a>
+  <a href="#sec-kaeufer" data-section="sec-kaeufer"><span class="toc-label">Käufer</span></a>
+  <a href="#sec-netzwerk" data-section="sec-netzwerk"><span class="toc-label">Netzwerk</span></a>
+  <a href="#sec-portale" data-section="sec-portale"><span class="toc-label">Portale</span></a>
+  <a href="#sec-vertrauen" data-section="sec-vertrauen"><span class="toc-label">Vertrauen</span></a>
+  <a href="#sec-geduld" data-section="sec-geduld"><span class="toc-label">Geduld</span></a>
+</div>
+
+
+<header class="article-hero">
+  <div class="hero-facade">
+      <div class="facade-grid">
+        <div class="facade-row"><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div></div>
+        <div class="facade-row"><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div></div>
+        <div class="facade-row"><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div><div class="fwin t"></div></div>
+        <div class="facade-row"><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div><div class="fwin"></div></div>
+      </div>
+    </div>
+  <div class="article-hero-inner">
+    <div class="article-breadcrumb"><a href="einblicke.html">Einblicke</a><span>/</span>Netzwerk &amp; Diskretion</div>
+    <div class="article-eyebrow">Netzwerk &amp; Diskretion</div>
+    <h1 class="article-title">Warum die besten Häuser<br>nie <em>online</em> stehen</h1>
+    <p class="article-meta">Von <a href="index.html#story">Reinhard Manzl</a> · Lesezeit ca. 9 Minuten</p>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <a href="einblicke.html" class="back-to-einblicke">Zurück zu den Einblicken</a>
+
+<p class="lead">Wer heute eine Wohnung sucht, öffnet ein Portal. Wer ein Auto sucht, öffnet ein Portal. Wer ein Restaurant sucht, öffnet eine App. Wir haben uns daran gewöhnt, dass alles, was einen Preis hat, irgendwo im Internet zu finden ist. Beim Wiener Zinshaus stimmt das nicht. Die besten Objekte erscheinen auf keiner Plattform. Sie werden nicht inseriert. Sie werden nicht beworben. Sie wechseln den Besitzer, ohne dass die Öffentlichkeit je davon erfährt. <strong>Das ist kein Fehler im System. Das ist das System.</strong></p>
+
+  <!-- SECTION: SCHWEIGEN -->
+  <h2 id="sec-schweigen">Eine Branche, die lieber <em>schweigt</em></h2>
+
+  <p>Der Wiener Zinshausmarkt funktioniert nach Regeln, die in fast keiner anderen Immobiliensparte gelten. Es gibt keine zentrale Börse. Kein Vergleichsportal, das alle Objekte auflistet. Kein Algorithmus, der den fairen Preis berechnet. Was es gibt, sind Beziehungen. Telefonate. Mittagessen. Und das seit Jahrzehnten gewachsene Wissen darüber, wer wann verkaufen könnte — und wer wann kaufen will.</p>
+
+  <p>Von außen betrachtet wirkt das antiquiert. Wie ein Markt, der die Digitalisierung verschlafen hat. Aber wer den Markt von innen kennt, versteht, dass das Gegenteil der Fall ist: Die Diskretion ist kein Versäumnis. Sie ist die wertvollste Währung, die es in diesem Geschäft gibt.</p>
+
+  <div class="pull-quote">
+    <p>In einem Markt, in dem jedes Inserat den Preis verändert, ist Schweigen eine Strategie.</p>
+  </div>
+
+  <!-- SECTION: VERKÄUFER -->
+  <h2 id="sec-verkaeufer">Warum Verkäufer nicht inserieren <em>wollen</em></h2>
+
+  <p>Stellen Sie sich vor, Sie besitzen ein Zinshaus im 7. oder 8. Bezirk. Geerbt vielleicht, oder vor zwanzig Jahren gekauft. Sie denken darüber nach, es zu verkaufen — aber Sie wollen nicht, dass Ihre Mieter davon erfahren. Nicht, weil Sie etwas verbergen. Sondern weil ein Eigentümerwechsel Unruhe erzeugt. Mieter fragen sich, ob die Mieten steigen. Hausverwaltungen werden nervös. Nachbarn reden.</p>
+
+  <p>Und dann ist da die Frage des Preises. Ein Zinshaus, das öffentlich inseriert wird, bekommt einen Preis — und damit einen Referenzpunkt, an dem sich jeder Interessent orientiert. <strong>Bleibt es zu lange online, entsteht der Eindruck, niemand wolle es kaufen.</strong> Wird es zu günstig angesetzt, lockt es die Falschen. Wird es zu hoch angesetzt, kommen gar keine Anfragen. Der öffentliche Markt ist ein zweischneidiges Schwert, das die meisten Zinshausbesitzer lieber gar nicht erst ziehen.</p>
+
+  <p>Dazu kommt: Wer ein Zinshaus besitzt, das drei, fünf oder zehn Millionen Euro wert ist, hat in der Regel kein Interesse daran, dass diese Zahl öffentlich wird. Nicht gegenüber Geschäftspartnern, nicht gegenüber der Familie, nicht gegenüber den Nachbarn. Diskretion ist hier kein Luxus — sie ist eine Grundvoraussetzung.</p>
+
+  <div class="article-image" data-label="📷 Foto einfügen: Zinshausportal / schwere Holztür / Eingang"></div>
+
+  <p>Deshalb verkaufen die meisten Eigentümer nicht über Portale. Sie rufen jemanden an, dem sie vertrauen. Einen Makler, der ihren Namen nicht in ein Inserat schreibt. Der eine Handvoll Käufer kennt, die ernsthaft sind, die Diskretion respektieren und die den Kaufpreis nicht als Verhandlungsbasis für endlose Runden betrachten, sondern als Grundlage für ein faires Geschäft.</p>
+
+  <!-- SECTION: KÄUFER -->
+  <h2 id="sec-kaeufer">Warum Käufer auf Portalen <em>nicht finden</em>, was sie suchen</h2>
+
+  <p>Was auf Immobilienportalen steht, ist der Rest. Das klingt hart, aber es ist die Realität. Objekte, die über öffentliche Kanäle angeboten werden, sind in der Regel solche, die auf dem diskreten Weg keinen Käufer gefunden haben — oder solche, die von Maklern betreut werden, die keinen Zugang zum inneren Zirkel des Marktes haben.</p>
+
+  <p>Das heißt nicht, dass jedes Portal-Inserat schlecht ist. Aber es heißt, dass die Auswahl dort immer eine gefilterte ist. Die Häuser mit den besten Lagen, der solidesten Substanz, der interessantesten Mieterstruktur und dem größten Entwicklungspotenzial — die werden nicht öffentlich angeboten. Sie werden einem Käufer zugeführt, bevor der Rest des Marktes überhaupt weiß, dass sie verfügbar sind.</p>
+
+  <div class="accent-box">
+    <p><strong>Ein erfahrener Zinshausmakler arbeitet nicht für den Markt. Er arbeitet vor dem Markt.</strong> Er weiß, welche Eigentümer in den nächsten Monaten verkaufen könnten — weil sich die Familiensituation ändert, weil eine Stiftung umstrukturiert wird, weil ein Unternehmer nach dreißig Jahren bereit ist loszulassen. Dieses Wissen entsteht nicht durch Recherche. Es entsteht durch Beziehungen, die über Jahre gepflegt werden.</p>
+  </div>
+
+  <p>Für Käufer bedeutet das: Wer nur auf Portalen sucht, sieht den Markt durch ein Schlüsselloch. Wer die besten Objekte finden will, braucht jemanden, der die Tür öffnet.</p>
+
+  <!-- SECTION: NETZWERK -->
+  <h2 id="sec-netzwerk">Wie ein Netzwerk <em>funktioniert</em> — und wie nicht</h2>
+
+  <p>Das Wort „Netzwerk" wird in der Immobilienbranche inflationär verwendet. Jeder behauptet, eines zu haben. Aber ein echtes Netzwerk im Zinshausmarkt ist etwas anderes als eine lange Kontaktliste. Es ist kein LinkedIn-Profil mit dreitausend Verbindungen. Es ist keine Datenbank mit E-Mail-Adressen.</p>
+
+  <p>Ein echtes Netzwerk besteht aus Menschen, die den Hörer abnehmen, wenn man anruft. Die einem vertrauen, weil man ihnen in der Vergangenheit die Wahrheit gesagt hat — auch wenn sie unbequem war. Die wissen, dass man ihren Namen nicht weitergibt. Die darauf zählen, dass man nur anruft, wenn es wirklich etwas gibt.</p>
+
+  <div class="pull-quote">
+    <p>Ein Netzwerk baut man nicht auf. Man verdient es sich — über Jahre, Gespräch für Gespräch, Deal für Deal.</p>
+  </div>
+
+  <p>In meinem Fall sind das private Investoren, die seit Jahrzehnten in Zinshäuser investieren. Privatstiftungen, deren Vorstände ich persönlich kenne. Family Offices, die nicht in Quartalsberichten denken, sondern in Generationen. Notariate, die mich kontaktieren, wenn ein Nachlass ein Zinshaus enthält. Hausverwaltungen, die wissen, dass ein Eigentümer über einen Verkauf nachdenkt.</p>
+
+  <p><strong>Dieses Netzwerk ist mein eigentliches Kapital.</strong> Nicht weil es groß ist — sondern weil jede einzelne Verbindung darin auf gegenseitigem Vertrauen beruht. Und Vertrauen ist im Zinshausgeschäft die einzige Währung, die wirklich zählt.</p>
+
+  <div class="article-image" data-label="📷 Foto einfügen: Beratungssituation / Gespräch oder Wiener Kaffeehaus"></div>
+
+  <!-- SECTION: PORTALE -->
+  <h2 id="sec-portale">Was Portale können — und was <em>nicht</em></h2>
+
+  <p>Verstehen Sie mich nicht falsch: Immobilienportale haben ihre Berechtigung. Für Wohnungen, für Häuser im Grünen, für Gewerbeimmobilien mit standardisierbaren Parametern funktionieren sie hervorragend. Der Markt wird transparenter, die Suche effizienter, der Vergleich einfacher. Für viele Segmente ist das ein Gewinn.</p>
+
+  <p>Aber ein Zinshaus ist kein standardisierbares Produkt. Zwei Häuser in derselben Straße können sich im Wert um das Doppelte unterscheiden — je nach Mieterstruktur, Substanzzustand, Parifizierungspotenzial und dutzenden anderen Faktoren, die in keinem Inserat stehen. <strong>Ein Zinshaus zu bewerten, erfordert nicht Daten, sondern Erfahrung.</strong> Es erfordert, das Haus betreten zu haben. Die Mieter zu kennen. Die Geschichte des Hauses zu verstehen. Die Substanz beurteilen zu können, nicht nur den Quadratmeterpreis.</p>
+
+  <p>Kein Algorithmus leistet das. Kein Portal bildet das ab. Und deshalb wird der Zinshausmarkt auch in zwanzig Jahren noch ein Markt sein, der auf persönlichen Beziehungen basiert — nicht auf Suchfiltern.</p>
+
+  <!-- SECTION: VERTRAUEN -->
+  <h2 id="sec-vertrauen">Warum Vertrauen das eigentliche <em>Geschäftsmodell</em> ist</h2>
+
+  <p>Wenn ein Eigentümer mich anruft und sagt, er denke über einen Verkauf nach, dann tut er das nicht, weil er mein Inserat gesehen hat. Er tut es, weil ihm jemand meinen Namen genannt hat. Weil ich vor fünf Jahren den Verkauf des Nachbarhauses begleitet habe und der Eigentümer dort zufrieden war. Weil ein Notar, dem er vertraut, mich empfohlen hat. Weil wir uns auf einer Veranstaltung kennengelernt haben und er weiß, dass ich seine Situation verstehe.</p>
+
+  <p>In einer Branche, in der es um Millionenbeträge geht, reicht ein guter Internetauftritt nicht. Was zählt, ist: Kennt man diesen Menschen? Hat er schon einmal bewiesen, dass er hält, was er verspricht? Wird er diskret sein? Wird er ehrlich sein — auch wenn die Wahrheit den Deal gefährdet?</p>
+
+  <div class="accent-box">
+    <p><strong>Im Zinshausmarkt gibt es keine zweite Chance für einen schlechten Ruf.</strong> Die Branche ist klein. Jeder kennt jeden. Wer einmal das Vertrauen eines Eigentümers missbraucht — indem er vertrauliche Informationen weitergibt, einen unrealistischen Preis nennt oder einen Käufer bringt, der nicht passt — der ist draußen. Nicht für einen Deal, sondern dauerhaft.</p>
+  </div>
+
+  <p>Das ist der Grund, warum ich auch einmal Nein sage. Zu einem Objekt, das nicht passt. Zu einem Preis, der nicht realistisch ist. Zu einem Käufer, dem ich das Geschäft nicht zutraue. Nur wer Nein sagen kann, verdient auf Dauer das Vertrauen für das Ja.</p>
+
+  <!-- SECTION: GEDULD -->
+  <div class="article-closing">
+    <h2 id="sec-geduld">Die Tugend der <em>Geduld</em></h2>
+
+    <p>Der vielleicht größte Unterschied zwischen dem Zinshausmarkt und anderen Anlageformen ist die Geschwindigkeit. Oder besser: die Abwesenheit von Geschwindigkeit. Ein gutes Zinshaus findet man nicht in einer Woche. Manchmal nicht in einem Jahr. Manchmal braucht es zwei, drei Jahre, bis das richtige Objekt auftaucht — in der richtigen Lage, zum richtigen Preis, vom richtigen Verkäufer.</p>
+
+    <p>Das klingt für viele frustrierend. Aber es ist die Realität eines Marktes, in dem es nur eine begrenzte Anzahl von Objekten gibt — und eine noch begrenztere Anzahl, die wirklich gut sind. <strong>Wer Geduld mitbringt, wird belohnt.</strong> Wer Druck macht, trifft die falsche Entscheidung.</p>
+
+    <p>Meine Aufgabe ist es, in dieser Wartezeit nicht untätig zu sein — sondern den Markt ständig zu lesen, Beziehungen zu pflegen, Möglichkeiten zu erkennen, bevor sie öffentlich werden. Damit ich, wenn das richtige Haus auftaucht, sofort weiß, für wen es bestimmt ist. Und dann den Hörer abnehme.</p>
+
+    <p>Denn die besten Häuser findet man nicht online. Man bekommt sie — wenn man den richtigen Menschen kennt.</p>
+  </div>
+
+  <!-- READ MORE -->
+  <a href="warum-zinshaus.html" class="read-more reveal">
+    <div>
+      <div class="read-more-label">Weiterlesen</div>
+      <div class="read-more-title">Warum überhaupt ein Zinshaus kaufen?</div>
+    </div>
+    <div class="read-more-arrow">→</div>
+  </a>
+
+  <div class="article-cta">
+    <h3>Lassen Sie uns<br><em>einfach reden.</em></h3>
+    <p>Kein Pitch, kein Druck. Ein Gespräch — über das, was Sie suchen, und das, was ich dazu sagen kann.</p>
+    <a href="index.html#kontakt" class="btn-gold">Gespräch anfragen</a>
+    <a href="einblicke.html" class="btn-ghost-light">Weitere Einblicke</a>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">Manzl Immobilien GmbH</span>
+  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
+  <div class="f-social">
+    <a href="https://www.instagram.com/manzl_immobilien/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.facebook.com/profile.php?id=61568328090911"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="https://www.linkedin.com/company/manzl-immobilien/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+  </div>
+  <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="agb.html">AGB</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+</footer>
+
+<script>
+
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+// TOC active
+const toc = document.querySelectorAll('.toc a');
+if (toc.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        toc.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#'+e.target.id+'"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, {threshold: 0.5});
+  document.querySelectorAll('[id^="sec-"]').forEach(el => io.observe(el));
+}
+
+</script>
+</body>
+</html>
