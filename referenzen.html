@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Referenzen – Manzl Immobilien</title>
+<link rel="icon" type="image/png" href="bilder/Favicon.png">
+<meta name="description" content="Referenzen von Manzl Immobilien – ausgewählte Zinshäuser und erfolgreich abgeschlossene Transaktionen in Wien.">
+<meta property="og:title" content="Referenzen – Manzl Immobilien">
+<meta property="og:description" content="Ausgewählte Referenzen und Transaktionen von Manzl Immobilien.">
+<meta property="og:image" content="bilder/Favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -133,27 +140,30 @@
   /* Hintergrundfoto */
   .tile-bg {
     position: absolute; inset: 0;
-    background-size: cover; background-position: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
+  .ref-tile:hover .tile-bg { transform: scale(1.04); }
 
   /* Unique Placeholder-Farben */
-  .ref-tile:nth-child(1) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_10.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(2) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_11.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(3) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Zinshaus_Altbau_1.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(4) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_15_bearbeitet.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(5) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_16.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(6) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_26_-_Zuschnitt.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(7) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_1.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(8) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_28.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(9) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_6.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(10) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_13_-_Zuschnitt.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(11) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_7.JPG\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(12) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Innenhof_Fassade_15.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(13) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_3.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(14) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_9.jpg\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(15) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Fassade_Detail_14.JPG\'); background-size:cover; background-position:center; }
-  .ref-tile:nth-child(16) .tile-bg { background-image:url(\'/mnt/user-data/uploads/Stiegenhaus_Vertikal_6.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(1) .tile-bg { background-image:url(bilder/Refferenzen/ref-1.jpg); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(2) .tile-bg { background-image:url(\'bilder/referenzen-2.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(3) .tile-bg { background-image:url(\'bilder/referenzen-3.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(4) .tile-bg { background-image:url(\'bilder/referenzen-4.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(5) .tile-bg { background-image:url(\'bilder/referenzen-5.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(6) .tile-bg { background-image:url(\'bilder/referenzen-6.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(7) .tile-bg { background-image:url(\'bilder/referenzen-7.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(8) .tile-bg { background-image:url(\'bilder/referenzen-8.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(9) .tile-bg { background-image:url(\'bilder/referenzen-9.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(10) .tile-bg { background-image:url(\'bilder/referenzen-10.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(11) .tile-bg { background-image:url(\'bilder/referenzen-11.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(12) .tile-bg { background-image:url(\'bilder/referenzen-12.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(13) .tile-bg { background-image:url(\'bilder/referenzen-13.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(14) .tile-bg { background-image:url(\'bilder/referenzen-14.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(15) .tile-bg { background-image:url(\'bilder/referenzen-15.jpg\'); background-size:cover; background-position:center; }
+  .ref-tile:nth-child(16) .tile-bg { background-image:url(\'bilder/referenzen-16.jpg\'); background-size:cover; background-position:center; }
 
   /* Foto-Label Platzhalter */
   .tile-placeholder {
@@ -279,32 +289,188 @@
   .btn-gold:hover { background: white; color: var(--navy); }
 
   /* ─── FOOTER ──────────────────────── */
-  footer {
-    background: #0F1120; color: rgba(242,237,229,0.35);
-    padding: 2.5rem 6rem; display: flex;
-    justify-content: space-between; align-items: center;
-    font-size: 0.72rem; letter-spacing: 0.05em;
-  }
-  footer a { color: rgba(242,237,229,0.35); text-decoration: none; }
-  footer a:hover { color: var(--gold-light); }
+  footer{background:#0F1120;color:#D4AF3A;padding:2.5rem 6rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:.85rem;letter-spacing:.08em}
+footer a{color:#D4AF3A;text-decoration:none;transition:color .3s}
+footer a:hover{color:#E2C76A}
+.f-social{display:flex;gap:1.8rem;align-items:center}
+.f-social a{color:#D4AF3A;opacity:.7;transition:opacity .3s,transform .3s}
+.f-social a:hover{opacity:1;transform:translateY(-2px)}
+.f-brand{display:flex;flex-direction:column;gap:.5rem}
+.f-tagline{font-family:'Cormorant Garamond',serif;font-size:.82rem;font-style:italic;color:rgba(212,175,58,.4);letter-spacing:.03em}
+.f-links{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-align:right}
+.f-links a{color:#D4AF3A;opacity:.5}
+.f-links a:hover{opacity:1}
+
+/* ─── HAMBURGER ─────────────────────── */
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;background:none;border:none;padding:8px;z-index:301}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream);transition:transform .35s ease,opacity .25s ease}
+.hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.hamburger.active span{background:var(--cream)!important}
+.mobile-overlay{position:fixed;inset:0;z-index:300;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.mobile-overlay.open{opacity:1;pointer-events:all}
+.mobile-overlay a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);text-decoration:none;padding:.65rem 0;transition:color .3s;letter-spacing:.02em}
+.mobile-overlay a:hover{color:var(--gold-light)}
+.mobile-overlay .mobile-cta{margin-top:2.5rem;font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:1rem 2.8rem;font-weight:600}
+.mobile-overlay .mobile-phone{margin-top:1.2rem;font-family:'Montserrat',sans-serif;font-size:.8rem;color:rgba(242,237,229,0.45);letter-spacing:.08em}
+
+
+/* ═══ PAGE TRANSITION ═══════════════════════════════ */
+.page-transition{position:fixed;inset:0;z-index:10000;background:#1A1C33;transform:translateY(100%);transition:transform .6s cubic-bezier(.77,0,.175,1);pointer-events:none}
+.page-transition.active{transform:translateY(0)}
+body.page-entering{animation:pageIn .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ SCROLL PROGRESS BAR ═════════════════════════ */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;z-index:9998;background:linear-gradient(90deg,#D4AF3A,#E2C76A);width:0%;transition:width .05s linear;pointer-events:none}
+
+/* ═══ CUSTOM CURSOR ═══════════════════════════════ */
+@media(pointer:fine){
+.cursor-dot{display:none}
+
+
+.cursor-ring{position:fixed;top:0;left:0;z-index:99998;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(212,175,58,.4);pointer-events:none;transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .3s ease,border-color .3s ease;opacity:0}
+.cursor-ring.visible{opacity:1}
+.cursor-ring.hover{transform:scale(1.6);border-color:#D4AF3A}
+}
+
+/* ═══ ENHANCED BUTTON EFFECTS ═════════════════════ */
+.btn-primary,.nav-cta{position:relative;overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1),transform .3s ease,box-shadow .4s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(26,28,51,.18)}
+.nav-cta:hover{transform:translateY(-1px)}
+.btn-primary::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.12);border-radius:50%;transform:translate(-50%,-50%);transition:width .6s ease,height .6s ease}
+.btn-primary:hover::before{width:300px;height:300px}
+
+/* ═══ NAV LINK UNDERLINE ══════════════════════════ */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:#D4AF3A;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+
+/* ═══ BACK TO TOP ══════════════════════════════════ */
+.back-to-top{position:fixed;bottom:2.5rem;right:2.5rem;z-index:90;width:48px;height:48px;border-radius:50%;background:#D4AF3A;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px) scale(.8);transition:opacity .4s ease,transform .4s cubic-bezier(.22,1,.36,1),background .3s ease,box-shadow .3s ease;pointer-events:none;box-shadow:0 4px 20px rgba(212,175,58,.25)}
+.back-to-top.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.back-to-top:hover{background:#1A1C33;box-shadow:0 6px 28px rgba(26,28,51,.3)}
+.back-to-top svg{width:18px;height:18px;stroke:white;stroke-width:2;fill:none;transition:transform .3s ease}
+.back-to-top:hover svg{transform:translateY(-2px)}
+
+
+.f-social{display:flex;gap:1rem;align-items:center}
+.f-social a{opacity:.4;transition:opacity .3s}
+.f-social a:hover{opacity:1}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;z-index:99999;background:#1A1C33;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .8s cubic-bezier(.77,0,.175,1)}
+.preloader.done{transform:translateY(-100%)}
+.preloader-logo{width:180px;height:auto;opacity:0;transform:scale(.92);animation:preloaderLogo 1s cubic-bezier(.22,1,.36,1) .2s forwards}
+@keyframes preloaderLogo{to{opacity:1;transform:scale(1)}}
+.preloader-line{width:0;height:1px;background:linear-gradient(90deg,transparent,#D4AF3A,transparent);margin-top:2rem;animation:preloaderLine 1.2s cubic-bezier(.22,1,.36,1) .5s forwards}
+@keyframes preloaderLine{to{width:120px}}
+.preloader-text{font-family:'Montserrat',sans-serif;font-size:1.05rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(212,175,58,.55);margin-top:1.2rem;opacity:0;animation:preloaderFade .5s ease .3s forwards}
+@keyframes preloaderFade{to{opacity:1}}
+
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9990;background:rgba(26,28,51,.97);backdrop-filter:blur(16px);border-top:1px solid rgba(212,175,58,.15);padding:1.8rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;transform:translateY(100%);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.cookie-banner.visible{transform:translateY(0)}
+.cookie-banner.hidden{transform:translateY(100%)}
+.cookie-text{font-size:.82rem;color:rgba(242,237,229,.6);line-height:1.75;max-width:680px}
+.cookie-text a{color:#E2C76A;text-decoration:none}
+.cookie-text a:hover{color:white}
+.cookie-actions{display:flex;gap:.8rem;flex-shrink:0}
+.cookie-accept{background:#D4AF3A;color:white;border:none;cursor:pointer;padding:.7rem 1.8rem;font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:background .3s ease}
+.cookie-accept:hover{background:#E2C76A}
+.cookie-decline{background:transparent;color:rgba(242,237,229,.4);border:1px solid rgba(242,237,229,.15);cursor:pointer;padding:.7rem 1.4rem;font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;transition:all .3s ease}
+.cookie-decline:hover{border-color:rgba(242,237,229,.4);color:rgba(242,237,229,.7)}
+@media(max-width:768px){.cookie-banner{flex-direction:column;padding:1.5rem 1.8rem;gap:1.2rem;text-align:center}.cookie-actions{width:100%;justify-content:center}}
+
+@media(max-width:900px){
+  /* NAV */
+  .hamburger{display:flex}
+  .nav-links,.nav-cta{display:none}
+  nav{padding:.9rem 1.5rem}
+
+  /* PAGE HEADER */
+  .page-header{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2rem}
+  h1.display{font-size:clamp(2rem,7vw,3rem)}
+
+  /* FILTER */
+  .filter-bar{padding:1.5rem 1.5rem;gap:.6rem}
+  .filter-btn{font-size:.62rem;padding:.5rem .9rem}
+
+  /* GRID */
+  .ref-grid{grid-template-columns:1fr 1fr}
+  .ref-tile{height:200px}
+  .ref-tile.large{grid-column:span 2;height:240px}
+  .ref-tile.tall{grid-row:span 1;height:200px}
+
+  /* COUNTER */
+  .counter-bar{flex-wrap:wrap;padding:2.5rem 1.5rem;gap:1.5rem;justify-content:center}
+  .counter-divider{display:none}
+  .counter-num{font-size:2.4rem}
+
+  /* CLOSING */
+  .closing{flex-direction:column;align-items:flex-start;padding:3.5rem 1.5rem;gap:2rem}
+  .btn-gold{width:100%;text-align:center;display:block}
+
+  /* FOOTER */
+  footer{display:flex;flex-direction:column;align-items:center;padding:2rem 1.5rem;gap:1.2rem;text-align:center}
+  .f-links{text-align:center}
+  .f-social{justify-content:center}
+}
+
+@media(max-width:480px){
+  .ref-grid{grid-template-columns:1fr}
+  .ref-tile,.ref-tile.large,.ref-tile.tall{grid-column:span 1;grid-row:span 1;height:220px}
+}
+
 </style>
+<link rel="canonical" href="https://www.manzl-immobilien.at/Refferenzeen/referenzen.html">
 </head>
-<body>
+<body class="page-entering">
+
+<div class="preloader" id="preloader">
+  <img loading="lazy" src="logo-10.png" alt="Manzl Immobilien" class="preloader-logo">
+  <div class="preloader-line"></div>
+  <div class="preloader-text" id="preloaderSlogan"></div>
+  <script>!function(){var s=["Wiener Zinsh\u00e4user","Ihr Vorsprung am Zinshausmarkt","Einfach beste Investments"],i=parseInt(localStorage.getItem("preloaderIdx")||"0"),e=document.getElementById("preloaderSlogan");if(e)e.textContent=s[i%s.length];localStorage.setItem("preloaderIdx",(i+1)%s.length)}()</script>
+</div>
+
+<!-- Page Transition Overlay -->
+<div class="page-transition"></div>
+<div class="scroll-progress"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
 
 <!-- NAV -->
 <nav>
-  <a href="manzl-konzept.html">
-    <img src="/mnt/user-data/uploads/Instagram-02.jpg" alt="Manzl Immobilien" style="height:40px;width:auto;display:block;">
-  </a>
+  <a href="index.html" class="logo-link" style="display:flex;align-items:center;text-decoration:none;"><img loading="lazy" src="logo-10.png" alt="Manzl Immobilien" style="height:48px;width:auto;display:block;"></a>
   <ul class="nav-links">
-    <li><a href="manzl-konzept.html#zinshaus">Zinshäuser</a></li>
-    <li><a href="manzl-konzept.html#investoren">Für Investoren</a></li>
-    <li><a href="manzl-konzept.html#dienst">Leistungen</a></li>
-    <li><a href="manzl-konzept.html#story">Über mich</a></li>
-    <li><a href="referenzen.html" class="active">Referenzen</a></li>
+    <li><a href="index.html#zinshaus">Zinshäuser</a></li>
+    <li><a href="index.html#investoren">Für Investoren</a></li>
+    <li><a href="index.html#dienst">Leistungen</a></li>
+    <li><a href="index.html#story">Über mich</a></li>
+    <li><a href="Artikel/einblicke.html">Einblicke</a></li>
   </ul>
-  <a href="manzl-konzept.html#kontakt" class="nav-cta">Gespräch anfragen</a>
+  <a href="kontakt.html" class="nav-cta">Gespräch anfragen</a>
+  <button class="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-overlay">
+  <a href="index.html#zinshaus">Zinshäuser</a>
+  <a href="index.html#investoren">Für Investoren</a>
+  <a href="index.html#dienst">Leistungen</a>
+  <a href="index.html#story">Über mich</a>
+  <a href="Artikel/einblicke.html">Einblicke</a>
+  <a href="Refferenzeen/referenzen.html">Referenzen</a>
+  <a href="kontakt.html" class="mobile-cta">Gespräch anfragen</a>
+  <a href="tel:+436647501780" class="mobile-phone">+43 664 750 17 803</a>
+</div>
+
 
 <!-- HEADER -->
 <div class="page-header">
@@ -350,8 +516,7 @@
 
     <!-- Kachel 1 – GROSS -->
     <div class="ref-tile large">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-1.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">3. Bezirk</div>
         <div class="tile-name">Gründerzeit-Zinshaus</div>
@@ -370,8 +535,7 @@
 
     <!-- Kachel 2 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-2.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">8. Bezirk</div>
         <div class="tile-name">Josefstadt</div>
@@ -389,8 +553,7 @@
 
     <!-- Kachel 3 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-3.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">6. Bezirk</div>
         <div class="tile-name">Mariahilf · Eckzinshaus</div>
@@ -408,8 +571,7 @@
 
     <!-- Kachel 4 – HOCH -->
     <div class="ref-tile tall">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-4.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">9. Bezirk</div>
         <div class="tile-name">Ensemble · 2 Häuser</div>
@@ -428,8 +590,7 @@
 
     <!-- Kachel 5 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-7.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">4. Bezirk</div>
         <div class="tile-name">Wieden · Innenhof</div>
@@ -447,8 +608,7 @@
 
     <!-- Kachel 6 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-8.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">7. Bezirk</div>
         <div class="tile-name">Neubau · Bestlage</div>
@@ -466,8 +626,7 @@
 
     <!-- Kachel 7 – GROSS -->
     <div class="ref-tile large">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-10.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">5. Bezirk</div>
         <div class="tile-name">Margareten · Nachlass</div>
@@ -486,8 +645,7 @@
 
     <!-- Kachel 8 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-11.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">2. Bezirk</div>
         <div class="tile-name">Leopoldstadt</div>
@@ -505,8 +663,7 @@
 
     <!-- Kachel 9 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-12.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">15. Bezirk</div>
         <div class="tile-name">Rudolfsheim</div>
@@ -524,8 +681,7 @@
 
     <!-- Kachel 10 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-13.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">12. Bezirk</div>
         <div class="tile-name">Meidling</div>
@@ -543,8 +699,7 @@
 
     <!-- Kachel 11 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-14.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">16. Bezirk</div>
         <div class="tile-name">Ottakring</div>
@@ -562,8 +717,7 @@
 
     <!-- Kachel 12 – GROSS -->
     <div class="ref-tile large">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-15.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">1. Bezirk</div>
         <div class="tile-name">Innere Stadt · Rarität</div>
@@ -582,8 +736,7 @@
 
     <!-- Kachel 13 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-16.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">14. Bezirk</div>
         <div class="tile-name">Penzing</div>
@@ -601,8 +754,7 @@
 
     <!-- Kachel 14 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-18.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">10. Bezirk</div>
         <div class="tile-name">Favoriten</div>
@@ -620,8 +772,7 @@
 
     <!-- Kachel 15 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-19.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">13. Bezirk</div>
         <div class="tile-name">Hietzing</div>
@@ -639,8 +790,7 @@
 
     <!-- Kachel 16 -->
     <div class="ref-tile">
-      <div class="tile-bg"></div>
-      <div class="tile-placeholder">📷 Foto einfügen</div>
+      <div class="tile-bg" style="background-image:url('bilder/Refferenzen/ref-20.jpg')"></div>
       <div class="tile-label">
         <div class="tile-bezirk">18. Bezirk</div>
         <div class="tile-name">Währing</div>
@@ -665,15 +815,72 @@
     Auch Ihr Haus hat eine Geschichte.<br>
     <em>Ich helfe Ihnen, das nächste Kapitel zu schreiben.</em>
   </div>
-  <a href="manzl-konzept.html#kontakt" class="btn-gold">Gespräch anfragen</a>
+  <a href="kontakt.html" class="btn-gold">Gespräch anfragen</a>
 </div>
 
 <!-- FOOTER -->
+
+<button class="back-to-top" aria-label="Nach oben scrollen">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Mehr dazu in unserer <a href="../agb-datenschutz.html">Datenschutzerklärung</a>.</p>
+  <div class="cookie-actions">
+    <button class="cookie-accept" id="cookieAccept">Akzeptieren</button>
+    <button class="cookie-decline" id="cookieDecline">Ablehnen</button>
+  </div>
+</div>
+
+
 <footer>
-  <img src="/mnt/user-data/uploads/Instagram-02.jpg" alt="Manzl Immobilien" style="height:28px;width:auto;opacity:0.7;">
-  <span>Hörnesgasse 18/19, 1030 Wien &nbsp;·&nbsp; +43 664 75017803</span>
-  <span><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></span>
+  <div class="f-brand">
+    <a href="index.html"><img loading="lazy" src="logo-10.png" alt="Manzl Immobilien" style="height:36px;width:auto;display:block;"></a>
+    <span class="f-tagline">Einfach beste Investments</span>
+  </div>
+  <div class="f-social">
+    <a href="https://www.instagram.com/manzl_immobilien/" target="_blank" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://at.linkedin.com/company/manzl-immobilien" target="_blank" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="https://www.facebook.com/people/Manzl-Immobilien/61568328090911/" target="_blank" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="mailto:office@manzl-immobilien.at" aria-label="E-Mail"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
+  </div>
+  <div class="f-links"><a href="../impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="../agb-datenschutz.html">AGB &amp; Datenschutz</a> &nbsp;·&nbsp; <a href="../Job%20Seite/jobs.html">Karriere</a></div>
 </footer>
+
+
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),ov=document.querySelector('.mobile-overlay');
+  if(!btn||!ov)return;
+  btn.addEventListener('click',function(){btn.classList.toggle('active');ov.classList.toggle('open');document.body.style.overflow=ov.classList.contains('open')?'hidden':'';});
+  ov.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('active');ov.classList.remove('open');document.body.style.overflow='';});});
+})();
+</script>
+
+<script>
+// Page Transitions
+(function(){var t=document.querySelector('.page-transition');if(!t)return;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||h.indexOf('tel:')===0||h.indexOf('mailto:')===0||a.target==='_blank')return;a.addEventListener('click',function(e){if(h.indexOf('#')>=0&&h.indexOf('.html')<0)return;e.preventDefault();t.classList.add('active');setTimeout(function(){window.location.href=h},550)})});setTimeout(function(){document.body.classList.remove('page-entering')},600)})();
+// Scroll Progress
+(function(){var b=document.querySelector('.scroll-progress');if(!b)return;window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;b.style.width=(h>0?(window.scrollY/h)*100:0)+'%'},{passive:true})})();
+// Custom Cursor
+(function(){if(!matchMedia('(pointer:fine)').matches)return;var d=document.querySelector('.cursor-dot'),r=document.querySelector('.cursor-ring');if(!d||!r)return;var mx=-100,my=-100,rx=-100,ry=-100;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;d.style.left=mx-4+'px';d.style.top=my-4+'px';d.classList.add('visible');r.classList.add('visible')});(function l(){rx+=(mx-rx-18)*.22;ry+=(my-ry-18)*.22;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(l)})();document.querySelectorAll('a,button,.btn-primary,.nav-cta').forEach(function(el){el.addEventListener('mouseenter',function(){d.classList.add('hover');r.classList.add('hover')});el.addEventListener('mouseleave',function(){d.classList.remove('hover');r.classList.remove('hover')})});document.addEventListener('mouseleave',function(){d.classList.remove('visible');r.classList.remove('visible')})})();
+// Magnetic Buttons
+(function(){if(!matchMedia('(pointer:fine)').matches)return;document.querySelectorAll('.btn-primary,.nav-cta').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=e.clientX-r.left-r.width/2;var y=e.clientY-r.top-r.height/2;b.style.transform='translate('+x*.15+'px,'+y*.2+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})})})();
+</script>
+
+
+<script>
+(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>600)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+</script>
+
+<script>
+(function(){var p=document.getElementById('preloader');if(!p)return;window.addEventListener('load',function(){setTimeout(function(){p.classList.add('done');setTimeout(function(){p.style.display='none'},900)},1400)})})();
+</script>
+
+<script>
+(function(){var b=document.getElementById('cookieBanner');if(!b||localStorage.getItem('cookieConsent'))return;setTimeout(function(){b.classList.add('visible')},2200);document.getElementById('cookieAccept').addEventListener('click',function(){localStorage.setItem('cookieConsent','accepted');b.classList.remove('visible');b.classList.add('hidden')});document.getElementById('cookieDecline').addEventListener('click',function(){localStorage.setItem('cookieConsent','declined');b.classList.remove('visible');b.classList.add('hidden')})})();
+</script>
 
 </body>
 </html>
