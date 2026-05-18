@@ -425,6 +425,15 @@ body.page-entering{animation:pageIn .5s cubic-bezier(.22,1,.36,1) both}
   .ref-tile,.ref-tile.large,.ref-tile.tall{grid-column:span 1;grid-row:span 1;height:220px}
 }
 
+/* Mobile: Overlay erscheint beim Scrollen ins Bild */
+@media(pointer:coarse){
+  .ref-tile .tile-overlay { transition: opacity 0.5s ease; }
+  .ref-tile.in-view .tile-overlay { opacity: 1; }
+  .ref-tile.in-view .tile-bg { transform: scale(1.04); }
+  .ref-tile.in-view .tile-label { opacity: 0; }
+  .ref-tile.in-view .tile-info { transform: translateY(0); }
+}
+
 </style>
 <link rel="canonical" href="https://www.manzl-immobilien.at/Refferenzeen/referenzen.html">
 </head>
@@ -880,6 +889,21 @@ body.page-entering{animation:pageIn .5s cubic-bezier(.22,1,.36,1) both}
 
 <script>
 (function(){var b=document.getElementById('cookieBanner');if(!b||localStorage.getItem('cookieConsent'))return;setTimeout(function(){b.classList.add('visible')},2200);document.getElementById('cookieAccept').addEventListener('click',function(){localStorage.setItem('cookieConsent','accepted');b.classList.remove('visible');b.classList.add('hidden')});document.getElementById('cookieDecline').addEventListener('click',function(){localStorage.setItem('cookieConsent','declined');b.classList.remove('visible');b.classList.add('hidden')})})();
+</script>
+
+<script>
+/* Mobile scroll-reveal für Referenzen-Kacheln */
+(function(){
+  if(matchMedia('(pointer:fine)').matches) return; // nur Touch-Geräte
+  var tiles = document.querySelectorAll('.ref-tile');
+  if(!tiles.length || !('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.45 });
+  tiles.forEach(function(t){ observer.observe(t); });
+})();
 </script>
 
 </body>
