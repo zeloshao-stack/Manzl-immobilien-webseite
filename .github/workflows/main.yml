@@ -11,7 +11,7 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v3
     - name: Deploy via SFTP
-      uses: appleboy/scp-action@v0.1.4
+      uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.SFTP_SERVER }}
         username: ${{ secrets.SFTP_USERNAME }}
